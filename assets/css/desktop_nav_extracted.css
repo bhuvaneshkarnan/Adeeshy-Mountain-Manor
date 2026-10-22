@@ -1,0 +1,156 @@
+/* Adeeshy Mountain Manor - Clean, Transparent, Compact Header with Manrope Font */
+.desktop-nav-menu {
+  display: none;
+}
+
+.promo-banner,
+.nav-locales-wrapper,
+.desktop-locales {
+  display: none !important;
+  visibility: hidden !important;
+  height: 0 !important;
+}
+
+/* Header has NO background by default (transparent over hero) */
+.navbar {
+  background: transparent !important;
+  background-color: transparent !important;
+  box-shadow: none !important;
+  transition: all 0.35s ease !important;
+}
+
+/* Scrolled header gets sleek glass blur */
+.navbar.scrolled {
+  background: rgba(8, 38, 24, 0.92) !important;
+  backdrop-filter: blur(12px) !important;
+  -webkit-backdrop-filter: blur(12px) !important;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.25) !important;
+}
+
+@media screen and (min-width: 992px) {
+  .nav-menu-button {
+    display: none !important;
+  }
+  
+  .nav-wrapper {
+    display: flex !important;
+    flex-direction: row !important;
+    align-items: center !important;
+    justify-content: space-between !important;
+    padding: 0.65rem 2.5rem !important; /* COMPACT & CLEAN */
+    height: auto !important;
+    min-height: 56px !important;
+  }
+  
+  .nav-menu-button-wrapper {
+    display: none !important;
+  }
+  
+  /* Logo on Left - Crisp White & Gold */
+  .nav-logo-link {
+    order: 1 !important;
+    flex: 0 0 auto !important;
+    display: inline-flex !important;
+    align-items: center !important;
+    padding: 0 !important;
+    margin: 0 !important;
+    width: auto !important;
+    max-width: 175px !important;
+  }
+  
+  .logo-nav {
+    max-width: 165px !important;
+    max-height: 46px !important;
+    width: auto !important;
+    height: auto !important;
+    object-fit: contain !important;
+    filter: none !important; /* Never invert! */
+  }
+  
+  /* Desktop Navigation in Center - RESTORED TO USER-REQUESTED MANROPE FONT */
+  .desktop-nav-menu {
+    order: 2 !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    gap: 1.85rem !important;
+    flex: 1 1 auto !important;
+    margin: 0 2rem !important;
+  }
+  
+  .desktop-nav-link {
+    color: #FFFFFF !important;
+    font-family: 'Manrope', Arial, sans-serif !important;
+    font-size: 0.88rem !important;
+    font-weight: 600 !important;
+    text-decoration: none !important;
+    text-transform: uppercase !important;
+    letter-spacing: 0.08em !important;
+    padding: 0.35rem 0.15rem !important;
+    position: relative !important;
+    transition: color 0.25s ease, opacity 0.25s ease !important;
+    white-space: nowrap !important;
+    display: inline-block !important;
+    text-shadow: 0 1px 3px rgba(0,0,0,0.5) !important;
+  }
+  
+  .desktop-nav-link:hover {
+    color: #C8A27A !important;
+    opacity: 1 !important;
+  }
+  
+  .desktop-nav-link::after {
+    content: '' !important;
+    position: absolute !important;
+    bottom: 0 !important;
+    left: 0 !important;
+    width: 0% !important;
+    height: 2px !important;
+    background-color: #C8A27A !important;
+    transition: width 0.25s cubic-bezier(0.25, 1, 0.5, 1) !important;
+  }
+  
+  .desktop-nav-link:hover::after {
+    width: 100% !important;
+  }
+  
+  /* Right Side: CTA Button (NO BG LANGUAGE SWITCHER) */
+  .button-group_nav {
+    order: 3 !important;
+    flex: 0 0 auto !important;
+    display: flex !important;
+    align-items: center !important;
+    gap: 1.25rem !important;
+    margin-top: 0 !important;
+  }
+  
+  .button-group_nav .button, .button-group_nav .button.w-button {
+    background-color: #C8A27A !important;
+    border: 1px solid #C8A27A !important;
+    color: #082A1A !important;
+    font-family: 'Manrope', Arial, sans-serif !important;
+    font-size: 0.82rem !important;
+    font-weight: 700 !important;
+    letter-spacing: 0.08em !important;
+    padding: 0.55rem 1.35rem !important;
+    border-radius: 6px !important;
+    text-transform: uppercase !important;
+    box-shadow: 0 3px 10px rgba(0,0,0,0.2) !important;
+    transition: all 0.25s ease !important;
+  }
+  
+  .button-group_nav .button:hover, .button-group_nav .button.w-button:hover {
+    background-color: #0F5132 !important;
+    border-color: #C8A27A !important;
+    color: #FFFFFF !important;
+  }
+}
+
+@media screen and (max-width: 991px) {
+  .desktop-nav-menu {
+    display: none !important;
+  }
+  .nav-menu-button {
+    display: flex !important;
+  }
+}

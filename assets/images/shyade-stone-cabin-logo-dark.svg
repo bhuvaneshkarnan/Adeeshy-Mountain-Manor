@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 300 130" width="300" height="130">
+  <defs>
+    <linearGradient id="goldGradientDark" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#D4AF37" />
+      <stop offset="50%" stop-color="#C8A27A" />
+      <stop offset="100%" stop-color="#9C7840" />
+    </linearGradient>
+  </defs>
+  <!-- Luxury Crest Icon -->
+  <g transform="translate(150, 24)" stroke="url(#goldGradientDark)" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M 0,-18 C 12,-18 20,-8 22,0 C 20,8 12,18 0,18 C -12,18 -20,8 -22,0 C -20,-8 -12,-18 0,-18 Z" />
+    <path d="M 0,-14 L 0,14" />
+    <path d="M -13,-4 C -13,-10 0,-10 0,-10 C 0,-10 13,-10 13,-4 C 13,2 0,2 0,2 C 0,2 -13,2 -13,-4 Z" />
+    <path d="M -8,3 C -8,8 0,9 0,9 C 0,9 8,8 8,3" />
+  </g>
+  <!-- Main Brand Name: SHYADÉ -->
+  <text x="150" y="85" text-anchor="middle" fill="#0F5132" font-family="'Cinzel', 'Playfair Display', 'Times New Roman', 'Georgia', serif" font-size="34" font-weight="600" letter-spacing="4">SHYADÉ</text>
+  <!-- Subtitle: STONE CABIN -->
+  <text x="150" y="112" text-anchor="middle" fill="#C8A27A" font-family="'Manrope', 'Montserrat', 'Arial', sans-serif" font-size="11" font-weight="600" letter-spacing="6">STONE CABIN</text>
+</svg>
