@@ -32,12 +32,43 @@ html{-webkit-text-size-adjust:100%;-ms-text-size-adjust:100%;font-family:sans-se
   color: #082A1A !important;
 }
 
-.button.is-link {
-  color: #C8A27A !important;
+/* High-Contrast Luxury Link Buttons */
+.button.is-link,
+.button.is-link *,
+a.button.is-link,
+a.button.is-link div,
+a.button.is-link span {
+  background-color: #C8A27A !important;
+  border: 1.5px solid #C8A27A !important;
+  color: #082A1A !important;
+  font-family: 'Manrope', Arial, sans-serif !important;
+  font-weight: 700 !important;
+  font-size: 0.82rem !important;
+  letter-spacing: 0.08em !important;
+  text-transform: uppercase !important;
+  text-decoration: none !important;
 }
 
-.button.is-link:hover {
-  color: #0F5132 !important;
+.button.is-link svg,
+.button.is-link svg path {
+  stroke: #082A1A !important;
+  color: #082A1A !important;
+}
+
+.button.is-link:hover,
+.button.is-link:hover *,
+a.button.is-link:hover,
+a.button.is-link:hover div {
+  background-color: #0F5132 !important;
+  border-color: #C8A27A !important;
+  color: #FFFFFF !important;
+  text-decoration: none !important;
+}
+
+.button.is-link:hover svg,
+.button.is-link:hover svg path {
+  stroke: #FFFFFF !important;
+  color: #FFFFFF !important;
 }
 
 /* Accent elements */
