@@ -696,10 +696,33 @@ main p,
 
 
 /* ==========================================================================
-   ADEESHY MOUNTAIN MANOR - COMPREHENSIVE MOBILE OPTIMIZATION
+   ADEESHY MOUNTAIN MANOR - FLAWLESS MOBILE HEADER & POPUP REMOVAL
    ========================================================================== */
 
-/* 1. Global Viewport & Overflow Safety */
+/* 1. Complete Suppression of Cookie Screen & Marketing Popups */
+.cookies-consent,
+.cookies-consent_wrapper,
+.cookies-consent_buttons,
+.newsletter-pop-up,
+.newsletter-wrapper,
+.newsletter-container,
+[cookies-consent],
+[newsletter-pop-up] {
+  display: none !important;
+  visibility: hidden !important;
+  opacity: 0 !important;
+  pointer-events: none !important;
+  height: 0 !important;
+  width: 0 !important;
+  max-height: 0 !important;
+  max-width: 0 !important;
+  overflow: hidden !important;
+  position: absolute !important;
+  top: -9999px !important;
+  left: -9999px !important;
+}
+
+/* 2. Global Viewport & Overflow Safety */
 html,
 body {
   overflow-x: hidden !important;
@@ -716,24 +739,16 @@ body {
   max-width: 100% !important;
 }
 
-/* Prevent CSS Grid blowout on mobile screens */
-.w-layout-grid,
-[class*="grid"] {
-  max-width: 100% !important;
-}
-
 .w-layout-grid > * {
   min-width: 0 !important;
   max-width: 100% !important;
 }
 
-/* Ensure long text, emails, and links break cleanly without overflowing */
 a, p, span, h1, h2, h3, h4, h5, h6, .text-size-regular, .text-size-medium, .text-size-small {
   overflow-wrap: break-word !important;
   word-wrap: break-word !important;
 }
 
-/* Fix contact page card padding & long email strings on mobile */
 .contact16_item.is-padded {
   padding: 1.25rem 1rem !important;
   word-break: break-word !important;
@@ -744,19 +759,12 @@ a, p, span, h1, h2, h3, h4, h5, h6, .text-size-regular, .text-size-medium, .text
   word-break: break-all !important;
 }
 
-/* Media & Embed Responsiveness */
-img,
-video,
-iframe,
-embed,
-object,
-.tally-form,
-.tally-form iframe {
+img, video, iframe, embed, object, .tally-form, .tally-form iframe {
   max-width: 100% !important;
   box-sizing: border-box !important;
 }
 
-/* 2. Guaranteed Content Visibility Across All Pages */
+/* 3. Guaranteed Visibility of Page Content */
 section,
 .section_header30,
 .section_header64,
@@ -787,66 +795,98 @@ a.button,
   visibility: visible !important;
 }
 
-/* 3. Mobile Header & Top Bar Navigation (<= 991px) */
+/* 4. PIXEL-PERFECT MOBILE HEADER BAR (<= 991px) */
 @media screen and (max-width: 991px) {
-  /* Hide the 139px tall broken desktop button on mobile */
-  .button.is-desktop,
-  .button-group_nav .button.is-desktop,
-  .navbar .button.is-desktop,
-  a.button.is-desktop {
-    display: none !important;
-    visibility: hidden !important;
-    width: 0 !important;
-    height: 0 !important;
+  .navbar {
+    height: 64px !important;
+    min-height: 64px !important;
+    max-height: 64px !important;
     padding: 0 !important;
     margin: 0 !important;
-    border: none !important;
-    overflow: hidden !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    position: absolute !important;
+    top: 0 !important;
+    left: 0 !important;
+    width: 100% !important;
+    z-index: 1000 !important;
+    box-sizing: border-box !important;
+    background: transparent !important;
+    box-shadow: none !important;
+    border-bottom: none !important;
+  }
+
+  body.is-subpage .navbar,
+  body:not(.is-home) .navbar {
+    position: relative !important;
+    background: #082A1A !important;
+    background-color: #082A1A !important;
+    border-bottom: 1px solid rgba(200, 162, 122, 0.25) !important;
+  }
+
+  .navbar[menu-open-mobile],
+  .navbar[menu-open],
+  .navbar.menu-is-open {
+    background: #082A1A !important;
+    background-color: #082A1A !important;
   }
 
   .nav-container {
     width: 100% !important;
     max-width: 100% !important;
-    padding: 0 1rem !important;
+    height: 100% !important;
+    min-height: 64px !important;
+    padding: 0 16px !important;
+    margin: 0 !important;
+    display: flex !important;
+    align-items: center !important;
+    box-sizing: border-box !important;
   }
 
   .nav-wrapper {
+    width: 100% !important;
+    height: 100% !important;
+    min-height: 64px !important;
     display: flex !important;
     flex-direction: row !important;
     align-items: center !important;
     justify-content: space-between !important;
-    height: 60px !important;
-    min-height: 60px !important;
     padding: 0 !important;
+    margin: 0 !important;
     position: relative !important;
+    box-sizing: border-box !important;
   }
 
-  /* Hamburger Toggle on Left */
+  /* 1. Left: Hamburger Toggle */
   .nav-menu-button-wrapper {
     order: 1 !important;
-    display: flex !important;
-    align-items: center !important;
-    justify-content: flex-start !important;
     flex: 0 0 44px !important;
     width: 44px !important;
     height: 44px !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: flex-start !important;
+    align-self: center !important;
+    position: relative !important;
+    z-index: 1005 !important;
     transform: none !important;
     opacity: 1 !important;
     visibility: visible !important;
-    position: static !important;
-    z-index: 1005 !important;
-    margin: 0 !important;
   }
 
   .nav-menu-button {
+    width: 40px !important;
+    height: 40px !important;
+    margin: 0 !important;
+    padding: 8px 0 !important;
     display: flex !important;
     align-items: center !important;
     justify-content: center !important;
-    width: 44px !important;
-    height: 44px !important;
-    padding: 8px !important;
+    align-self: center !important;
     cursor: pointer !important;
-    color: #C8A27A !important;
     background: transparent !important;
     border: none !important;
   }
@@ -855,9 +895,10 @@ a.button,
     display: flex !important;
     flex-direction: column !important;
     justify-content: space-between !important;
-    width: 22px !important;
+    width: 24px !important;
     height: 16px !important;
     margin: 0 !important;
+    padding: 0 !important;
   }
 
   .nav-menu-line {
@@ -865,25 +906,27 @@ a.button,
     height: 2px !important;
     background-color: #C8A27A !important;
     border-radius: 2px !important;
+    margin: 0 !important;
   }
 
   .nav-menu-text {
     display: none !important;
   }
 
-  /* Centered Brand Logo */
+  /* 2. Center: Logo - Vertically & Horizontally Centered in 64px Bar */
   .nav-logo-link {
     order: 2 !important;
-    display: flex !important;
-    align-items: center !important;
-    justify-content: center !important;
     position: absolute !important;
     left: 50% !important;
     top: 50% !important;
     transform: translate(-50%, -50%) !important;
     margin: 0 !important;
     padding: 0 !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
     max-width: 135px !important;
+    height: 38px !important;
     z-index: 1005 !important;
   }
 
@@ -893,67 +936,76 @@ a.button,
     width: auto !important;
     height: auto !important;
     object-fit: contain !important;
-    filter: none !important;
+    display: block !important;
+    margin: 0 auto !important;
   }
 
-  /* Right Action Icons */
+  /* 3. Right: Button Group with Sleek Gold BOOK NOW Button */
   .button-group_nav {
     order: 3 !important;
+    flex: 0 0 auto !important;
+    width: auto !important;
+    max-width: none !important;
     display: flex !important;
+    flex-direction: row !important;
     align-items: center !important;
     justify-content: flex-end !important;
-    gap: 0.5rem !important;
-    flex: 0 0 auto !important;
-    margin-left: auto !important;
-    position: static !important;
+    align-self: center !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    gap: 8px !important;
+    position: relative !important;
     z-index: 1005 !important;
     transform: none !important;
     opacity: 1 !important;
     visibility: visible !important;
   }
 
+  /* Remove the awkward cut-off phone circle */
   .button_icon {
-    display: flex !important;
-    align-items: center !important;
-    justify-content: center !important;
-    width: 40px !important;
-    height: 40px !important;
-    border-radius: 50% !important;
-    background: rgba(200, 162, 122, 0.15) !important;
-    border: 1px solid rgba(200, 162, 122, 0.25) !important;
-    color: #C8A27A !important;
-    text-decoration: none !important;
-    transition: all 0.2s ease !important;
-  }
-
-  .button_icon:active {
-    background: #C8A27A !important;
-  }
-
-  .button_icon:active svg {
-    color: #082A1A !important;
-  }
-
-  .button_icon .text-size-regular {
     display: none !important;
   }
 
-  .button_icon svg {
-    width: 18px !important;
-    height: 18px !important;
-    color: #C8A27A !important;
-    fill: currentColor !important;
+  /* Sleek, prominent, luxury BOOK NOW button */
+  .button-group_nav .button,
+  .button-group_nav .button.is-desktop,
+  .button-group_nav a.button,
+  .button-group_nav .button.w-button {
+    display: inline-flex !important;
+    visibility: visible !important;
+    opacity: 1 !important;
+    align-items: center !important;
+    justify-content: center !important;
+    background-color: #C8A27A !important;
+    border: 1px solid #C8A27A !important;
+    color: #082A1A !important;
+    font-family: 'Manrope', Arial, sans-serif !important;
+    font-size: 0.78rem !important;
+    font-weight: 700 !important;
+    letter-spacing: 0.08em !important;
+    text-transform: uppercase !important;
+    padding: 0 1rem !important;
+    height: 36px !important;
+    min-height: 36px !important;
+    max-height: 36px !important;
+    width: auto !important;
+    max-width: none !important;
+    min-width: 0 !important;
+    border-radius: 4px !important;
+    white-space: nowrap !important;
+    align-self: center !important;
+    box-shadow: 0 3px 10px rgba(0,0,0,0.3) !important;
+    margin: 0 !important;
+    text-decoration: none !important;
+    box-sizing: border-box !important;
   }
 
-  /* Header Bar Color when Mobile Drawer is Open */
-  .navbar[menu-open-mobile],
-  .navbar[menu-open],
-  .navbar.menu-is-open {
-    background: #082A1A !important;
-    background-color: #082A1A !important;
+  .button-group_nav .button:active {
+    background-color: #B58F66 !important;
+    transform: scale(0.98) !important;
   }
 
-  /* Mobile Navigation Drawer */
+  /* 4. Full-Screen Drawer Menu */
   .nav-menu {
     position: fixed !important;
     top: 0 !important;
@@ -1017,7 +1069,6 @@ a.button,
     padding-left: 0.5rem !important;
   }
 
-  /* Full-width Book Now button in Drawer */
   .nav-menu-footer {
     display: flex !important;
     flex-direction: column !important;
@@ -1047,20 +1098,17 @@ a.button,
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3) !important;
   }
 
-  /* Clean out desktop-only secondary cards & locales in drawer */
   .nav-secondary,
   .locales-wrapper {
     display: none !important;
   }
 }
 
-/* 4. Responsive Typography & Layout Spacing on Mobile (<= 767px) */
+/* 5. Fluid Responsive Headings & Section Spacing (<= 767px) */
 @media screen and (max-width: 767px) {
-  /* Fluid responsive headings */
   h1, .heading-style-h1 {
     font-size: clamp(2rem, 7.5vw, 3rem) !important;
     line-height: 1.15 !important;
-    letter-spacing: -0.01em !important;
   }
 
   h2, .heading-style-h2 {
@@ -1073,7 +1121,6 @@ a.button,
     line-height: 1.25 !important;
   }
 
-  /* Padding adjustments for mobile screens */
   .padding-section-large {
     padding-top: 3.5rem !important;
     padding-bottom: 3.5rem !important;
@@ -1089,7 +1136,6 @@ a.button,
     padding-right: 1.25rem !important;
   }
 
-  /* Compact luxury buttons */
   .button-group {
     display: flex !important;
     flex-direction: column !important;
@@ -1105,15 +1151,7 @@ a.button,
     justify-content: center !important;
   }
 
-  /* Swiper pagination bullet sizing */
-  .swiper-bullet {
-    width: 10px !important;
-    height: 10px !important;
-  }
-}
-
-/* 5. Mobile Footer Refinement */
-@media screen and (max-width: 767px) {
+  /* 6. Footer Layout on Mobile */
   .footer3_component {
     padding-top: 2rem !important;
     padding-bottom: 2rem !important;
@@ -1175,12 +1213,10 @@ a.button,
     color: rgba(255, 255, 255, 0.6) !important;
   }
 
-  /* Hide external Sharlopov logo at bottom of footer */
   .footer3_logo-link.master {
     display: none !important;
   }
 
-  /* Clean floating Back to Top button on mobile */
   .back-to-top {
     position: fixed !important;
     bottom: 1.25rem !important;
@@ -1191,4 +1227,3 @@ a.button,
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3) !important;
   }
 }
-
