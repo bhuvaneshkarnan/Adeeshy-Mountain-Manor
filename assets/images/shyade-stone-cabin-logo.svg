@@ -16,7 +16,7 @@
     <path d="M -8,3 C -8,8 0,9 0,9 C 0,9 8,8 8,3" />
   </g>
   <!-- Main Brand Name: SHYADÉ -->
-  <text x="150" y="85" text-anchor="middle" fill="#FFFFFF" font-family="'Cinzel', 'Playfair Display', 'Times New Roman', 'Georgia', serif" font-size="34" font-weight="500" letter-spacing="4">SHYADÉ</text>
+  <text x="150" y="85" text-anchor="middle" fill="#FFFFFF" font-family="'PP Right Gothic Wide', 'Manrope', 'Montserrat', 'Arial', sans-serif" font-size="30" font-weight="300" letter-spacing="4">SHYADÉ</text>
   <!-- Subtitle: STONE CABIN -->
   <text x="150" y="112" text-anchor="middle" fill="#C8A27A" font-family="'Manrope', 'Montserrat', 'Arial', sans-serif" font-size="11" font-weight="600" letter-spacing="6">STONE CABIN</text>
 </svg>

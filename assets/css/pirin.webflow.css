@@ -1428,7 +1428,7 @@ a.button,
 }
 
 .hero-description-title {
-  font-family: 'Cinzel', 'Playfair Display', Georgia, serif;
+  font-family: 'PP Right Gothic Wide', Georgia, sans-serif; font-weight: 300; letter-spacing: 0.03em; text-transform: uppercase;
   font-size: clamp(2rem, 3.8vw, 3rem);
   font-weight: 600;
   color: #FFFFFF;
@@ -1541,7 +1541,7 @@ a.button,
 }
 
 .section-title-luxury {
-  font-family: 'Cinzel', 'Playfair Display', Georgia, serif;
+  font-family: 'PP Right Gothic Wide', Georgia, sans-serif; font-weight: 300; letter-spacing: 0.03em; text-transform: uppercase;
   font-size: clamp(2rem, 3.2vw, 2.7rem);
   font-weight: 600;
   color: #FFFFFF;
@@ -1643,7 +1643,7 @@ a.button,
 }
 
 .room-card-title {
-  font-family: 'Cinzel', 'Playfair Display', Georgia, serif;
+  font-family: 'PP Right Gothic Wide', Georgia, sans-serif; font-weight: 300; letter-spacing: 0.03em; text-transform: uppercase;
   font-size: 1.25rem;
   font-weight: 600;
   color: #FFFFFF;
@@ -1904,7 +1904,7 @@ a.button,
 }
 
 .footer-col-title {
-  font-family: 'Cinzel', Georgia, serif;
+  font-family: 'PP Right Gothic Wide', Georgia, sans-serif; font-weight: 300; letter-spacing: 0.06em; text-transform: uppercase;
   font-size: 1.35rem;
   color: #C8A27A;
   margin: 0 0 1rem 0;
@@ -1940,4 +1940,419 @@ a.button,
   font-family: 'Manrope', Arial, sans-serif;
   font-size: 0.82rem;
   color: rgba(255, 255, 255, 0.55);
+}
+
+
+/* ==========================================================================
+   PP RIGHT GOTHIC WIDE FONT DEFINITIONS & COMPREHENSIVE MOBILE OPTIMIZATIONS
+   ========================================================================== */
+
+@font-face {
+  font-family: 'PP Right Gothic Wide';
+  src: url('../fonts/PPRightGothic-WideLight.woff2') format('woff2');
+  font-weight: 100 900;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: PP Right Gothic Wide;
+  src: url('../fonts/PPRightGothic-WideLight.woff2') format('woff2');
+  font-weight: 100 900;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* Ensure luxury headers always use PP Right Gothic Wide */
+.hero-description-title,
+.section-title-luxury,
+.room-card-title,
+.footer-col-title,
+.rooms-hub-title,
+.room-detail-title {
+  font-family: 'PP Right Gothic Wide', Georgia, sans-serif !important;
+  font-weight: 300 !important;
+  text-transform: uppercase !important;
+  letter-spacing: 0.04em !important;
+}
+
+/* Global mobile overflow prevention */
+html, body {
+  overflow-x: hidden !important;
+  max-width: 100vw !important;
+  width: 100% !important;
+}
+
+/* 4-Column Quick Action Grid on Mobile (No 3+1 wrapping!) */
+@media screen and (max-width: 767px) {
+  .quick-action-group {
+    display: grid !important;
+    grid-template-columns: repeat(4, 1fr) !important;
+    gap: 0.4rem !important;
+    justify-items: center !important;
+    align-items: start !important;
+    width: 100% !important;
+    max-width: 420px !important;
+    margin: 1.25rem auto 0 auto !important;
+    padding: 0 0.5rem !important;
+    box-sizing: border-box !important;
+  }
+  
+  .quick-action-btn {
+    width: 100% !important;
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    text-align: center !important;
+    gap: 0.45rem !important;
+  }
+  
+  .quick-action-icon {
+    width: 50px !important;
+    height: 50px !important;
+  }
+  
+  .quick-action-icon svg {
+    width: 22px !important;
+    height: 22px !important;
+  }
+  
+  .quick-action-label {
+    font-size: 0.65rem !important;
+    letter-spacing: 0.03em !important;
+    text-align: center !important;
+    white-space: nowrap !important;
+  }
+}
+
+/* Mobile Header / Navbar */
+@media screen and (max-width: 767px) {
+  .navbar {
+    height: 60px !important;
+    min-height: 60px !important;
+    max-height: 60px !important;
+    padding: 0 12px !important;
+  }
+  
+  .nav-wrapper {
+    display: flex !important;
+    flex-direction: row !important;
+    align-items: center !important;
+    justify-content: space-between !important;
+    height: 100% !important;
+  }
+  
+  .nav-menu-button-wrapper {
+    order: 1 !important;
+    margin: 0 !important;
+    flex: 0 0 auto !important;
+  }
+  
+  .nav-logo-link {
+    order: 2 !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    margin: 0 auto !important;
+    max-width: 170px !important;
+  }
+  
+  .nav-logo-link img.logo-nav {
+    max-height: 32px !important;
+    width: auto !important;
+  }
+  
+  .button-group_nav {
+    order: 3 !important;
+    margin: 0 0 0 auto !important;
+    gap: 6px !important;
+    flex: 0 0 auto !important;
+  }
+  
+  .button-group_nav .button_icon {
+    display: none !important;
+  }
+  
+  .button-group_nav .button,
+  .button-group_nav .button.w-button {
+    height: 32px !important;
+    min-height: 32px !important;
+    max-height: 32px !important;
+    padding: 0 0.85rem !important;
+    font-size: 0.72rem !important;
+    letter-spacing: 0.08em !important;
+    border-radius: 4px !important;
+    white-space: nowrap !important;
+    align-self: center !important;
+  }
+}
+
+/* Mobile Hero Drone Shot */
+@media screen and (max-width: 767px) {
+  .drone-video-hero {
+    height: 48vh !important;
+    min-height: 300px !important;
+    max-height: 420px !important;
+  }
+  
+  .drone-telemetry-badge {
+    top: 4.8rem !important;
+    left: 0.8rem !important;
+    font-size: 0.68rem !important;
+    padding: 0.35rem 0.75rem !important;
+    gap: 0.45rem !important;
+  }
+  
+  .hero-description-section {
+    padding: 2.2rem 1rem 1.8rem 1rem !important;
+  }
+  
+  .hero-description-title {
+    font-size: clamp(1.5rem, 6.2vw, 2.2rem) !important;
+    line-height: 1.18 !important;
+  }
+  
+  .hero-description-text {
+    font-size: 0.95rem !important;
+    line-height: 1.65 !important;
+    margin-bottom: 1.4rem !important;
+    padding: 0 0.25rem !important;
+  }
+}
+
+/* Mobile Accommodations */
+@media screen and (max-width: 767px) {
+  .accommodations-section {
+    padding: 2.5rem 1rem !important;
+  }
+  
+  .accommodations-grid-4 {
+    grid-template-columns: 1fr !important;
+    gap: 1.25rem !important;
+  }
+  
+  .room-card-luxury {
+    border-radius: 8px !important;
+  }
+  
+  .room-card-body {
+    padding: 1.2rem 1.1rem !important;
+  }
+}
+
+/* Rooms Hub Page Cards & Responsive Comforts */
+.rooms-hub-card {
+  display: grid;
+  grid-template-columns: 1.15fr 1fr;
+  gap: 2.5rem;
+  background: #082A1A;
+  border: 1.5px solid rgba(200, 162, 122, 0.25);
+  border-radius: 8px;
+  overflow: hidden;
+  margin-bottom: 2.5rem;
+  transition: transform 0.3s ease, border-color 0.3s ease;
+}
+
+.rooms-hub-card:hover {
+  border-color: #C8A27A;
+  transform: translateY(-4px);
+}
+
+.rooms-hub-card-thumb-wrap {
+  position: relative;
+  min-height: 280px;
+}
+
+.rooms-hub-card-thumb-wrap img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.rooms-hub-card-body {
+  padding: 2.2rem 2.2rem 2.2rem 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+@media screen and (max-width: 860px) {
+  .rooms-hub-card {
+    grid-template-columns: 1fr !important;
+    gap: 0 !important;
+    margin-bottom: 1.8rem !important;
+  }
+  
+  .rooms-hub-card-thumb-wrap {
+    height: 220px !important;
+    min-height: 220px !important;
+  }
+  
+  .rooms-hub-card-body {
+    padding: 1.5rem 1.25rem !important;
+  }
+}
+
+.comforts-grid-3 {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.8rem;
+  text-align: left;
+}
+
+@media screen and (max-width: 767px) {
+  .comforts-grid-3 {
+    grid-template-columns: 1fr !important;
+    gap: 1rem !important;
+  }
+}
+
+/* Room Detail Subpages (Presidential, Deluxe, Superior, Standard) */
+.room-overview-grid {
+  display: grid;
+  grid-template-columns: 1.1fr 1fr;
+  gap: 3rem;
+  align-items: center;
+  margin-bottom: 3.5rem;
+}
+
+@media screen and (max-width: 860px) {
+  .room-overview-grid {
+    grid-template-columns: 1fr !important;
+    gap: 1.8rem !important;
+    margin-bottom: 2rem !important;
+  }
+}
+
+.other-rooms-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.8rem;
+}
+
+@media screen and (max-width: 860px) {
+  .other-rooms-grid {
+    grid-template-columns: 1fr !important;
+    gap: 1.2rem !important;
+  }
+}
+
+/* Mobile Outdoor Galore / Photo Strip */
+@media screen and (max-width: 767px) {
+  .outdoor-galore-section {
+    padding: 2.5rem 1rem !important;
+  }
+  
+  .gallery-strip-scroll {
+    padding: 0.5rem 0.5rem 1rem 0.5rem !important;
+  }
+  
+  .gallery-strip-card {
+    flex: 0 0 240px !important;
+    height: 180px !important;
+  }
+}
+
+/* Mobile Enquiry Section & Form */
+@media screen and (max-width: 767px) {
+  .enquiry-section {
+    padding: 2.5rem 1rem !important;
+  }
+  
+  .enquiry-card-wrapper {
+    padding: 1.8rem 1.15rem !important;
+    border-radius: 8px !important;
+  }
+  
+  .enquiry-form-grid {
+    grid-template-columns: 1fr !important;
+    gap: 1rem !important;
+  }
+  
+  .enquiry-input,
+  .enquiry-textarea {
+    font-size: 16px !important; /* Prevents iOS auto-zoom */
+    padding: 0.75rem 0.85rem !important;
+  }
+  
+  .enquiry-submit-btn {
+    min-height: 48px !important;
+    font-size: 0.84rem !important;
+  }
+}
+
+/* Mobile Compact Footer */
+@media screen and (max-width: 767px) {
+  .compact-footer-section {
+    padding: 2.5rem 1rem 1.8rem 1rem !important;
+  }
+  
+  .compact-footer-container {
+    grid-template-columns: 1fr !important;
+    gap: 2rem !important;
+  }
+  
+  .footer-col-title {
+    font-size: 1.2rem !important;
+    margin-bottom: 0.75rem !important;
+  }
+  
+  .footer-text-line {
+    font-size: 0.9rem !important;
+  }
+}
+
+
+/* Additional refined mobile styles */
+.rooms-hub-card-buttons {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+@media screen and (max-width: 600px) {
+  .rooms-hub-card-buttons {
+    flex-direction: column !important;
+    gap: 0.75rem !important;
+    width: 100% !important;
+  }
+  .rooms-hub-card-buttons .button,
+  .rooms-hub-card-buttons .button.w-button {
+    width: 100% !important;
+    text-align: center !important;
+    justify-content: center !important;
+  }
+  
+  /* Ensure header elements vertically center perfectly on mobile */
+  .navbar {
+    height: 60px !important;
+    min-height: 60px !important;
+    max-height: 60px !important;
+    padding: 0 14px !important;
+  }
+  .nav-wrapper {
+    display: flex !important;
+    align-items: center !important;
+    justify-content: space-between !important;
+    height: 100% !important;
+  }
+  .nav-menu-button-wrapper,
+  .nav-logo-link,
+  .button-group_nav {
+    display: flex !important;
+    align-items: center !important;
+    align-self: center !important;
+    margin: 0 !important;
+  }
+  .button-group_nav .button,
+  .button-group_nav .button.w-button {
+    height: 34px !important;
+    min-height: 34px !important;
+    max-height: 34px !important;
+    line-height: 34px !important;
+    margin: 0 !important;
+    padding: 0 0.85rem !important;
+    align-self: center !important;
+  }
 }
