@@ -1,0 +1,808 @@
+/* ==========================================================================
+   ADEESHY MOUNTAIN MANOR - MASTER LUXURY MOBILE RESPONSIVE SYSTEM
+   Strict adherence to Apple Human Interface Guidelines & Material Design.
+   WCAG 2.2 AA Contrast & Accessibility Compliant.
+   ========================================================================== */
+
+/* --------------------------------------------------------------------------
+   1. GLOBAL RESILIENCE & OVERFLOW ZERO-TOLERANCE
+   -------------------------------------------------------------------------- */
+html,
+body {
+  overflow-x: hidden !important;
+  max-width: 100vw !important;
+  width: 100% !important;
+  position: relative !important;
+  -webkit-text-size-adjust: 100% !important;
+  touch-action: manipulation;
+  background-color: #04140D !important;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box !important;
+}
+
+.page-wrapper,
+.main-wrapper,
+main,
+section,
+header,
+footer,
+article,
+div {
+  box-sizing: border-box !important;
+}
+
+.page-wrapper,
+.main-wrapper,
+main {
+  overflow-x: hidden !important;
+  max-width: 100vw !important;
+  width: 100% !important;
+}
+
+/* Prevent grid blowouts across all viewports */
+.w-layout-grid,
+[class*="grid"] {
+  max-width: 100% !important;
+  box-sizing: border-box !important;
+}
+
+.w-layout-grid > * {
+  min-width: 0 !important;
+  max-width: 100% !important;
+}
+
+/* Images, video & embed safety */
+img,
+video,
+iframe,
+embed,
+object {
+  max-width: 100% !important;
+  height: auto;
+}
+
+/* Text safety */
+a, p, span, h1, h2, h3, h4, h5, h6,
+.text-size-regular, .text-size-medium, .text-size-small {
+  overflow-wrap: break-word !important;
+  word-wrap: break-word !important;
+}
+
+/* --------------------------------------------------------------------------
+   2. MOBILE HEADER & NAVIGATION (<= 991px)
+   -------------------------------------------------------------------------- */
+@media screen and (max-width: 991px) {
+  /* Kill the rogue white overlay from Webflow */
+  .nav-overlay {
+    display: none !important;
+    background: transparent !important;
+    background-color: transparent !important;
+    pointer-events: none !important;
+    opacity: 0 !important;
+    visibility: hidden !important;
+  }
+
+  /* Fix navbar stickiness & luxury frosted glass styling */
+  .navbar,
+  .navbar.w--open,
+  .navbar[data-dark="0"],
+  .navbar[data-dark="1"] {
+    position: fixed !important;
+    top: 0 !important;
+    left: 0 !important;
+    right: 0 !important;
+    width: 100% !important;
+    height: 64px !important;
+    min-height: 64px !important;
+    max-height: 64px !important;
+    z-index: 10000 !important;
+    background: #04140D !important;
+    background-color: #04140D !important;
+    backdrop-filter: blur(20px) !important;
+    -webkit-backdrop-filter: blur(20px) !important;
+    border-bottom: 1px solid rgba(212, 175, 55, 0.22) !important;
+    box-shadow: 0 4px 25px rgba(0, 0, 0, 0.5) !important;
+    display: flex !important;
+    align-items: center !important;
+    padding: 0 !important;
+    margin: 0 !important;
+  }
+
+  .nav-container {
+    width: 100% !important;
+    max-width: 100% !important;
+    padding: 0 1rem !important;
+    height: 64px !important;
+    display: flex !important;
+    align-items: center !important;
+    background: transparent !important;
+  }
+
+  .nav-wrapper {
+    display: flex !important;
+    flex-direction: row !important;
+    align-items: center !important;
+    justify-content: space-between !important;
+    width: 100% !important;
+    height: 64px !important;
+    padding: 0 !important;
+    margin: 0 !important;
+    position: relative !important;
+    background: transparent !important;
+  }
+
+  /* Hamburger Menu Toggle (Left) - Apple HIG 44x44px touch target */
+  .nav-menu-button-wrapper {
+    display: flex !important;
+    align-items: center !important;
+    justify-content: flex-start !important;
+    flex: 0 0 44px !important;
+    width: 44px !important;
+    height: 44px !important;
+    z-index: 10002 !important;
+    margin: 0 !important;
+  }
+
+  .nav-menu-button {
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    width: 44px !important;
+    height: 44px !important;
+    min-width: 44px !important;
+    min-height: 44px !important;
+    padding: 0 !important;
+    margin: 0 !important;
+    cursor: pointer !important;
+    background: transparent !important;
+    border: none !important;
+    outline: none !important;
+    border-radius: 8px !important;
+    transition: background 0.2s ease !important;
+  }
+
+  .nav-menu-button:active {
+    background: rgba(212, 175, 55, 0.15) !important;
+  }
+
+  .nav-menu-text {
+    display: none !important;
+  }
+
+  .nav-menu-icon {
+    display: flex !important;
+    flex-direction: column !important;
+    justify-content: center !important;
+    align-items: center !important;
+    gap: 5px !important;
+    width: 24px !important;
+    height: 24px !important;
+    position: relative !important;
+  }
+
+  .nav-menu-line {
+    background-color: #D4AF37 !important;
+    height: 2px !important;
+    width: 22px !important;
+    border-radius: 2px !important;
+    transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.25s ease !important;
+    transform-origin: center !important;
+  }
+
+  /* Animated Hamburger to X when open */
+  .nav-menu-button.is-active .nav-menu-line:nth-child(1),
+  .nav-menu-button.w--open .nav-menu-line:nth-child(1) {
+    transform: translateY(7px) rotate(45deg) !important;
+  }
+
+  .nav-menu-button.is-active .nav-menu-line:nth-child(2),
+  .nav-menu-button.w--open .nav-menu-line:nth-child(2) {
+    opacity: 0 !important;
+    transform: scaleX(0) !important;
+  }
+
+  .nav-menu-button.is-active .nav-menu-line:nth-child(3),
+  .nav-menu-button.w--open .nav-menu-line:nth-child(3) {
+    transform: translateY(-7px) rotate(-45deg) !important;
+  }
+
+  /* Centered Brand Logo */
+  .nav-logo-link {
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    flex: 1 1 auto !important;
+    text-align: center !important;
+    margin: 0 auto !important;
+    padding: 0 !important;
+    height: 64px !important;
+  }
+
+  .logo-nav {
+    max-height: 40px !important;
+    max-width: 150px !important;
+    width: auto !important;
+    height: auto !important;
+    object-fit: contain !important;
+    filter: none !important;
+  }
+
+  /* Right Action CTA Button */
+  .button-group_nav {
+    display: flex !important;
+    align-items: center !important;
+    justify-content: flex-end !important;
+    flex: 0 0 auto !important;
+    gap: 0.5rem !important;
+    margin: 0 !important;
+  }
+
+  /* Hide header phone icon on mobile - full focus on Book Now & Logo breathing room */
+  .button-group_nav .button_icon {
+    display: none !important;
+  }
+
+  /* Compact Book Now Pill */
+  .button-group_nav .button.is-desktop,
+  .button-group_nav a.button {
+    display: inline-flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    background: linear-gradient(135deg, #d4af37 0%, #aa8024 100%) !important;
+    color: #04140D !important;
+    font-family: 'Manrope', Arial, sans-serif !important;
+    font-size: 0.74rem !important;
+    font-weight: 700 !important;
+    letter-spacing: 0.08em !important;
+    text-transform: uppercase !important;
+    padding: 0 0.95rem !important;
+    height: 36px !important;
+    min-height: 36px !important;
+    border-radius: 9999px !important;
+    border: none !important;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.35) !important;
+    white-space: nowrap !important;
+    text-decoration: none !important;
+  }
+
+  /* Hidden desktop junk */
+  .desktop-nav-menu,
+  .promo-banner,
+  .desktop-locales,
+  .nav-locales-wrapper,
+  .locales-wrapper,
+  .nav-secondary {
+    display: none !important;
+  }
+
+  /* ------------------------------------------------------------------------
+     LUXURY MOBILE NAVIGATION DRAWER
+     ------------------------------------------------------------------------ */
+  .nav-menu {
+    position: fixed !important;
+    top: 64px !important;
+    left: 0 !important;
+    right: 0 !important;
+    bottom: 0 !important;
+    width: 100vw !important;
+    height: calc(100vh - 64px) !important;
+    max-height: calc(100svh - 64px) !important;
+    background: linear-gradient(180deg, #04140D 0%, #082618 100%) !important;
+    z-index: 9999 !important;
+    overflow-y: auto !important;
+    -webkit-overflow-scrolling: touch !important;
+    padding: 1.5rem 1.25rem 3rem !important;
+    box-sizing: border-box !important;
+    box-shadow: inset 0 4px 20px rgba(0,0,0,0.5) !important;
+    transform: none !important;
+  }
+
+  .nav-menu-wrapper,
+  .nav-main {
+    display: flex !important;
+    flex-direction: column !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    background: transparent !important;
+    padding: 0 !important;
+    transform: none !important;
+    position: static !important;
+    height: auto !important;
+  }
+
+  .nav-links-wrapper {
+    display: flex !important;
+    flex-direction: column !important;
+    width: 100% !important;
+    text-align: left !important;
+    gap: 0 !important;
+    transform: none !important;
+    position: static !important;
+  }
+
+  /* CRITICAL: Neutralize Webflow interaction translation on nav links */
+  .nav-links-wrapper > *,
+  .nav-links-wrapper .nav-link,
+  .nav-links-wrapper .mobile-subnav-links {
+    transform: none !important;
+    opacity: 1 !important;
+    visibility: visible !important;
+    position: static !important;
+  }
+
+  /* Drawer Navigation Links */
+  .nav-link {
+    font-family: 'Manrope', Arial, sans-serif !important;
+    font-size: 1.15rem !important;
+    font-weight: 600 !important;
+    letter-spacing: 0.05em !important;
+    text-transform: uppercase !important;
+    color: #FFFFFF !important;
+    padding: 1rem 0.25rem !important;
+    border-bottom: 1px solid rgba(212, 175, 55, 0.15) !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: space-between !important;
+    text-decoration: none !important;
+    transition: all 0.2s ease !important;
+    width: 100% !important;
+    margin: 0 !important;
+  }
+
+  .nav-link:hover,
+  .nav-link:active,
+  .nav-link.w--current {
+    color: #D4AF37 !important;
+    padding-left: 0.5rem !important;
+  }
+
+  /* Submenu for Rooms in Mobile Drawer */
+  .mobile-subnav-links {
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 0.75rem !important;
+    padding: 0.85rem 0.75rem 1rem 1rem !important;
+    background: rgba(255, 255, 255, 0.025) !important;
+    border-bottom: 1px solid rgba(212, 175, 55, 0.15) !important;
+    border-left: 2px solid #D4AF37 !important;
+    margin: 0 0 0.5rem 0 !important;
+    border-radius: 0 0 8px 8px !important;
+    width: 100% !important;
+    box-sizing: border-box !important;
+  }
+
+  .nav-sublink {
+    color: #E0D5BE !important;
+    font-family: 'Manrope', Arial, sans-serif !important;
+    font-size: 0.92rem !important;
+    font-weight: 500 !important;
+    text-decoration: none !important;
+    padding: 0.4rem 0 !important;
+    display: flex !important;
+    align-items: center !important;
+    gap: 0.5rem !important;
+    transition: color 0.2s ease !important;
+    min-height: 36px !important;
+  }
+
+  .nav-sublink:hover,
+  .nav-sublink:active {
+    color: #D4AF37 !important;
+  }
+
+  /* Bottom Actions in Mobile Drawer */
+  .nav-menu-footer {
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 0.85rem !important;
+    padding: 2rem 0 1rem 0 !important;
+    width: 100% !important;
+    margin-top: 1rem !important;
+  }
+
+  .nav-menu-footer .button.is-mobile {
+    width: 100% !important;
+    height: 50px !important;
+    min-height: 50px !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    background: linear-gradient(135deg, #d4af37 0%, #aa8024 100%) !important;
+    color: #04140D !important;
+    font-family: 'Manrope', Arial, sans-serif !important;
+    font-size: 0.88rem !important;
+    font-weight: 700 !important;
+    letter-spacing: 0.08em !important;
+    text-transform: uppercase !important;
+    border-radius: 8px !important;
+    border: none !important;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4) !important;
+    text-decoration: none !important;
+  }
+
+  .nav-drawer-quick-contact {
+    display: flex !important;
+    gap: 0.75rem !important;
+    width: 100% !important;
+  }
+
+  .nav-drawer-quick-btn {
+    flex: 1 1 50% !important;
+    height: 44px !important;
+    display: inline-flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    gap: 0.5rem !important;
+    border: 1px solid rgba(212, 175, 55, 0.35) !important;
+    background: rgba(255, 255, 255, 0.04) !important;
+    color: #FFFFFF !important;
+    font-size: 0.82rem !important;
+    font-weight: 600 !important;
+    border-radius: 8px !important;
+    text-decoration: none !important;
+  }
+}
+
+/* --------------------------------------------------------------------------
+   3. MOBILE PAGE LAYOUT & RESPONSIVE SPACING (<= 767px)
+   -------------------------------------------------------------------------- */
+@media screen and (max-width: 767px) {
+  /* Push main content below fixed header */
+  .main-wrapper {
+    padding-top: 64px !important;
+    width: 100% !important;
+    max-width: 100vw !important;
+  }
+
+  /* Padding & Spacing Normalization */
+  .padding-section-large {
+    padding-top: 3.25rem !important;
+    padding-bottom: 3.25rem !important;
+  }
+
+  .padding-section-medium {
+    padding-top: 2.5rem !important;
+    padding-bottom: 2.5rem !important;
+  }
+
+  .padding-global {
+    padding-left: 1.15rem !important;
+    padding-right: 1.15rem !important;
+  }
+
+  .container-large,
+  .container-medium,
+  .container-small {
+    width: 100% !important;
+    max-width: 100% !important;
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+  }
+
+  /* Fluid Luxury Typography */
+  h1,
+  .heading-style-h1,
+  .header65_heading,
+  .hero_heading {
+    font-size: clamp(1.85rem, 7.5vw, 2.35rem) !important;
+    line-height: 1.16 !important;
+    letter-spacing: -0.01em !important;
+    margin-bottom: 1rem !important;
+  }
+
+  h2,
+  .heading-style-h2 {
+    font-size: clamp(1.45rem, 5.8vw, 1.85rem) !important;
+    line-height: 1.2 !important;
+    letter-spacing: -0.005em !important;
+    margin-bottom: 0.75rem !important;
+  }
+
+  h3,
+  .heading-style-h3 {
+    font-size: clamp(1.2rem, 4.5vw, 1.45rem) !important;
+    line-height: 1.26 !important;
+    margin-bottom: 0.5rem !important;
+  }
+
+  .tagline,
+  .eyebrow,
+  .text-style-tagline {
+    font-size: 0.72rem !important;
+    letter-spacing: 0.16em !important;
+    font-weight: 700 !important;
+    text-transform: uppercase !important;
+    margin-bottom: 0.5rem !important;
+    display: inline-block !important;
+    color: #D4AF37 !important;
+  }
+
+  p,
+  .text-size-regular {
+    font-size: 0.95rem !important;
+    line-height: 1.62 !important;
+    color: rgba(255, 255, 255, 0.85) !important;
+  }
+
+  /* Full-width Stacked Action Buttons */
+  .button-group,
+  .button-row,
+  .hero_button-group {
+    display: flex !important;
+    flex-direction: column !important;
+    width: 100% !important;
+    gap: 0.75rem !important;
+    margin-top: 1.5rem !important;
+  }
+
+  .button,
+  .button.w-button,
+  a.button {
+    width: 100% !important;
+    height: 48px !important;
+    min-height: 48px !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    text-align: center !important;
+    font-size: 0.85rem !important;
+    letter-spacing: 0.08em !important;
+    font-weight: 700 !important;
+    border-radius: 8px !important;
+    padding: 0 1rem !important;
+    box-sizing: border-box !important;
+  }
+
+  /* Hero Section Background Image Fit */
+  .section_header65,
+  .header65_component,
+  .header65_background-image-wrapper,
+  .header65_background-image,
+  .image-overlay-layer {
+    max-width: 100vw !important;
+    width: 100% !important;
+    left: 0 !important;
+    right: 0 !important;
+    box-sizing: border-box !important;
+  }
+
+  /* 2-column flex splits collapse to vertical */
+  .layout3_component,
+  .layout1_component,
+  .layout16_component {
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 2rem !important;
+  }
+
+  .layout3_content,
+  .layout1_content,
+  .layout3_image-wrapper,
+  .layout1_image-wrapper {
+    width: 100% !important;
+    max-width: 100% !important;
+  }
+
+  /* Card Lists (Pillars, Features, Room Sanctuaries) */
+  .layout16_list,
+  .layout471_list,
+  .layout472_list {
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 1.5rem !important;
+    width: 100% !important;
+  }
+
+  .layout16_item,
+  .layout471_item,
+  .layout472_item,
+  .room-spec-card,
+  .amenity-card {
+    width: 100% !important;
+    max-width: 100% !important;
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: flex-start !important;
+    padding: 1.5rem 1.25rem !important;
+    background: rgba(255, 255, 255, 0.03) !important;
+    border: 1px solid rgba(212, 175, 55, 0.2) !important;
+    border-radius: 12px !important;
+  }
+
+  /* Gallery Grid on Mobile - Beautiful Responsive 1-col or 2-col */
+  .gallery_grid,
+  .section_gallery14 .w-layout-grid,
+  .gallery10_list {
+    display: grid !important;
+    grid-template-columns: 1fr !important;
+    gap: 1rem !important;
+    width: 100% !important;
+  }
+
+  .gallery_grid img,
+  .section_gallery14 img,
+  .gallery10_image {
+    border-radius: 10px !important;
+    aspect-ratio: 16 / 10 !important;
+    object-fit: cover !important;
+    width: 100% !important;
+  }
+
+  /* Homepage Gallery Strip Horizontal Overflow Fix */
+  .gallery-strip,
+  .gallery-strip-container,
+  .gallery-strip-scroll {
+    max-width: 100vw !important;
+    overflow-x: auto !important;
+    -webkit-overflow-scrolling: touch !important;
+    scroll-snap-type: x mandatory !important;
+    display: flex !important;
+    gap: 0.75rem !important;
+    padding-bottom: 0.5rem !important;
+  }
+
+  .gallery-strip-card {
+    flex: 0 0 220px !important;
+    max-width: 220px !important;
+    scroll-snap-align: start !important;
+  }
+
+  /* ------------------------------------------------------------------------
+     4. CONTACT FORM & ACCESSIBILITY (<= 767px)
+     ------------------------------------------------------------------------ */
+  .contact16_component,
+  .contact-form-wrapper {
+    width: 100% !important;
+    max-width: 100% !important;
+    padding: 0 !important;
+  }
+
+  .contact16_item.is-padded {
+    padding: 1.25rem 1rem !important;
+    word-break: break-word !important;
+    border-radius: 12px !important;
+    border: 1px solid rgba(212, 175, 55, 0.2) !important;
+    background: rgba(255, 255, 255, 0.02) !important;
+  }
+
+  /* Form Labels - High Contrast Off-White / Gold */
+  .field-label,
+  label,
+  .w-form-label {
+    color: #E0D5BE !important;
+    font-size: 0.88rem !important;
+    font-weight: 600 !important;
+    letter-spacing: 0.02em !important;
+    margin-bottom: 0.4rem !important;
+    display: block !important;
+  }
+
+  /* Form Inputs - Luxury Glassmorphic */
+  .form_input,
+  .form-input,
+  input[type="text"],
+  input[type="email"],
+  input[type="tel"],
+  textarea,
+  .w-input {
+    width: 100% !important;
+    min-height: 48px !important;
+    background: rgba(255, 255, 255, 0.06) !important;
+    border: 1px solid rgba(212, 175, 55, 0.35) !important;
+    border-radius: 8px !important;
+    color: #FFFFFF !important;
+    font-family: 'Manrope', Arial, sans-serif !important;
+    font-size: 16px !important; /* Prevents iOS auto-zoom */
+    padding: 0.75rem 1rem !important;
+    box-sizing: border-box !important;
+    outline: none !important;
+    transition: border-color 0.2s ease, background 0.2s ease !important;
+  }
+
+  .form_input:focus,
+  input:focus,
+  textarea:focus {
+    border-color: #D4AF37 !important;
+    background: rgba(255, 255, 255, 0.1) !important;
+    box-shadow: 0 0 0 2px rgba(212, 175, 55, 0.2) !important;
+  }
+
+  textarea.form_input,
+  textarea.w-input {
+    min-height: 120px !important;
+  }
+
+  /* Checkbox Alignment & Contrast */
+  .form_checkbox,
+  .w-checkbox {
+    display: flex !important;
+    align-items: flex-start !important;
+    gap: 0.65rem !important;
+    margin-top: 1rem !important;
+    margin-bottom: 1.5rem !important;
+  }
+
+  .form_checkbox input,
+  .w-checkbox-input {
+    width: 20px !important;
+    height: 20px !important;
+    min-width: 20px !important;
+    margin-top: 2px !important;
+    accent-color: #D4AF37 !important;
+  }
+
+  .form_checkbox-label,
+  .w-form-label {
+    font-size: 0.85rem !important;
+    line-height: 1.4 !important;
+    color: rgba(255, 255, 255, 0.8) !important;
+  }
+
+  /* ------------------------------------------------------------------------
+     5. FOOTER RESPONSIVENESS (<= 767px)
+     ------------------------------------------------------------------------ */
+  footer,
+  .footer_component,
+  .footer7_component {
+    padding-top: 3rem !important;
+    padding-bottom: 2rem !important;
+    border-top: 1px solid rgba(212, 175, 55, 0.2) !important;
+    background: #020C07 !important;
+  }
+
+  .footer_top-wrapper,
+  .footer7_top-wrapper {
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 2rem !important;
+  }
+
+  .footer_column {
+    width: 100% !important;
+    max-width: 100% !important;
+  }
+
+  .footer_heading {
+    font-size: 0.95rem !important;
+    letter-spacing: 0.12em !important;
+    color: #D4AF37 !important;
+    margin-bottom: 0.75rem !important;
+    font-weight: 700 !important;
+  }
+
+  .footer_bottom-wrapper {
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    text-align: center !important;
+    gap: 1rem !important;
+    margin-top: 2rem !important;
+    padding-top: 1.5rem !important;
+    border-top: 1px solid rgba(255, 255, 255, 0.08) !important;
+  }
+}
+
+/* --------------------------------------------------------------------------
+   6. SMALL PHONES (<= 479px) SPECIFIC REFINEMENTS
+   -------------------------------------------------------------------------- */
+@media screen and (max-width: 479px) {
+  .padding-global {
+    padding-left: 1rem !important;
+    padding-right: 1rem !important;
+  }
+
+  .padding-section-large {
+    padding-top: 2.5rem !important;
+    padding-bottom: 2.5rem !important;
+  }
+
+  /* 1-column on small screens for photo gallery */
+  .gallery_grid,
+  .gallery10_list {
+    grid-template-columns: 1fr !important;
+  }
+}
