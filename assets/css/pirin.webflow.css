@@ -2404,6 +2404,17 @@ html, body {
                           
   --grad-section-footer: radial-gradient(circle at 50% 0%, rgba(200, 162, 122, 0.1) 0%, transparent 55%),
                          linear-gradient(180deg, #04160D 0%, #020904 100%);
+  /* Override legacy Webflow base color variables so no default beige/white bleed remains */
+  --base-color-neutral--neutral-lighter: #072618;
+  --base-color-neutral--neutral-light: #051A10;
+  --base-color-neutral--neutral-lightest: #03120A;
+  --base-color-brand--pirin-relaxx: #072618;
+  --background-color--background-primary: transparent;
+  --background-color--background-secondary: #072618;
+  --background-color--background-tertiary: #051A10;
+  --background-color--background-alternate: #03120A;
+  --border-color--border-primary: rgba(200, 162, 122, 0.35);
+  --border-color--border-alternate: rgba(200, 162, 122, 0.45);
 }
 
 /* 1. SECTION BACKGROUND GRADIENTS */
@@ -2645,3 +2656,370 @@ body:not(.is-home) .navbar {
   background: linear-gradient(90deg, rgba(200, 162, 122, 0.22) 0%, transparent 100%) !important;
   color: #FFF2E1 !important;
 }
+
+
+/* ==========================================================================
+   UNIVERSAL DUAL-BRAND GRADIENTS FOR ALL 72 PAGES ACROSS ADEESHY MANOR
+   ========================================================================== */
+
+/* Universal Page Background (Deep Forest Emerald Multi-Stop Atmospheric Gradient) */
+body,
+.page-wrapper,
+.main-wrapper {
+  background: linear-gradient(180deg, #03120A 0%, #072618 15%, #051A10 40%, #082A1A 70%, #020B05 100%) !important;
+  color: #FFFFFF !important;
+}
+
+/* Base Webflow Color Overrides: replace static dark colors with gradients */
+.background-color-neutral-dark,
+.background-color-neutral-darkest,
+.background-color-neutral-darker,
+.background-color-brand-primary,
+.background-color-brand-relax,
+.background-color-primary,
+.background-color-secondary,
+.background-color-black {
+  background: linear-gradient(160deg, #03120A 0%, #082A1A 45%, #051B11 100%) !important;
+  color: #FFFFFF !important;
+}
+
+/* All Webflow Section Components across all pages */
+.section_blog42,
+.section_contact16,
+.section_contact18,
+.section_content29,
+.section_content7,
+.section_content8,
+.section_content9,
+.section_cta27,
+.section_cta45,
+.section_cta57,
+.section_cta25,
+.section_faq3,
+.section_faq9,
+.section_gallery10,
+.section_header108,
+.section_header114,
+.section_header117,
+.section_header119,
+.section_header127,
+.section_header23,
+.section_header30,
+.section_header49,
+.section_header60,
+.section_header64,
+.section_header65,
+.section_header69,
+.section_header9,
+.section_layout10,
+.section_layout16,
+.section_layout18,
+.section_layout233,
+.section_layout236,
+.section_layout241,
+.section_layout254,
+.section_layout299,
+.section_layout3,
+.section_layout4,
+.section_layout434,
+.section_layout442,
+.section_layout459,
+.section_layout471,
+.section_layout472,
+.section_layout473,
+.section_layout476,
+.section_layout478,
+.section_layout481,
+.section_layout508,
+.section_pricing21,
+.section_product11,
+.section_routes,
+.section_slider-categories,
+.section_testimonial18 {
+  background-color: transparent !important;
+  color: #FFFFFF !important;
+}
+
+/* Alternating Section Gradients: Creates depth across all 72 pages */
+main > section:nth-of-type(odd),
+.main-wrapper > section:nth-of-type(odd),
+.page-wrapper > section:nth-of-type(odd) {
+  background: radial-gradient(circle at 85% 15%, rgba(200, 162, 122, 0.08) 0%, transparent 55%),
+              linear-gradient(165deg, #03120A 0%, #082A1A 50%, #051B11 100%) !important;
+  border-top: 1px solid rgba(200, 162, 122, 0.15) !important;
+  border-bottom: 1px solid rgba(200, 162, 122, 0.15) !important;
+}
+
+main > section:nth-of-type(even),
+.main-wrapper > section:nth-of-type(even),
+.page-wrapper > section:nth-of-type(even) {
+  background: radial-gradient(circle at 15% 25%, rgba(200, 162, 122, 0.09) 0%, transparent 60%),
+              linear-gradient(180deg, #051B11 0%, #082A1A 50%, #031109 100%) !important;
+}
+
+/* Hero & Header Image Overlays across all pages */
+.image-overlay-layer,
+.cta27_background-image-wrapper,
+.header65_background-image-wrapper,
+.header64_background-image-wrapper,
+.header23_background-image-wrapper,
+.header114_background-image-wrapper,
+.header119_background-image-wrapper,
+.header108_background-image-wrapper,
+.layout442_background-image-wrapper {
+  background: linear-gradient(180deg, rgba(3, 14, 9, 0.72) 0%, rgba(8, 42, 26, 0.78) 50%, rgba(2, 10, 6, 0.94) 100%) !important;
+}
+
+/* Cards & Layout Panels across all pages */
+.blog42_item,
+.contact16_item,
+.contact16_item.is-padded,
+.contact18_item,
+.faq3_accordion,
+.faq9_item,
+.gallery10_item,
+.gallery10_image-wrapper,
+.layout10_item,
+.layout16_item,
+.layout18_item,
+.layout233_item,
+.layout234_item,
+.layout236_item,
+.layout241_item,
+.layout299_item,
+.layout508_card,
+.product11_item,
+.testimonial18_card,
+.price-subitem,
+.pricing21_row,
+.pricing21_heading-row,
+.pricing21_top-row-content,
+.pricing21_feature,
+.pricing21_table,
+.cta45_card,
+.layout4_component.is-offer,
+.layout459_component,
+.layout459_group-item,
+.layout471_component,
+.layout471_item,
+.layout472_component,
+.layout476_component,
+.layout476_item,
+.layout478_component,
+.layout478_item,
+.layout481_component,
+.layout3_component,
+.layout442_component,
+.contact10_content-left,
+.contact16_component,
+.facility-card,
+.amenity-card,
+.room-spec-card,
+.slider-categories-item {
+  background: var(--grad-forest-card) !important;
+  border: 1.5px solid rgba(200, 162, 122, 0.32) !important;
+  border-radius: 8px !important;
+  box-shadow: 0 10px 28px rgba(0, 0, 0, 0.4), inset 0 1px 1px rgba(200, 162, 122, 0.2) !important;
+  color: #FFFFFF !important;
+  transition: all 0.3s cubic-bezier(0.25, 1, 0.5, 1) !important;
+}
+
+.blog42_item:hover,
+.contact16_item:hover,
+.contact16_item.is-padded:hover,
+.contact18_item:hover,
+.faq3_accordion:hover,
+.faq9_item:hover,
+.gallery10_item:hover,
+.layout10_item:hover,
+.layout16_item:hover,
+.layout18_item:hover,
+.layout233_item:hover,
+.layout234_item:hover,
+.layout236_item:hover,
+.layout241_item:hover,
+.layout299_item:hover,
+.layout508_card:hover,
+.product11_item:hover,
+.testimonial18_card:hover,
+.price-subitem:hover,
+.facility-card:hover,
+.amenity-card:hover,
+.room-spec-card:hover,
+.slider-categories-item:hover {
+  background: var(--grad-forest-card-hover) !important;
+  border-color: #C8A27A !important;
+  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.55), inset 0 1px 2px rgba(200, 162, 122, 0.35) !important;
+  transform: translateY(-4px) !important;
+}
+
+/* Contact Items & Padded Contact Cards */
+.contact16_item,
+.contact16_item.is-padded {
+  background: var(--grad-forest-card) !important;
+  border: 1.5px solid rgba(200, 162, 122, 0.35) !important;
+  border-radius: 8px !important;
+  color: #FFFFFF !important;
+  box-shadow: 0 10px 28px rgba(0, 0, 0, 0.4), inset 0 1px 1px rgba(200, 162, 122, 0.2) !important;
+  padding: 1.5rem !important;
+}
+
+.contact16_item h2,
+.contact16_item h3,
+.contact16_item h4,
+.contact16_item .heading-style-h4,
+.contact16_item .heading-style-h6,
+.contact16_item-text-wrapper h2,
+.contact16_item-text-wrapper h3,
+.contact16_item-text-wrapper .heading-style-h6 {
+  color: #C8A27A !important;
+}
+
+.contact16_item a,
+.contact16_item-text-wrapper a {
+  color: #C8A27A !important;
+  transition: color 0.2s ease !important;
+}
+
+.contact16_item a:hover,
+.contact16_item-text-wrapper a:hover {
+  color: #F0DEC9 !important;
+  text-decoration: underline !important;
+}
+
+.contact16_item svg,
+.contact16_item .icon-embed-xsmall svg {
+  color: #C8A27A !important;
+}
+
+/* Pricing Table Components */
+.pricing21_row,
+.pricing21_heading-row,
+.pricing21_top-row {
+  border-color: rgba(200, 162, 122, 0.25) !important;
+}
+
+.pricing21_top-row-content {
+  background: var(--grad-forest-card) !important;
+  border-left: 1px solid rgba(200, 162, 122, 0.25) !important;
+  color: #FFFFFF !important;
+}
+
+.pricing21_row-content {
+  border-left: 1px solid rgba(200, 162, 122, 0.2) !important;
+  color: #F0DEC9 !important;
+}
+
+.pricing21_feature {
+  color: #C8A27A !important;
+}
+
+/* Testimonial Cards */
+.testimonial18_card {
+  background: var(--grad-forest-card) !important;
+  border: 1.5px solid rgba(200, 162, 122, 0.3) !important;
+  color: #FFFFFF !important;
+}
+
+.testimonial18_rating-icon svg,
+.testimonial18_rating-icon {
+  color: #C8A27A !important;
+}
+
+/* Luxury Tags */
+.tag,
+.tag.is-dark {
+  background: linear-gradient(135deg, rgba(200, 162, 122, 0.25) 0%, rgba(8, 42, 26, 0.6) 100%) !important;
+  border: 1px solid rgba(200, 162, 122, 0.4) !important;
+  color: #F0DEC9 !important;
+}
+
+/* Dropdowns and Locales */
+.w-dropdown-list,
+.locales-list {
+  background: linear-gradient(145deg, #09301E 0%, #051A10 100%) !important;
+  border: 1.5px solid rgba(200, 162, 122, 0.35) !important;
+  box-shadow: 0 10px 28px rgba(0, 0, 0, 0.5) !important;
+}
+
+/* Tabs & Filter Buttons across all pages */
+.w-tab-link,
+.layout508_tabs-menu .w-tab-link {
+  background: rgba(8, 42, 26, 0.6) !important;
+  border: 1px solid rgba(200, 162, 122, 0.3) !important;
+  color: #FFFFFF !important;
+  border-radius: 4px !important;
+  transition: all 0.25s ease !important;
+}
+
+.w-tab-link.w--current,
+.layout508_tabs-menu .w-tab-link.w--current {
+  background: var(--grad-gold-metallic) !important;
+  color: #04140D !important;
+  border-color: #EBD5BE !important;
+  font-weight: 700 !important;
+}
+
+/* Form Inputs, Selects, and Textareas across all pages */
+input[type="text"],
+input[type="email"],
+input[type="tel"],
+input[type="date"],
+select,
+textarea,
+.form-input,
+.w-input,
+.w-select {
+  background: var(--grad-forest-glass-input) !important;
+  border: 1.5px solid rgba(200, 162, 122, 0.35) !important;
+  color: #FFFFFF !important;
+  border-radius: 4px !important;
+  padding: 0.8rem 1rem !important;
+  box-sizing: border-box !important;
+}
+
+input[type="text"]:focus,
+input[type="email"]:focus,
+input[type="tel"]:focus,
+input[type="date"]:focus,
+select:focus,
+textarea:focus,
+.form-input:focus,
+.w-input:focus,
+.w-select:focus {
+  background: linear-gradient(145deg, rgba(10, 44, 28, 0.96) 0%, rgba(4, 20, 12, 0.96) 100%) !important;
+  border-color: #C8A27A !important;
+  box-shadow: 0 0 16px rgba(200, 162, 122, 0.35), inset 0 1px 3px rgba(0, 0, 0, 0.5) !important;
+  outline: none !important;
+}
+
+/* All Headings across all pages: Ensure clear contrast & luxury wide aesthetic */
+h1, h2, h3, h4, h5, h6,
+.heading-style-h1,
+.heading-style-h2,
+.heading-style-h3,
+.heading-style-h4,
+.heading-style-h5,
+.heading-style-h6 {
+  color: #FFFFFF !important;
+}
+
+/* Rich Gold Accents across all pages */
+.text-color-gold,
+.gold-text,
+.is-gold {
+  background: var(--grad-gold-text) !important;
+  -webkit-background-clip: text !important;
+  -webkit-text-fill-color: transparent !important;
+  display: inline-block !important;
+}
+
+/* Text links in gold */
+a:not(.button):not(.nav-link):not(.desktop-nav-link):not(.w-button) {
+  color: #C8A27A;
+  transition: color 0.2s ease;
+}
+
+a:not(.button):not(.nav-link):not(.desktop-nav-link):not(.w-button):hover {
+  color: #F0DEC9;
+}
