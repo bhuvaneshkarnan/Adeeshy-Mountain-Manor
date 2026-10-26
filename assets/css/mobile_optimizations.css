@@ -632,23 +632,87 @@ a, p, span, h1, h2, h3, h4, h5, h6,
     width: 100% !important;
   }
 
-  /* Homepage Gallery Strip Horizontal Overflow Fix */
-  .gallery-strip,
-  .gallery-strip-container,
+  /* Outdoor Galore Container & Header */
+  .outdoor-galore-section {
+    display: block !important;
+    width: 100% !important;
+    padding: 3rem 1rem !important;
+    overflow: hidden !important;
+  }
+
+  .gallery-strip-container {
+    display: block !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    overflow: hidden !important;
+    margin: 0 auto !important;
+  }
+
+  .gallery-strip-container .section-header-centered {
+    display: block !important;
+    width: 100% !important;
+    text-align: center !important;
+    margin-bottom: 1.5rem !important;
+  }
+
   .gallery-strip-scroll {
+    display: flex !important;
+    flex-direction: row !important;
+    width: 100% !important;
     max-width: 100vw !important;
     overflow-x: auto !important;
     -webkit-overflow-scrolling: touch !important;
     scroll-snap-type: x mandatory !important;
-    display: flex !important;
-    gap: 0.75rem !important;
-    padding-bottom: 0.5rem !important;
+    gap: 0.85rem !important;
+    padding: 0.5rem 0.25rem 1.25rem 0.25rem !important;
+    box-sizing: border-box !important;
   }
 
   .gallery-strip-card {
-    flex: 0 0 220px !important;
-    max-width: 220px !important;
+    flex: 0 0 260px !important;
+    width: 260px !important;
+    max-width: 260px !important;
+    height: 190px !important;
+    border-radius: 10px !important;
     scroll-snap-align: start !important;
+    position: relative !important;
+    overflow: hidden !important;
+    display: block !important;
+    border: 1.5px solid rgba(212, 175, 55, 0.3) !important;
+  }
+
+  .gallery-strip-card img {
+    width: 100% !important;
+    height: 100% !important;
+    object-fit: cover !important;
+    display: block !important;
+  }
+
+  .gallery-strip-caption {
+    position: absolute !important;
+    bottom: 0 !important;
+    left: 0 !important;
+    right: 0 !important;
+    padding: 0.6rem 0.8rem !important;
+    background: linear-gradient(to top, rgba(2, 11, 6, 0.95) 0%, rgba(6, 26, 16, 0.7) 60%, transparent 100%) !important;
+    color: #FFFFFF !important;
+    font-size: 0.82rem !important;
+    font-weight: 600 !important;
+  }
+
+  .gallery-cta-wrap {
+    display: flex !important;
+    justify-content: center !important;
+    width: 100% !important;
+    margin-top: 1.5rem !important;
+  }
+
+  .gallery-cta-wrap .button,
+  .gallery-cta-wrap a.button {
+    width: auto !important;
+    min-width: 220px !important;
+    height: 48px !important;
+    margin: 0 auto !important;
   }
 
   /* ------------------------------------------------------------------------
