@@ -2356,3 +2356,292 @@ html, body {
     align-self: center !important;
   }
 }
+
+/* ==========================================================================
+   ADEESHY MANOR DUAL-BRAND GRADIENT SYSTEM (FOREST EMERALD & CHAMPAGNE GOLD)
+   ========================================================================== */
+
+:root {
+  /* Brand Color 1: Deep Forest Emerald Palette */
+  --c-forest-obsidian: #020B05;
+  --c-forest-night: #03120A;
+  --c-forest-deep: #051A10;
+  --c-forest-base: #082A1A;
+  --c-forest-rich: #0B3822;
+  --c-forest-emerald: #0F5132;
+  
+  /* Brand Color 2: Warm Champagne Gold Palette */
+  --c-gold-shimmer: #FFF6EC;
+  --c-gold-light: #F0DEC9;
+  --c-gold-base: #C8A27A;
+  --c-gold-rich: #B38858;
+  --c-gold-bronze: #8E6536;
+
+  /* Primary Metallic Gold Gradients */
+  --grad-gold-metallic: linear-gradient(135deg, #F0DEC9 0%, #DFC19E 22%, #C8A27A 50%, #B88F60 78%, #9E7443 100%);
+  --grad-gold-metallic-hover: linear-gradient(135deg, #125435 0%, #093320 60%, #04170E 100%);
+  --grad-gold-text: linear-gradient(135deg, #FFF6EC 0%, #E8D0B7 35%, #C8A27A 70%, #A27643 100%);
+  
+  /* Forest Emerald Atmosphere Gradients */
+  --grad-forest-card: linear-gradient(145deg, #0C3622 0%, #072618 50%, #03140C 100%);
+  --grad-forest-card-hover: linear-gradient(145deg, #10442B 0%, #09301E 50%, #051B11 100%);
+  --grad-forest-glass: linear-gradient(135deg, rgba(12, 48, 30, 0.85) 0%, rgba(4, 20, 12, 0.95) 100%);
+  --grad-forest-glass-input: linear-gradient(145deg, rgba(3, 14, 9, 0.92) 0%, rgba(7, 30, 19, 0.82) 100%);
+  --grad-quick-action-btn: radial-gradient(circle at 35% 30%, rgba(200, 162, 122, 0.28) 0%, rgba(12, 45, 29, 0.82) 60%, rgba(4, 18, 11, 0.96) 100%);
+  
+  /* Atmospheric Section Gradients with Ambient Gold Light Glows */
+  --grad-section-hero: radial-gradient(circle at 50% -10%, rgba(200, 162, 122, 0.16) 0%, transparent 60%),
+                       linear-gradient(180deg, #04140D 0%, #082A1A 45%, #051A10 100%);
+                       
+  --grad-section-accommodations: radial-gradient(circle at 85% 15%, rgba(200, 162, 122, 0.1) 0%, transparent 50%),
+                                linear-gradient(160deg, #03120A 0%, #082A1A 45%, #051B11 100%);
+                                
+  --grad-section-outdoor: radial-gradient(circle at 15% 30%, rgba(200, 162, 122, 0.1) 0%, transparent 50%),
+                          linear-gradient(180deg, #051B11 0%, #082A1A 50%, #031109 100%);
+                          
+  --grad-section-enquiry: radial-gradient(circle at 50% 15%, rgba(200, 162, 122, 0.14) 0%, transparent 65%),
+                          linear-gradient(165deg, #03120A 0%, #072718 50%, #020C06 100%);
+                          
+  --grad-section-footer: radial-gradient(circle at 50% 0%, rgba(200, 162, 122, 0.1) 0%, transparent 55%),
+                         linear-gradient(180deg, #04160D 0%, #020904 100%);
+}
+
+/* 1. SECTION BACKGROUND GRADIENTS */
+.hero-description-section {
+  background: var(--grad-section-hero) !important;
+  border-bottom: 1px solid rgba(200, 162, 122, 0.22);
+}
+
+.accommodations-section,
+.section-accommodations-luxury {
+  background: var(--grad-section-accommodations) !important;
+  border-top: 1px solid rgba(200, 162, 122, 0.18);
+}
+
+.outdoor-galore-section {
+  background: var(--grad-section-outdoor) !important;
+  border-top: 1px solid rgba(200, 162, 122, 0.18);
+}
+
+.enquiry-section {
+  background: var(--grad-section-enquiry) !important;
+  border-top: 1px solid rgba(200, 162, 122, 0.22);
+}
+
+.compact-footer-section {
+  background: var(--grad-section-footer) !important;
+  border-top: 1.5px solid rgba(200, 162, 122, 0.3) !important;
+}
+
+.section-comforts {
+  background: linear-gradient(180deg, #082A1A 0%, #051B11 50%, #03120A 100%) !important;
+  border-top: 1px solid rgba(200, 162, 122, 0.2);
+}
+
+.room-overview-section {
+  background: var(--grad-section-accommodations) !important;
+}
+
+.room-specs-section {
+  background: linear-gradient(180deg, #03120A 0%, #051A10 100%) !important;
+  border-bottom: 1px solid rgba(200, 162, 122, 0.25);
+}
+
+.drone-video-hero {
+  background: linear-gradient(180deg, #03120A 0%, #051A10 100%) !important;
+}
+
+.drone-overlay-gradient {
+  background: linear-gradient(to bottom, transparent 0%, rgba(4, 20, 12, 0.4) 40%, rgba(8, 42, 26, 0.85) 75%, #082A1A 100%) !important;
+}
+
+/* 2. LUXURY METALLIC GOLD TEXT GRADIENT ACCENTS */
+.hero-description-title span,
+.gradient-gold-text {
+  background: var(--grad-gold-text) !important;
+  -webkit-background-clip: text !important;
+  -webkit-text-fill-color: transparent !important;
+  display: inline-block !important;
+}
+
+.section-eyebrow {
+  background: linear-gradient(135deg, #FFF2E1 0%, #C8A27A 60%, #9E7443 100%) !important;
+  -webkit-background-clip: text !important;
+  -webkit-text-fill-color: transparent !important;
+  display: inline-block !important;
+}
+
+/* 3. CIRCULAR QUICK ACTION BUTTONS (EMERALD-GOLD RADIAL GRADIENT) */
+.quick-action-icon {
+  background: var(--grad-quick-action-btn) !important;
+  border: 1.8px solid #C8A27A !important;
+  color: #C8A27A !important;
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.4), inset 0 1px 2px rgba(200, 162, 122, 0.35) !important;
+  transition: all 0.3s cubic-bezier(0.25, 1, 0.5, 1) !important;
+}
+
+.quick-action-btn:hover .quick-action-icon {
+  background: var(--grad-gold-metallic) !important;
+  border-color: #F0DEC9 !important;
+  color: #04140D !important;
+  box-shadow: 0 10px 28px rgba(200, 162, 122, 0.55), inset 0 1px 0 rgba(255, 255, 255, 0.6) !important;
+  transform: translateY(-3px) scale(1.04) !important;
+}
+
+.quick-action-btn:hover .quick-action-label {
+  color: #E2C4A2 !important;
+}
+
+/* 4. BUTTONS & CTAS (BRUSHED CHAMPAGNE GOLD TO LUSTROUS EMERALD) */
+.button,
+.button.w-button,
+.enquiry-submit-btn,
+.room-card-cta,
+.button-group_nav .button,
+.button-group_nav .button.w-button,
+.navbar_action-btn {
+  background: var(--grad-gold-metallic) !important;
+  color: #04140D !important;
+  border: 1.2px solid #EBD5BE !important;
+  box-shadow: 0 4px 15px rgba(200, 162, 122, 0.28), inset 0 1px 0 rgba(255, 255, 255, 0.4) !important;
+  font-weight: 700 !important;
+  letter-spacing: 0.1em !important;
+  transition: all 0.25s cubic-bezier(0.25, 1, 0.5, 1) !important;
+}
+
+.button:hover,
+.button.w-button:hover,
+.enquiry-submit-btn:hover,
+.room-card-cta:hover,
+.button-group_nav .button:hover,
+.button-group_nav .button.w-button:hover,
+.navbar_action-btn:hover {
+  background: var(--grad-gold-metallic-hover) !important;
+  color: #FFF6EC !important;
+  border-color: #C8A27A !important;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.5), inset 0 1px 1px rgba(200, 162, 122, 0.4) !important;
+  transform: translateY(-2px) !important;
+}
+
+/* Secondary Buttons: Emerald glass with Gold outline */
+.button.is-secondary,
+.button.is-link,
+a.button.is-link {
+  background: linear-gradient(135deg, rgba(14, 52, 33, 0.9) 0%, rgba(5, 22, 14, 0.96) 100%) !important;
+  border: 1.5px solid #C8A27A !important;
+  color: #F0DEC9 !important;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.35), inset 0 1px 0 rgba(200, 162, 122, 0.25) !important;
+}
+
+.button.is-secondary:hover,
+.button.is-link:hover,
+a.button.is-link:hover {
+  background: var(--grad-gold-metallic) !important;
+  color: #04140D !important;
+  border-color: #F0DEC9 !important;
+  box-shadow: 0 6px 20px rgba(200, 162, 122, 0.45), inset 0 1px 0 rgba(255, 255, 255, 0.5) !important;
+}
+
+/* 5. CARDS & INSET CONTAINERS (DEEP EMERALD GRADIENT WITH GOLD EDGES) */
+.room-card-luxury {
+  background: var(--grad-forest-card) !important;
+  border: 1.5px solid rgba(200, 162, 122, 0.32) !important;
+  border-radius: 8px !important;
+  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.4), inset 0 1px 1px rgba(200, 162, 122, 0.2) !important;
+}
+
+.room-card-luxury:hover {
+  background: var(--grad-forest-card-hover) !important;
+  border-color: #C8A27A !important;
+  box-shadow: 0 20px 48px rgba(0, 0, 0, 0.55), inset 0 1px 2px rgba(200, 162, 122, 0.35) !important;
+}
+
+.rooms-hub-card {
+  background: var(--grad-forest-card) !important;
+  border: 1.5px solid rgba(200, 162, 122, 0.32) !important;
+  box-shadow: 0 14px 38px rgba(0, 0, 0, 0.45), inset 0 1px 1px rgba(200, 162, 122, 0.2) !important;
+}
+
+.rooms-hub-card:hover {
+  background: var(--grad-forest-card-hover) !important;
+  border-color: #C8A27A !important;
+  box-shadow: 0 22px 50px rgba(0, 0, 0, 0.6), inset 0 1px 2px rgba(200, 162, 122, 0.35) !important;
+}
+
+.enquiry-card-wrapper {
+  background: linear-gradient(145deg, #0D3B25 0%, #072618 50%, #03140C 100%) !important;
+  border: 1.5px solid rgba(200, 162, 122, 0.42) !important;
+  border-radius: 10px !important;
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.6), inset 0 1px 2px rgba(200, 162, 122, 0.3) !important;
+}
+
+.comforts-grid-3 > div,
+.room-spec-card,
+.room-feature-card {
+  background: var(--grad-forest-glass) !important;
+  border: 1px solid rgba(200, 162, 122, 0.32) !important;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.35), inset 0 1px 0 rgba(200, 162, 122, 0.2) !important;
+}
+
+/* 6. BADGES & CHIPS */
+.drone-telemetry-badge,
+.room-card-badge,
+.room-pinnacle-badge {
+  background: linear-gradient(135deg, rgba(15, 60, 38, 0.95) 0%, rgba(5, 24, 15, 0.98) 100%) !important;
+  border: 1.2px solid rgba(200, 162, 122, 0.7) !important;
+  color: #E2C4A2 !important;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.4), inset 0 1px 0 rgba(200, 162, 122, 0.35) !important;
+}
+
+/* 7. FORM INPUTS & FOCUS STATES */
+.enquiry-input,
+.enquiry-textarea {
+  background: var(--grad-forest-glass-input) !important;
+  border: 1.5px solid rgba(200, 162, 122, 0.32) !important;
+  color: #FFFFFF !important;
+}
+
+.enquiry-input:focus,
+.enquiry-textarea:focus {
+  background: linear-gradient(145deg, rgba(10, 44, 28, 0.96) 0%, rgba(4, 20, 12, 0.96) 100%) !important;
+  border-color: #C8A27A !important;
+  box-shadow: 0 0 16px rgba(200, 162, 122, 0.35), inset 0 1px 3px rgba(0, 0, 0, 0.5) !important;
+}
+
+/* 8. GALLERY STRIP CARDS & OVERLAYS */
+.gallery-strip-card {
+  border: 1.5px solid rgba(200, 162, 122, 0.35) !important;
+  box-shadow: 0 10px 28px rgba(0, 0, 0, 0.45), inset 0 1px 0 rgba(200, 162, 122, 0.25) !important;
+}
+
+.gallery-strip-caption {
+  background: linear-gradient(to top, rgba(2, 11, 6, 0.96) 0%, rgba(6, 26, 16, 0.75) 60%, transparent 100%) !important;
+}
+
+.gallery-strip-scroll::-webkit-scrollbar-thumb {
+  background: var(--grad-gold-metallic) !important;
+}
+
+/* 9. NAVBAR & DRAWER GRADIENTS */
+.navbar.scrolled,
+body:not(.is-home) .navbar {
+  background: linear-gradient(180deg, rgba(3, 14, 9, 0.96) 0%, rgba(8, 38, 24, 0.92) 100%) !important;
+  border-bottom: 1px solid rgba(200, 162, 122, 0.22) !important;
+  backdrop-filter: blur(14px) !important;
+  -webkit-backdrop-filter: blur(14px) !important;
+}
+
+.nav-menu {
+  background: linear-gradient(180deg, #051A10 0%, #082A1A 50%, #03120A 100%) !important;
+}
+
+.desktop-dropdown-menu {
+  background: linear-gradient(145deg, #09301E 0%, #051A10 100%) !important;
+  border: 1.5px solid rgba(200, 162, 122, 0.4) !important;
+  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.55) !important;
+}
+
+.desktop-dropdown-item:hover {
+  background: linear-gradient(90deg, rgba(200, 162, 122, 0.22) 0%, transparent 100%) !important;
+  color: #FFF2E1 !important;
+}
