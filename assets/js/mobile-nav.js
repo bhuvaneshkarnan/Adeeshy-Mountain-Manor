@@ -82,4 +82,27 @@ document.addEventListener('DOMContentLoaded', function () {
       });
     }
   }
+// Universal Sticky Header Scroll Controller
+  const navbar = document.querySelector('.navbar');
+  if (navbar) {
+    let ticking = false;
+    const updateNavbarScroll = function () {
+      if (window.scrollY > 20) {
+        navbar.classList.add('scrolled');
+      } else {
+        navbar.classList.remove('scrolled');
+      }
+      ticking = false;
+    };
+
+    window.addEventListener('scroll', function () {
+      if (!ticking) {
+        window.requestAnimationFrame(updateNavbarScroll);
+        ticking = true;
+      }
+    }, { passive: true });
+
+    // Initial check on page load
+    updateNavbarScroll();
+  }
 });

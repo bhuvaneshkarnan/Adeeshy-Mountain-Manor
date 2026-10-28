@@ -641,35 +641,68 @@ nav.navbar,
   max-height: none !important;
   max-width: none !important;
   transform: none !important;
-  z-index: 1000 !important;
+  position: fixed !important;
+  top: 0 !important;
+  left: 0 !important;
+  right: 0 !important;
+  z-index: 10000 !important;
+  transition: background 0.35s ease, background-color 0.35s ease, backdrop-filter 0.35s ease, -webkit-backdrop-filter 0.35s ease, box-shadow 0.35s ease, border-color 0.35s ease !important;
 }
 
-/* All Subpages: Rich Dark Emerald Header Bar with High Contrast */
+/* All Subpages: Rich Dark Emerald Sticky Header Bar with High Contrast */
 body.is-subpage .navbar,
 body:not(.is-home) .navbar,
 .navbar[data-dark="1"] {
-  background: #082A1A !important;
-  background-color: #082A1A !important;
-  position: relative !important;
-  border-bottom: 1px solid rgba(200, 162, 122, 0.25) !important;
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.25) !important;
+  background: rgba(4, 20, 13, 0.96) !important;
+  background-color: rgba(4, 20, 13, 0.96) !important;
+  position: fixed !important;
+  top: 0 !important;
+  left: 0 !important;
+  right: 0 !important;
+  border-bottom: 1px solid rgba(212, 175, 55, 0.25) !important;
+  box-shadow: 0 4px 25px rgba(0, 0, 0, 0.35) !important;
+  backdrop-filter: blur(16px) !important;
+  -webkit-backdrop-filter: blur(16px) !important;
+  z-index: 10000 !important;
 }
 
-/* Homepage Hero: Transparent Header over Dark Hero Media */
+/* Homepage Hero: Transparent Floating Header over Drone Media */
 body.is-home .navbar {
-  background: transparent !important;
+  background: linear-gradient(180deg, rgba(3, 14, 9, 0.65) 0%, rgba(3, 14, 9, 0.15) 60%, transparent 100%) !important;
   background-color: transparent !important;
-  position: absolute !important;
-  border-bottom: none !important;
+  position: fixed !important;
+  top: 0 !important;
+  left: 0 !important;
+  right: 0 !important;
+  border-bottom: 1px solid rgba(212, 175, 55, 0.12) !important;
   box-shadow: none !important;
+  backdrop-filter: blur(6px) !important;
+  -webkit-backdrop-filter: blur(6px) !important;
+  z-index: 10000 !important;
 }
 
 body.is-home .navbar.scrolled {
-  background: rgba(8, 38, 24, 0.95) !important;
-  backdrop-filter: blur(12px) !important;
-  -webkit-backdrop-filter: blur(12px) !important;
+  background: rgba(4, 20, 13, 0.95) !important;
+  background-color: rgba(4, 20, 13, 0.95) !important;
+  backdrop-filter: blur(16px) !important;
+  -webkit-backdrop-filter: blur(16px) !important;
   position: fixed !important;
-  border-bottom: 1px solid rgba(200, 162, 122, 0.25) !important;
+  top: 0 !important;
+  left: 0 !important;
+  right: 0 !important;
+  border-bottom: 1px solid rgba(212, 175, 55, 0.28) !important;
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.45) !important;
+  z-index: 10000 !important;
+}
+
+/* Subpage Main Content Spacing below Sticky Header */
+body.is-subpage .main-wrapper,
+body:not(.is-home) .main-wrapper {
+  padding-top: 72px !important;
+}
+
+body.is-home .main-wrapper {
+  padding-top: 0 !important;
 }
 
 /* Nav Links & Contact Item Styling */
@@ -850,10 +883,16 @@ a.button,
 
   body.is-subpage .navbar,
   body:not(.is-home) .navbar {
-    position: relative !important;
-    background: #082A1A !important;
-    background-color: #082A1A !important;
-    border-bottom: 1px solid rgba(200, 162, 122, 0.25) !important;
+    position: fixed !important;
+    top: 0 !important;
+    left: 0 !important;
+    right: 0 !important;
+    background: rgba(4, 20, 13, 0.96) !important;
+    background-color: rgba(4, 20, 13, 0.96) !important;
+    border-bottom: 1px solid rgba(212, 175, 55, 0.22) !important;
+    backdrop-filter: blur(20px) !important;
+    -webkit-backdrop-filter: blur(20px) !important;
+    z-index: 10000 !important;
   }
 
   .navbar[menu-open-mobile],
