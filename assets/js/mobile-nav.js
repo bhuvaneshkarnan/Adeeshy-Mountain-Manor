@@ -62,4 +62,24 @@ document.addEventListener('DOMContentLoaded', function () {
     `;
     drawerFooter.appendChild(quickContactDiv);
   }
+
+  // Ensure hero drone video autoplays smoothly across all mobile & desktop browsers
+  const heroVideo = document.querySelector('video.drone-video-player');
+  if (heroVideo) {
+    heroVideo.muted = true;
+    const playPromise = heroVideo.play();
+    if (playPromise !== undefined) {
+      playPromise.catch(function () {
+        const triggerAutoplay = function () {
+          heroVideo.play().catch(function () {});
+          window.removeEventListener('touchstart', triggerAutoplay);
+          window.removeEventListener('scroll', triggerAutoplay);
+          window.removeEventListener('click', triggerAutoplay);
+        };
+        window.addEventListener('touchstart', triggerAutoplay, { passive: true, once: true });
+        window.addEventListener('scroll', triggerAutoplay, { passive: true, once: true });
+        window.addEventListener('click', triggerAutoplay, { passive: true, once: true });
+      });
+    }
+  }
 });
