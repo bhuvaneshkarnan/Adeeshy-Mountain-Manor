@@ -940,56 +940,97 @@ a, p, span, h1, h2, h3, h4, h5, h6,
 }
 
 
-/* --------------------------------------------------------------------------
-   7. HERO DRONE VIDEO SEAMLESS BLURRED MERGE & CLEAN BADGE REMOVAL
-   -------------------------------------------------------------------------- */
+
+
+
+
+/* ==========================================================================
+   SEAMLESS ZERO-LINE HERO VIDEO MERGE ARCHITECTURE (PERFECT FUSION)
+   ========================================================================== */
 .drone-telemetry-badge {
   display: none !important;
 }
 
 .drone-video-hero {
   position: relative !important;
+  transform: none !important;
+  background-color: #04140D !important;
+  background: #04140D !important;
+  border: none !important;
+  border-top: none !important;
+  border-bottom: none !important;
+  box-shadow: none !important;
+  outline: none !important;
   overflow: hidden !important;
   margin-bottom: 0 !important;
-  border-bottom: none !important;
+}
+
+.drone-video-player {
+  width: 100% !important;
+  height: 100% !important;
+  object-fit: cover !important;
+  display: block !important;
+  border: none !important;
+  outline: none !important;
+  transform: none !important;
 }
 
 .drone-overlay-gradient {
   position: absolute !important;
-  bottom: -1px !important;
+  bottom: 0 !important;
   left: 0 !important;
   right: 0 !important;
-  height: 280px !important;
+  height: 300px !important;
   background: linear-gradient(
     to bottom,
     rgba(4, 20, 13, 0) 0%,
-    rgba(4, 20, 13, 0.05) 15%,
-    rgba(4, 20, 13, 0.18) 35%,
-    rgba(4, 20, 13, 0.45) 55%,
-    rgba(4, 20, 13, 0.78) 75%,
-    rgba(4, 20, 13, 0.95) 90%,
+    rgba(4, 20, 13, 0.04) 15%,
+    rgba(4, 20, 13, 0.16) 30%,
+    rgba(4, 20, 13, 0.38) 48%,
+    rgba(4, 20, 13, 0.68) 66%,
+    rgba(4, 20, 13, 0.90) 80%,
+    #04140D 88%,
     #04140D 100%
   ) !important;
   backdrop-filter: blur(14px) !important;
   -webkit-backdrop-filter: blur(14px) !important;
-  mask-image: linear-gradient(to bottom, transparent 0%, rgba(0, 0, 0, 0.15) 20%, rgba(0, 0, 0, 0.6) 55%, black 85%) !important;
-  -webkit-mask-image: linear-gradient(to bottom, transparent 0%, rgba(0, 0, 0, 0.15) 20%, rgba(0, 0, 0, 0.6) 55%, black 85%) !important;
   pointer-events: none !important;
-  z-index: 3 !important;
+  z-index: 2 !important;
+  border: none !important;
+  outline: none !important;
 }
 
+.main-wrapper > .hero-description-section,
+.page-wrapper > .hero-description-section,
 .hero-description-section {
   position: relative !important;
-  z-index: 4 !important;
-  margin-top: -1px !important;
+  z-index: 3 !important;
+  margin-top: -2px !important;
   border-top: none !important;
-  background: var(--grad-section-hero, linear-gradient(180deg, #04140D 0%, #082A1A 45%, #051A10 100%)) !important;
+  outline: none !important;
+  background-color: #04140D !important;
+  background: linear-gradient(180deg, #04140D 0%, #04140D 45%, #082A1A 80%, #04140D 100%) !important;
+  border-bottom: 1px solid rgba(200, 162, 122, 0.22) !important;
 }
 
 @media screen and (max-width: 767px) {
+  .drone-video-hero {
+    transform: none !important;
+  }
+
   .drone-overlay-gradient {
-    height: 150px !important;
+    height: 180px !important;
     backdrop-filter: blur(10px) !important;
     -webkit-backdrop-filter: blur(10px) !important;
+    background: linear-gradient(
+      to bottom,
+      rgba(4, 20, 13, 0) 0%,
+      rgba(4, 20, 13, 0.04) 15%,
+      rgba(4, 20, 13, 0.18) 32%,
+      rgba(4, 20, 13, 0.45) 52%,
+      rgba(4, 20, 13, 0.78) 72%,
+      #04140D 86%,
+      #04140D 100%
+    ) !important;
   }
 }

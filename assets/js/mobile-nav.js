@@ -105,4 +105,10 @@ document.addEventListener('DOMContentLoaded', function () {
     // Initial check on page load
     updateNavbarScroll();
   }
+
+  // Zero-line seamless lock for drone video hero
+  const droneHero = document.querySelector('.drone-video-hero');
+  if (droneHero) {
+    droneHero.style.setProperty('transform', 'none', 'important');
+  }
 });
