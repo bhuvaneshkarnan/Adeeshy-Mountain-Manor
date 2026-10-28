@@ -272,6 +272,13 @@ a, p, span, h1, h2, h3, h4, h5, h6,
     outline: none !important;
     border-radius: 8px !important;
     transition: background 0.2s ease !important;
+    pointer-events: auto !important;
+    touch-action: manipulation !important;
+    -webkit-tap-highlight-color: transparent !important;
+  }
+
+  .nav-menu-button * {
+    pointer-events: none !important;
   }
 
   .nav-menu-button:active {
@@ -303,19 +310,21 @@ a, p, span, h1, h2, h3, h4, h5, h6,
   }
 
   /* Animated Hamburger to X when open */
-  .nav-menu-button.is-active .nav-menu-line:nth-child(1),
-  .nav-menu-button.w--open .nav-menu-line:nth-child(1) {
+  .nav-menu-button:not(.is-active) .nav-menu-line {
+    transform: none !important;
+    opacity: 1 !important;
+  }
+
+  .nav-menu-button.is-active .nav-menu-line:nth-child(1) {
     transform: translateY(7px) rotate(45deg) !important;
   }
 
-  .nav-menu-button.is-active .nav-menu-line:nth-child(2),
-  .nav-menu-button.w--open .nav-menu-line:nth-child(2) {
+  .nav-menu-button.is-active .nav-menu-line:nth-child(2) {
     opacity: 0 !important;
     transform: scaleX(0) !important;
   }
 
-  .nav-menu-button.is-active .nav-menu-line:nth-child(3),
-  .nav-menu-button.w--open .nav-menu-line:nth-child(3) {
+  .nav-menu-button.is-active .nav-menu-line:nth-child(3) {
     transform: translateY(-7px) rotate(-45deg) !important;
   }
 
@@ -427,11 +436,14 @@ a, p, span, h1, h2, h3, h4, h5, h6,
     box-sizing: border-box !important;
     box-shadow: inset 0 2px 10px rgba(0,0,0,0.5) !important;
     transform: none !important;
-    display: none;
+    display: none !important;
   }
 
-  .nav-menu.is-open,
-  .nav-menu.w--open {
+  body:not(.mobile-nav-open) .nav-menu {
+    display: none !important;
+  }
+
+  .nav-menu.is-open {
     display: flex !important;
     flex-direction: column !important;
   }
