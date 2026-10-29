@@ -1269,14 +1269,19 @@ a.button,
 .drone-video-hero {
   position: relative;
   width: 100%;
-  height: 72vh;
-  min-height: 480px;
-  max-height: 720px;
+  height: 100vh;
+  height: 100dvh;
+  min-height: 100vh;
+  min-height: 100dvh;
+  max-height: none;
   overflow: hidden;
-  background-color: #051A10;
+  background-color: #04140D;
 }
 
 .drone-video-player {
+  position: absolute;
+  top: 0;
+  left: 0;
   width: 100%;
   height: 100%;
   object-fit: cover;
@@ -2017,9 +2022,11 @@ html, body {
     -webkit-backdrop-filter: blur(10px) !important;
   }
   .drone-video-hero {
-    height: 48vh !important;
-    min-height: 300px !important;
-    max-height: 420px !important;
+    height: 100vh !important;
+    height: 100dvh !important;
+    min-height: 100vh !important;
+    min-height: 100dvh !important;
+    max-height: none !important;
   }
   
   .drone-telemetry-badge {
@@ -3350,6 +3357,12 @@ a:not(.button):not(.nav-link):not(.desktop-nav-link):not(.w-button):hover {
 
 .drone-video-hero {
   position: relative !important;
+  width: 100% !important;
+  height: 100vh !important;
+  height: 100dvh !important;
+  min-height: 100vh !important;
+  min-height: 100dvh !important;
+  max-height: none !important;
   transform: none !important;
   background-color: #04140D !important;
   background: #04140D !important;
@@ -3363,6 +3376,9 @@ a:not(.button):not(.nav-link):not(.desktop-nav-link):not(.w-button):hover {
 }
 
 .drone-video-player {
+  position: absolute !important;
+  top: 0 !important;
+  left: 0 !important;
   width: 100% !important;
   height: 100% !important;
   object-fit: cover !important;
@@ -3412,6 +3428,11 @@ a:not(.button):not(.nav-link):not(.desktop-nav-link):not(.w-button):hover {
 
 @media screen and (max-width: 767px) {
   .drone-video-hero {
+    height: 100vh !important;
+    height: 100dvh !important;
+    min-height: 100vh !important;
+    min-height: 100dvh !important;
+    max-height: none !important;
     transform: none !important;
   }
 

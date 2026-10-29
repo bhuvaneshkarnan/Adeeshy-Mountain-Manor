@@ -217,10 +217,24 @@
   }
 
   // Init on DOM ready and Barba transitions
+  function initScrollCue() {
+    const scrollCue = document.querySelector('.drone-scroll-indicator');
+    if (scrollCue) {
+      scrollCue.addEventListener('click', function (e) {
+        e.preventDefault();
+        const target = document.getElementById('welcome-section') || document.querySelector('.hero-description-section');
+        if (target) {
+          target.scrollIntoView({ behavior: 'smooth' });
+        }
+      });
+    }
+  }
+
   document.addEventListener('DOMContentLoaded', function () {
     initDrawerContent();
     initVideoAutoplay();
     initStickyScroll();
+    initScrollCue();
 
     const droneHero = document.querySelector('.drone-video-hero');
     if (droneHero) {
