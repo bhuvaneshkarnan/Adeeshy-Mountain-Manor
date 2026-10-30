@@ -2190,7 +2190,7 @@ a, p, span, h1, h2, h3, h4, h5, h6,
   left: 0 !important;
   width: 100% !important;
   height: 100% !important;
-  object-fit: cover !important;
+  object-fit: contain !important;
   display: block !important;
   border: none !important;
   outline: none !important;
@@ -2447,5 +2447,85 @@ html {
     line-height: 1.55 !important;
     margin-bottom: 1.8rem !important;
     padding: 0 0.5rem !important;
+  }
+}
+
+/* ==========================================================================
+   LUXURY HERO VIDEO AUDIO CONTROLS
+   ========================================================================== */
+.hero-sound-toggle {
+  position: absolute !important;
+  bottom: 2.25rem !important;
+  right: 2.5rem !important;
+  z-index: 35 !important;
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  gap: 0.6rem !important;
+  padding: 0.65rem 1.25rem !important;
+  background: rgba(4, 20, 13, 0.82) !important;
+  border: 1px solid rgba(200, 162, 122, 0.45) !important;
+  border-radius: 9999px !important;
+  color: #DFC19E !important;
+  font-family: inherit !important;
+  font-size: 0.82rem !important;
+  font-weight: 500 !important;
+  letter-spacing: 0.08em !important;
+  text-transform: uppercase !important;
+  cursor: pointer !important;
+  backdrop-filter: blur(14px) !important;
+  -webkit-backdrop-filter: blur(14px) !important;
+  transition: all 0.35s cubic-bezier(0.25, 1, 0.5, 1) !important;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.45) !important;
+  user-select: none !important;
+}
+
+.hero-sound-toggle:hover {
+  background: rgba(8, 42, 26, 0.95) !important;
+  border-color: #C8A27A !important;
+  color: #FFFFFF !important;
+  transform: translateY(-2px) !important;
+  box-shadow: 0 6px 24px rgba(200, 162, 122, 0.3) !important;
+}
+
+.hero-sound-toggle .sound-toggle-icon {
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  width: 18px !important;
+  height: 18px !important;
+  flex-shrink: 0 !important;
+}
+
+.hero-sound-toggle .sound-icon-unmuted {
+  display: none !important;
+}
+
+.hero-sound-toggle .sound-icon-muted {
+  display: block !important;
+}
+
+.hero-sound-toggle.is-unmuted {
+  border-color: #C8A27A !important;
+  background: rgba(200, 162, 122, 0.22) !important;
+  color: #DFC19E !important;
+  box-shadow: 0 0 16px rgba(200, 162, 122, 0.35) !important;
+}
+
+.hero-sound-toggle.is-unmuted .sound-icon-unmuted {
+  display: block !important;
+}
+
+.hero-sound-toggle.is-unmuted .sound-icon-muted {
+  display: none !important;
+}
+
+@media screen and (max-width: 767px) {
+  .hero-sound-toggle {
+    bottom: 1.5rem !important;
+    right: 1rem !important;
+    padding: 0.45rem 0.9rem !important;
+    font-size: 0.74rem !important;
+    gap: 0.45rem !important;
   }
 }

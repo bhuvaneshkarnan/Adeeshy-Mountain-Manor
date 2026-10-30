@@ -169,25 +169,75 @@
     }
   }
 
-  // Ensure hero drone video autoplays smoothly
+  // Ensure hero drone video autoplays smoothly with audio control
   function initVideoAutoplay() {
-    const heroVideo = document.querySelector('video.drone-video-player');
-    if (heroVideo) {
-      heroVideo.muted = true;
-      const playPromise = heroVideo.play();
-      if (playPromise !== undefined) {
-        playPromise.catch(function () {
-          const triggerAutoplay = function () {
-            heroVideo.play().catch(function () {});
-            window.removeEventListener('touchstart', triggerAutoplay);
-            window.removeEventListener('scroll', triggerAutoplay);
-            window.removeEventListener('click', triggerAutoplay);
-          };
-          window.addEventListener('touchstart', triggerAutoplay, { passive: true, once: true });
-          window.addEventListener('scroll', triggerAutoplay, { passive: true, once: true });
-          window.addEventListener('click', triggerAutoplay, { passive: true, once: true });
-        });
+    const heroVideo = document.getElementById('hero-drone-video') || document.querySelector('video.drone-video-player');
+    const soundToggle = document.getElementById('hero-sound-toggle');
+    if (!heroVideo) return;
+
+    function updateSoundUI(isUnmuted) {
+      if (!soundToggle) return;
+      if (isUnmuted) {
+        soundToggle.classList.add('is-unmuted');
+        const text = soundToggle.querySelector('.sound-toggle-text');
+        if (text) text.textContent = 'Sound On';
+      } else {
+        soundToggle.classList.remove('is-unmuted');
+        const text = soundToggle.querySelector('.sound-toggle-text');
+        if (text) text.textContent = 'Sound Off';
       }
+    }
+
+    function toggleAudio(e) {
+      if (e) {
+        e.preventDefault();
+        e.stopPropagation();
+      }
+      if (heroVideo.muted) {
+        heroVideo.muted = false;
+        heroVideo.volume = 1.0;
+        updateSoundUI(true);
+      } else {
+        heroVideo.muted = true;
+        updateSoundUI(false);
+      }
+      if (heroVideo.paused) {
+        heroVideo.play().catch(function () {});
+      }
+    }
+
+    if (soundToggle) {
+      soundToggle.addEventListener('click', toggleAudio);
+    }
+
+    // Attempt unmuted play first
+    heroVideo.muted = false;
+    heroVideo.volume = 1.0;
+    const playPromise = heroVideo.play();
+    if (playPromise !== undefined) {
+      playPromise.then(function () {
+        updateSoundUI(true);
+      }).catch(function () {
+        // Autoplay policy prevented unmuted playback -> fall back to muted
+        heroVideo.muted = true;
+        heroVideo.play().catch(function () {});
+        updateSoundUI(false);
+
+        // Enable sound on first user gesture anywhere on the page
+        const enableSoundOnGesture = function () {
+          if (heroVideo.muted) {
+            heroVideo.muted = false;
+            heroVideo.volume = 1.0;
+            updateSoundUI(true);
+          }
+          window.removeEventListener('click', enableSoundOnGesture);
+          window.removeEventListener('touchstart', enableSoundOnGesture);
+          window.removeEventListener('keydown', enableSoundOnGesture);
+        };
+        window.addEventListener('click', enableSoundOnGesture, { once: true });
+        window.addEventListener('touchstart', enableSoundOnGesture, { once: true });
+        window.addEventListener('keydown', enableSoundOnGesture, { once: true });
+      });
     }
   }
 
