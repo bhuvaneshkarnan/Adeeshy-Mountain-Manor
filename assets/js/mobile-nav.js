@@ -289,25 +289,37 @@
       return;
     }
 
+    // 1. Kickstart video rendering instantly if paused
+    if (heroVideo.paused) {
+      heroVideo.play().catch(function () {
+        heroVideo.muted = true;
+        heroVideo.play().catch(function () {});
+      });
+    }
+
+    heroVideo.addEventListener('loadeddata', function () {
+      if (heroVideo.paused) {
+        heroVideo.play().catch(function () {});
+      }
+    }, { once: true });
+
     const desiredState = getDesiredAudioState();
 
     if (desiredState === 'off') {
       heroVideo.muted = true;
-      if (heroVideo.paused) {
-        heroVideo.play().catch(function () {});
-      }
       updateHeroSoundUI(false);
     } else {
+      // 2. Attempt unmuted audio if allowed by browser MEI/policy
       heroVideo.muted = false;
       heroVideo.volume = 1.0;
-      updateHeroSoundUI(true);
 
       const playPromise = heroVideo.play();
       if (playPromise !== undefined) {
         playPromise.then(function () {
           updateHeroSoundUI(true);
         }).catch(function () {
-          // Cold load browser autoplay policy required initial gesture:
+          // Browser autoplay policy deferred sound until first gesture:
+          // Keep video streaming MUTED seamlessly without any stutter!
           heroVideo.muted = true;
           heroVideo.play().catch(function () {});
           updateHeroSoundUI(false);
