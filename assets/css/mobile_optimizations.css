@@ -2529,3 +2529,209 @@ html {
     gap: 0.45rem !important;
   }
 }
+
+/* ======================================================== */
+/* PERSISTENT GLOBAL SOUND TOGGLE (NAVBAR & ALL PAGES)     */
+/* ======================================================== */
+.global-sound-toggle {
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  gap: 0.45rem !important;
+  padding: 0.42rem 0.85rem !important;
+  background: rgba(4, 20, 13, 0.75) !important;
+  border: 1px solid rgba(200, 162, 122, 0.4) !important;
+  border-radius: 9999px !important;
+  color: #DFC19E !important;
+  font-family: 'Manrope', Arial, sans-serif !important;
+  font-size: 0.74rem !important;
+  font-weight: 600 !important;
+  letter-spacing: 0.05em !important;
+  text-transform: uppercase !important;
+  cursor: pointer !important;
+  backdrop-filter: blur(12px) !important;
+  -webkit-backdrop-filter: blur(12px) !important;
+  transition: all 0.3s cubic-bezier(0.25, 1, 0.5, 1) !important;
+  user-select: none !important;
+  margin-right: 0.75rem !important;
+  vertical-align: middle !important;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3) !important;
+}
+
+.global-sound-toggle:hover {
+  background: rgba(200, 162, 122, 0.22) !important;
+  border-color: #C8A27A !important;
+  color: #FFFFFF !important;
+  box-shadow: 0 0 14px rgba(200, 162, 122, 0.35) !important;
+}
+
+.global-sound-toggle .global-sound-icon {
+  width: 15px !important;
+  height: 15px !important;
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  flex-shrink: 0 !important;
+}
+
+.global-sound-toggle .global-sound-icon svg {
+  width: 100% !important;
+  height: 100% !important;
+}
+
+.global-sound-toggle .sound-icon-unmuted {
+  display: none !important;
+}
+
+.global-sound-toggle .sound-icon-muted {
+  display: block !important;
+}
+
+.global-sound-toggle.is-unmuted {
+  border-color: #C8A27A !important;
+  background: rgba(200, 162, 122, 0.22) !important;
+  color: #DFC19E !important;
+  box-shadow: 0 0 14px rgba(200, 162, 122, 0.3) !important;
+}
+
+.global-sound-toggle.is-unmuted .sound-icon-unmuted {
+  display: block !important;
+}
+
+.global-sound-toggle.is-unmuted .sound-icon-muted {
+  display: none !important;
+}
+
+/* Animated Sound Wave Bars when unmuted */
+.global-sound-toggle .sound-wave-bars {
+  display: inline-flex !important;
+  align-items: flex-end !important;
+  gap: 2.5px !important;
+  height: 11px !important;
+}
+
+.global-sound-toggle .sound-wave-bars .bar {
+  width: 2px !important;
+  height: 3px !important;
+  background-color: currentColor !important;
+  border-radius: 1px !important;
+  transition: height 0.2s ease !important;
+}
+
+.global-sound-toggle.is-unmuted .sound-wave-bars .bar-1 {
+  animation: soundWave 0.8s ease-in-out infinite alternate !important;
+}
+.global-sound-toggle.is-unmuted .sound-wave-bars .bar-2 {
+  animation: soundWave 0.8s ease-in-out 0.25s infinite alternate !important;
+}
+.global-sound-toggle.is-unmuted .sound-wave-bars .bar-3 {
+  animation: soundWave 0.8s ease-in-out 0.5s infinite alternate !important;
+}
+
+@keyframes soundWave {
+  0% { height: 2.5px; }
+  100% { height: 11px; }
+}
+
+@media screen and (max-width: 991px) {
+  /* On mobile/tablet, hide sound toggle from top navbar to keep logo and Book Now perfectly spaced */
+  .button-group_nav .global-sound-toggle {
+    display: none !important;
+  }
+
+  /* Floating luxury sound pill for mobile subpages */
+  .mobile-sound-pill {
+    display: inline-flex !important;
+    position: fixed !important;
+    bottom: 1.25rem !important;
+    right: 1rem !important;
+    z-index: 999 !important;
+    align-items: center !important;
+    justify-content: center !important;
+    gap: 0.45rem !important;
+    padding: 0.48rem 0.95rem !important;
+    background: rgba(4, 20, 13, 0.88) !important;
+    border: 1px solid rgba(200, 162, 122, 0.5) !important;
+    border-radius: 9999px !important;
+    color: #DFC19E !important;
+    font-family: 'Manrope', Arial, sans-serif !important;
+    font-size: 0.74rem !important;
+    font-weight: 600 !important;
+    letter-spacing: 0.05em !important;
+    text-transform: uppercase !important;
+    backdrop-filter: blur(14px) !important;
+    -webkit-backdrop-filter: blur(14px) !important;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.55) !important;
+    cursor: pointer !important;
+    user-select: none !important;
+    transition: all 0.3s cubic-bezier(0.25, 1, 0.5, 1) !important;
+  }
+
+  .mobile-sound-pill .global-sound-icon {
+    width: 15px !important;
+    height: 15px !important;
+    display: inline-flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+  }
+
+  .mobile-sound-pill .sound-icon-unmuted {
+    display: none !important;
+  }
+
+  .mobile-sound-pill .sound-icon-muted {
+    display: block !important;
+  }
+
+  .mobile-sound-pill.is-unmuted {
+    border-color: #C8A27A !important;
+    background: rgba(200, 162, 122, 0.22) !important;
+    color: #DFC19E !important;
+    box-shadow: 0 0 16px rgba(200, 162, 122, 0.35) !important;
+  }
+
+  .mobile-sound-pill.is-unmuted .sound-icon-unmuted {
+    display: block !important;
+  }
+
+  .mobile-sound-pill.is-unmuted .sound-icon-muted {
+    display: none !important;
+  }
+
+  .mobile-sound-pill .sound-wave-bars {
+    display: inline-flex !important;
+    align-items: flex-end !important;
+    gap: 2px !important;
+    height: 11px !important;
+  }
+
+  .mobile-sound-pill .sound-wave-bars .bar {
+    width: 2px !important;
+    height: 3px !important;
+    background-color: currentColor !important;
+    border-radius: 1px !important;
+  }
+
+  .mobile-sound-pill.is-unmuted .sound-wave-bars .bar-1 {
+    animation: soundWave 0.8s ease-in-out infinite alternate !important;
+  }
+  .mobile-sound-pill.is-unmuted .sound-wave-bars .bar-2 {
+    animation: soundWave 0.8s ease-in-out 0.25s infinite alternate !important;
+  }
+  .mobile-sound-pill.is-unmuted .sound-wave-bars .bar-3 {
+    animation: soundWave 0.8s ease-in-out 0.5s infinite alternate !important;
+  }
+
+  /* On homepage, hero section already has the sound toggle */
+  body.is-home .mobile-sound-pill,
+  main[data-barba-namespace="home"] ~ .mobile-sound-pill,
+  .drone-video-hero ~ .mobile-sound-pill {
+    display: none !important;
+  }
+}
+
+@media screen and (min-width: 992px) {
+  .mobile-sound-pill {
+    display: none !important;
+  }
+}

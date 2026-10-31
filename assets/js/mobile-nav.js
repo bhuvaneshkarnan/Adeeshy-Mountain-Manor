@@ -170,10 +170,11 @@
   }
 
   // ============================================================
-  // BULLETPROOF HERO VIDEO & AUDIO MANAGER
-  // Audio is ON by default, persists across page navigation,
-  // handles Barba.js PJAX swaps, BFcache, and browser policies.
+  // BULLETPROOF PERSISTENT BACKGROUND MUSIC SYSTEM
+  // Audio is ON by default, plays continuously across ALL pages,
+  // survives Barba.js PJAX swaps, BFcache, and browser policies.
   // ============================================================
+
   function getDesiredAudioState() {
     return sessionStorage.getItem('adeeshy_hero_audio') || 'on';
   }
@@ -182,50 +183,142 @@
     sessionStorage.setItem('adeeshy_hero_audio', state);
   }
 
-  function updateSoundUI(isUnmuted) {
-    const soundToggle = document.getElementById('hero-sound-toggle');
-    if (!soundToggle) return;
-    if (isUnmuted) {
-      soundToggle.classList.add('is-unmuted');
-      const text = soundToggle.querySelector('.sound-toggle-text');
-      if (text) text.textContent = 'Sound On';
-      soundToggle.setAttribute('aria-pressed', 'true');
-    } else {
-      soundToggle.classList.remove('is-unmuted');
-      const text = soundToggle.querySelector('.sound-toggle-text');
-      if (text) text.textContent = 'Sound Off';
-      soundToggle.setAttribute('aria-pressed', 'false');
+  // Ensure persistent global <audio> element exists outside <main> on document.body
+  function getOrCreateGlobalAudio() {
+    let audio = document.getElementById('global-ambient-audio');
+    if (!audio) {
+      audio = document.createElement('audio');
+      audio.id = 'global-ambient-audio';
+      audio.src = '/herovideowithaudio.MP4';
+      audio.loop = true;
+      audio.preload = 'auto';
+      audio.style.display = 'none';
+      document.body.appendChild(audio);
     }
+    return audio;
   }
 
-  function toggleHeroAudio() {
-    const heroVideo = document.getElementById('hero-drone-video') || document.querySelector('video.drone-video-player');
-    if (!heroVideo) return;
+  // Ensure navbar has the luxury background sound toggle button
+  function ensureNavbarSoundToggle() {
+    const navBtnGroup = document.querySelector('.button-group_nav');
+    if (navBtnGroup && !navBtnGroup.querySelector('#global-sound-toggle')) {
+      const toggleBtn = document.createElement('button');
+      toggleBtn.id = 'global-sound-toggle';
+      toggleBtn.className = 'global-sound-toggle is-unmuted';
+      toggleBtn.type = 'button';
+      toggleBtn.setAttribute('aria-label', 'Toggle Background Music');
+      toggleBtn.setAttribute('title', 'Background Music');
+      toggleBtn.innerHTML = `
+        <span class="global-sound-icon">
+          <svg class="sound-icon-unmuted" viewBox="0 0 24 24" fill="currentColor">
+            <path d="M3 9v6h4l5 5V4L7 9H3zm13.5 3c0-1.77-1.02-3.29-2.5-4.03v8.05c1.48-.73 2.5-2.25 2.5-4.02zM14 3.23v2.06c2.89.86 5 3.54 5 6.71s-2.11 5.85-5 6.71v2.06c4.01-.91 7-4.49 7-8.77s-2.99-7.86-7-8.77z"/>
+          </svg>
+          <svg class="sound-icon-muted" viewBox="0 0 24 24" fill="currentColor">
+            <path d="M16.5 12c0-1.77-1.02-3.29-2.5-4.03v2.21l2.45 2.45c.03-.2.05-.41.05-.63zm2.5 0c0 .94-.2 1.82-.54 2.64l1.51 1.51C20.63 14.91 21 13.5 21 12c0-4.28-2.99-7.86-7-8.77v2.06c2.89.86 5 3.54 5 6.71zM4.27 3L3 4.27 7.73 9H3v6h4l5 5v-6.73l4.25 4.25c-.67.52-1.42.93-2.25 1.18v2.06c1.38-.31 2.63-.95 3.69-1.81L19.73 21 21 19.73l-9-9L4.27 3zM12 4L9.91 6.09 12 8.18V4z"/>
+          </svg>
+        </span>
+        <span class="sound-wave-bars">
+          <span class="bar bar-1"></span>
+          <span class="bar bar-2"></span>
+          <span class="bar bar-3"></span>
+        </span>
+        <span class="sound-text-label">Music</span>
+      `;
+      navBtnGroup.insertBefore(toggleBtn, navBtnGroup.firstChild);
+    }
 
-    if (heroVideo.muted) {
-      // Turn sound ON
-      heroVideo.muted = false;
-      heroVideo.volume = 1.0;
-      setDesiredAudioState('on');
-      updateSoundUI(true);
-      if (heroVideo.paused) {
-        heroVideo.play().catch(function () {});
+    ensureMobileSoundPill();
+  }
+
+  // Ensure floating sound pill on mobile subpages
+  function ensureMobileSoundPill() {
+    let mobilePill = document.getElementById('mobile-sound-pill');
+    if (!mobilePill) {
+      mobilePill = document.createElement('button');
+      mobilePill.id = 'mobile-sound-pill';
+      mobilePill.className = 'mobile-sound-pill is-unmuted';
+      mobilePill.type = 'button';
+      mobilePill.setAttribute('aria-label', 'Toggle Background Music');
+      mobilePill.setAttribute('title', 'Background Music');
+      mobilePill.innerHTML = `
+        <span class="global-sound-icon">
+          <svg class="sound-icon-unmuted" viewBox="0 0 24 24" fill="currentColor">
+            <path d="M3 9v6h4l5 5V4L7 9H3zm13.5 3c0-1.77-1.02-3.29-2.5-4.03v8.05c1.48-.73 2.5-2.25 2.5-4.02zM14 3.23v2.06c2.89.86 5 3.54 5 6.71s-2.11 5.85-5 6.71v2.06c4.01-.91 7-4.49 7-8.77s-2.99-7.86-7-8.77z"/>
+          </svg>
+          <svg class="sound-icon-muted" viewBox="0 0 24 24" fill="currentColor">
+            <path d="M16.5 12c0-1.77-1.02-3.29-2.5-4.03v2.21l2.45 2.45c.03-.2.05-.41.05-.63zm2.5 0c0 .94-.2 1.82-.54 2.64l1.51 1.51C20.63 14.91 21 13.5 21 12c0-4.28-2.99-7.86-7-8.77v2.06c2.89.86 5 3.54 5 6.71zM4.27 3L3 4.27 7.73 9H3v6h4l5 5v-6.73l4.25 4.25c-.67.52-1.42.93-2.25 1.18v2.06c1.38-.31 2.63-.95 3.69-1.81L19.73 21 21 19.73l-9-9L4.27 3zM12 4L9.91 6.09 12 8.18V4z"/>
+          </svg>
+        </span>
+        <span class="sound-wave-bars">
+          <span class="bar bar-1"></span>
+          <span class="bar bar-2"></span>
+          <span class="bar bar-3"></span>
+        </span>
+        <span class="sound-toggle-text">Music</span>
+      `;
+      document.body.appendChild(mobilePill);
+    }
+
+    const isHomePage = document.body.classList.contains('is-home') ||
+                       window.location.pathname === '/' ||
+                       window.location.pathname === '/en/' ||
+                       window.location.pathname === '/index.html' ||
+                       !!document.querySelector('.drone-video-hero');
+    mobilePill.style.display = isHomePage ? 'none' : '';
+  }
+
+  // Synchronize UI across all sound buttons on the page (hero button + navbar button + mobile pill)
+  function updateAllSoundUI(isUnmuted) {
+    const heroBtn = document.getElementById('hero-sound-toggle');
+    const navBtn = document.getElementById('global-sound-toggle');
+    const mobilePill = document.getElementById('mobile-sound-pill');
+
+    [heroBtn, navBtn, mobilePill].forEach(function (btn) {
+      if (!btn) return;
+      if (isUnmuted) {
+        btn.classList.add('is-unmuted');
+        btn.setAttribute('aria-pressed', 'true');
+        const text = btn.querySelector('.sound-toggle-text');
+        if (text) text.textContent = btn.id === 'hero-sound-toggle' ? 'Sound On' : 'Music';
+      } else {
+        btn.classList.remove('is-unmuted');
+        btn.setAttribute('aria-pressed', 'false');
+        const text = btn.querySelector('.sound-toggle-text');
+        if (text) text.textContent = btn.id === 'hero-sound-toggle' ? 'Sound Off' : 'Muted';
       }
-    } else {
-      // Turn sound OFF
-      heroVideo.muted = true;
+    });
+  }
+
+  // Toggle Background Audio
+  function toggleGlobalAudio() {
+    const audio = getOrCreateGlobalAudio();
+    const isCurrentlyPlaying = !audio.paused && !audio.muted;
+
+    if (isCurrentlyPlaying) {
+      // User requested MUTE
+      audio.muted = true;
+      audio.pause();
       setDesiredAudioState('off');
-      updateSoundUI(false);
+      updateAllSoundUI(false);
+    } else {
+      // User requested UNMUTE
+      audio.muted = false;
+      audio.volume = 1.0;
+      setDesiredAudioState('on');
+      audio.play().then(function () {
+        updateAllSoundUI(true);
+      }).catch(function () {});
+      updateAllSoundUI(true);
     }
   }
 
-  // Delegated click handler on document — NEVER lost across Barba / PJAX container swaps!
+  // Delegated click handler on document — catches clicks on ANY sound button anywhere on any page!
   document.addEventListener('click', function (e) {
-    const toggleBtn = e.target.closest('#hero-sound-toggle');
+    const toggleBtn = e.target.closest('#hero-sound-toggle, #global-sound-toggle, .global-sound-toggle');
     if (toggleBtn) {
       e.preventDefault();
       e.stopPropagation();
-      toggleHeroAudio();
+      toggleGlobalAudio();
     }
   });
 
@@ -237,12 +330,12 @@
 
     const unlockOnGesture = function () {
       if (getDesiredAudioState() === 'on') {
-        const curVideo = document.getElementById('hero-drone-video') || document.querySelector('video.drone-video-player');
-        if (curVideo && curVideo.muted) {
-          curVideo.muted = false;
-          curVideo.volume = 1.0;
-          curVideo.play().then(function () {
-            updateSoundUI(true);
+        const audio = getOrCreateGlobalAudio();
+        if (audio && (audio.paused || audio.muted)) {
+          audio.muted = false;
+          audio.volume = 1.0;
+          audio.play().then(function () {
+            updateAllSoundUI(true);
           }).catch(function () {});
         }
       }
@@ -261,36 +354,45 @@
     window.addEventListener('scroll', unlockOnGesture, { once: true, passive: true });
   }
 
-  function initVideoAutoplay() {
-    const heroVideo = document.getElementById('hero-drone-video') || document.querySelector('video.drone-video-player');
-    if (!heroVideo) return;
-
+  // Main Audio Controller & Hero Video Manager
+  function initGlobalAudioSystem() {
+    ensureNavbarSoundToggle();
+    const audio = getOrCreateGlobalAudio();
     const desiredState = getDesiredAudioState();
 
-    if (desiredState === 'off') {
+    // Ensure hero drone video visual (if present on homepage) plays muted so it never echoes audio
+    const heroVideo = document.getElementById('hero-drone-video') || document.querySelector('video.drone-video-player');
+    if (heroVideo) {
       heroVideo.muted = true;
-      updateSoundUI(false);
       if (heroVideo.paused) {
         heroVideo.play().catch(function () {});
       }
+    }
+
+    if (desiredState === 'off') {
+      audio.muted = true;
+      audio.pause();
+      updateAllSoundUI(false);
       return;
     }
 
     // Default: Audio ON
-    heroVideo.muted = false;
-    heroVideo.volume = 1.0;
-    updateSoundUI(true);
+    audio.muted = false;
+    audio.volume = 1.0;
 
-    const playPromise = heroVideo.play();
+    if (!audio.paused) {
+      // Audio is already playing seamlessly from previous page!
+      updateAllSoundUI(true);
+      return;
+    }
+
+    const playPromise = audio.play();
     if (playPromise !== undefined) {
       playPromise.then(function () {
-        updateSoundUI(true);
+        updateAllSoundUI(true);
       }).catch(function () {
-        // Cold-load browser autoplay restriction prevented unmuted play:
-        // Start playing muted temporarily, and immediately unlock sound on first interaction
-        heroVideo.muted = true;
-        heroVideo.play().catch(function () {});
-        updateSoundUI(false);
+        // Cold load browser autoplay policy blocked immediate sound without gesture:
+        updateAllSoundUI(false);
         setupGestureUnlock();
       });
     }
@@ -336,9 +438,9 @@
   }
 
   // 1. DOM ready & window load
-  document.addEventListener('DOMContentLoaded', function () {
+  function onReady() {
     initDrawerContent();
-    initVideoAutoplay();
+    initGlobalAudioSystem();
     initStickyScroll();
     initScrollCue();
 
@@ -346,18 +448,24 @@
     if (droneHero) {
       droneHero.style.setProperty('transform', 'none', 'important');
     }
-  });
+  }
+
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', onReady);
+  } else {
+    onReady();
+  }
 
   window.addEventListener('load', function () {
-    initVideoAutoplay();
+    initGlobalAudioSystem();
   });
 
   // 2. BFcache & history navigation (back/forward)
   window.addEventListener('pageshow', function () {
-    initVideoAutoplay();
+    initGlobalAudioSystem();
   });
   window.addEventListener('popstate', function () {
-    setTimeout(initVideoAutoplay, 80);
+    setTimeout(initGlobalAudioSystem, 60);
   });
 
   // 3. MutationObserver on document.body for dynamic container swaps
@@ -368,10 +476,10 @@
       for (let j = 0; j < added.length; j++) {
         const node = added[j];
         if (node.nodeType === 1) {
-          if (node.id === 'hero-drone-video' || (node.querySelector && node.querySelector('#hero-drone-video'))) {
+          if (node.id === 'hero-drone-video' || (node.querySelector && (node.querySelector('#hero-drone-video') || node.querySelector('.button-group_nav')))) {
             if (!observerThrottle) {
               observerThrottle = setTimeout(function () {
-                initVideoAutoplay();
+                initGlobalAudioSystem();
                 initStickyScroll();
                 initScrollCue();
                 observerThrottle = null;
@@ -391,7 +499,7 @@
       window.barba.hooks.afterEnter(function () {
         closeMenu();
         initDrawerContent();
-        initVideoAutoplay();
+        initGlobalAudioSystem();
         initStickyScroll();
         initScrollCue();
       });
