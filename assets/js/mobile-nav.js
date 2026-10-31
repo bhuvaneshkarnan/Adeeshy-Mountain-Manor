@@ -169,74 +169,129 @@
     }
   }
 
-  // Ensure hero drone video autoplays smoothly with audio control
-  function initVideoAutoplay() {
-    const heroVideo = document.getElementById('hero-drone-video') || document.querySelector('video.drone-video-player');
+  // ============================================================
+  // BULLETPROOF HERO VIDEO & AUDIO MANAGER
+  // Audio is ON by default, persists across page navigation,
+  // handles Barba.js PJAX swaps, BFcache, and browser policies.
+  // ============================================================
+  function getDesiredAudioState() {
+    return sessionStorage.getItem('adeeshy_hero_audio') || 'on';
+  }
+
+  function setDesiredAudioState(state) {
+    sessionStorage.setItem('adeeshy_hero_audio', state);
+  }
+
+  function updateSoundUI(isUnmuted) {
     const soundToggle = document.getElementById('hero-sound-toggle');
+    if (!soundToggle) return;
+    if (isUnmuted) {
+      soundToggle.classList.add('is-unmuted');
+      const text = soundToggle.querySelector('.sound-toggle-text');
+      if (text) text.textContent = 'Sound On';
+      soundToggle.setAttribute('aria-pressed', 'true');
+    } else {
+      soundToggle.classList.remove('is-unmuted');
+      const text = soundToggle.querySelector('.sound-toggle-text');
+      if (text) text.textContent = 'Sound Off';
+      soundToggle.setAttribute('aria-pressed', 'false');
+    }
+  }
+
+  function toggleHeroAudio() {
+    const heroVideo = document.getElementById('hero-drone-video') || document.querySelector('video.drone-video-player');
     if (!heroVideo) return;
 
-    function updateSoundUI(isUnmuted) {
-      if (!soundToggle) return;
-      if (isUnmuted) {
-        soundToggle.classList.add('is-unmuted');
-        const text = soundToggle.querySelector('.sound-toggle-text');
-        if (text) text.textContent = 'Sound On';
-      } else {
-        soundToggle.classList.remove('is-unmuted');
-        const text = soundToggle.querySelector('.sound-toggle-text');
-        if (text) text.textContent = 'Sound Off';
-      }
-    }
-
-    function toggleAudio(e) {
-      if (e) {
-        e.preventDefault();
-        e.stopPropagation();
-      }
-      if (heroVideo.muted) {
-        heroVideo.muted = false;
-        heroVideo.volume = 1.0;
-        updateSoundUI(true);
-      } else {
-        heroVideo.muted = true;
-        updateSoundUI(false);
-      }
+    if (heroVideo.muted) {
+      // Turn sound ON
+      heroVideo.muted = false;
+      heroVideo.volume = 1.0;
+      setDesiredAudioState('on');
+      updateSoundUI(true);
       if (heroVideo.paused) {
         heroVideo.play().catch(function () {});
       }
+    } else {
+      // Turn sound OFF
+      heroVideo.muted = true;
+      setDesiredAudioState('off');
+      updateSoundUI(false);
+    }
+  }
+
+  // Delegated click handler on document — NEVER lost across Barba / PJAX container swaps!
+  document.addEventListener('click', function (e) {
+    const toggleBtn = e.target.closest('#hero-sound-toggle');
+    if (toggleBtn) {
+      e.preventDefault();
+      e.stopPropagation();
+      toggleHeroAudio();
+    }
+  });
+
+  // Unlock sound on first user gesture anywhere on page if cold-load autoplay policy deferred audio
+  let gestureUnlockAttached = false;
+  function setupGestureUnlock() {
+    if (gestureUnlockAttached) return;
+    gestureUnlockAttached = true;
+
+    const unlockOnGesture = function () {
+      if (getDesiredAudioState() === 'on') {
+        const curVideo = document.getElementById('hero-drone-video') || document.querySelector('video.drone-video-player');
+        if (curVideo && curVideo.muted) {
+          curVideo.muted = false;
+          curVideo.volume = 1.0;
+          curVideo.play().then(function () {
+            updateSoundUI(true);
+          }).catch(function () {});
+        }
+      }
+      window.removeEventListener('pointerdown', unlockOnGesture);
+      window.removeEventListener('click', unlockOnGesture);
+      window.removeEventListener('touchstart', unlockOnGesture);
+      window.removeEventListener('keydown', unlockOnGesture);
+      window.removeEventListener('scroll', unlockOnGesture);
+      gestureUnlockAttached = false;
+    };
+
+    window.addEventListener('pointerdown', unlockOnGesture, { once: true, passive: true });
+    window.addEventListener('click', unlockOnGesture, { once: true });
+    window.addEventListener('touchstart', unlockOnGesture, { once: true, passive: true });
+    window.addEventListener('keydown', unlockOnGesture, { once: true });
+    window.addEventListener('scroll', unlockOnGesture, { once: true, passive: true });
+  }
+
+  function initVideoAutoplay() {
+    const heroVideo = document.getElementById('hero-drone-video') || document.querySelector('video.drone-video-player');
+    if (!heroVideo) return;
+
+    const desiredState = getDesiredAudioState();
+
+    if (desiredState === 'off') {
+      heroVideo.muted = true;
+      updateSoundUI(false);
+      if (heroVideo.paused) {
+        heroVideo.play().catch(function () {});
+      }
+      return;
     }
 
-    if (soundToggle) {
-      soundToggle.addEventListener('click', toggleAudio);
-    }
-
-    // Attempt unmuted play first
+    // Default: Audio ON
     heroVideo.muted = false;
     heroVideo.volume = 1.0;
+    updateSoundUI(true);
+
     const playPromise = heroVideo.play();
     if (playPromise !== undefined) {
       playPromise.then(function () {
         updateSoundUI(true);
       }).catch(function () {
-        // Autoplay policy prevented unmuted playback -> fall back to muted
+        // Cold-load browser autoplay restriction prevented unmuted play:
+        // Start playing muted temporarily, and immediately unlock sound on first interaction
         heroVideo.muted = true;
         heroVideo.play().catch(function () {});
         updateSoundUI(false);
-
-        // Enable sound on first user gesture anywhere on the page
-        const enableSoundOnGesture = function () {
-          if (heroVideo.muted) {
-            heroVideo.muted = false;
-            heroVideo.volume = 1.0;
-            updateSoundUI(true);
-          }
-          window.removeEventListener('click', enableSoundOnGesture);
-          window.removeEventListener('touchstart', enableSoundOnGesture);
-          window.removeEventListener('keydown', enableSoundOnGesture);
-        };
-        window.addEventListener('click', enableSoundOnGesture, { once: true });
-        window.addEventListener('touchstart', enableSoundOnGesture, { once: true });
-        window.addEventListener('keydown', enableSoundOnGesture, { once: true });
+        setupGestureUnlock();
       });
     }
   }
@@ -280,6 +335,7 @@
     }
   }
 
+  // 1. DOM ready & window load
   document.addEventListener('DOMContentLoaded', function () {
     initDrawerContent();
     initVideoAutoplay();
@@ -292,13 +348,64 @@
     }
   });
 
-  // Barba hook for page transitions
-  if (window.barba) {
-    window.barba.hooks.afterEnter(function () {
-      closeMenu();
-      initDrawerContent();
-      initVideoAutoplay();
-      initStickyScroll();
-    });
+  window.addEventListener('load', function () {
+    initVideoAutoplay();
+  });
+
+  // 2. BFcache & history navigation (back/forward)
+  window.addEventListener('pageshow', function () {
+    initVideoAutoplay();
+  });
+  window.addEventListener('popstate', function () {
+    setTimeout(initVideoAutoplay, 80);
+  });
+
+  // 3. MutationObserver on document.body for dynamic container swaps
+  let observerThrottle = null;
+  const bodyObserver = new MutationObserver(function (mutations) {
+    for (let i = 0; i < mutations.length; i++) {
+      const added = mutations[i].addedNodes;
+      for (let j = 0; j < added.length; j++) {
+        const node = added[j];
+        if (node.nodeType === 1) {
+          if (node.id === 'hero-drone-video' || (node.querySelector && node.querySelector('#hero-drone-video'))) {
+            if (!observerThrottle) {
+              observerThrottle = setTimeout(function () {
+                initVideoAutoplay();
+                initStickyScroll();
+                initScrollCue();
+                observerThrottle = null;
+              }, 40);
+            }
+            return;
+          }
+        }
+      }
+    }
+  });
+  bodyObserver.observe(document.body, { childList: true, subtree: true });
+
+  // 4. Barba.js transition hooks (with retry timer in case Barba is deferred)
+  function attachBarbaHooks() {
+    if (window.barba && window.barba.hooks) {
+      window.barba.hooks.afterEnter(function () {
+        closeMenu();
+        initDrawerContent();
+        initVideoAutoplay();
+        initStickyScroll();
+        initScrollCue();
+      });
+      return true;
+    }
+    return false;
+  }
+  if (!attachBarbaHooks()) {
+    let barbaAttempts = 0;
+    const barbaTimer = setInterval(function () {
+      barbaAttempts++;
+      if (attachBarbaHooks() || barbaAttempts > 30) {
+        clearInterval(barbaTimer);
+      }
+    }, 200);
   }
 })();
