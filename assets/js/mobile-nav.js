@@ -170,9 +170,9 @@
   }
 
   // ============================================================
-  // BULLETPROOF PERSISTENT BACKGROUND MUSIC SYSTEM
-  // Audio is ON by default, plays continuously across ALL pages,
-  // survives Barba.js PJAX swaps, BFcache, and browser policies.
+  // HERO SECTION AUDIO ONLY (NO AUDIO OR MUTE ON OTHER PAGES)
+  // Audio plays strictly in the home hero section.
+  // Mutes when scrolled out of hero or navigating to other pages.
   // ============================================================
 
   function getDesiredAudioState() {
@@ -183,159 +183,77 @@
     sessionStorage.setItem('adeeshy_hero_audio', state);
   }
 
-  // Ensure persistent global <audio> element exists outside <main> on document.body
-  function getOrCreateGlobalAudio() {
-    let audio = document.getElementById('global-ambient-audio');
-    if (!audio) {
-      audio = document.createElement('audio');
-      audio.id = 'global-ambient-audio';
-      audio.src = '/herovideowithaudio.MP4';
-      audio.loop = true;
-      audio.preload = 'auto';
-      audio.style.display = 'none';
-      document.body.appendChild(audio);
+  function removeExtraneousSoundToggles() {
+    const strayNavToggle = document.getElementById('global-sound-toggle');
+    if (strayNavToggle) strayNavToggle.remove();
+    const strayMobilePill = document.getElementById('mobile-sound-pill');
+    if (strayMobilePill) strayMobilePill.remove();
+    const globalAudio = document.getElementById('global-ambient-audio');
+    if (globalAudio) {
+      globalAudio.pause();
+      globalAudio.muted = true;
+      globalAudio.remove();
     }
-    return audio;
   }
 
-  // Ensure navbar has the luxury background sound toggle button
-  function ensureNavbarSoundToggle() {
-    const navBtnGroup = document.querySelector('.button-group_nav');
-    if (navBtnGroup && !navBtnGroup.querySelector('#global-sound-toggle')) {
-      const toggleBtn = document.createElement('button');
-      toggleBtn.id = 'global-sound-toggle';
-      toggleBtn.className = 'global-sound-toggle is-unmuted';
-      toggleBtn.type = 'button';
-      toggleBtn.setAttribute('aria-label', 'Toggle Background Music');
-      toggleBtn.setAttribute('title', 'Background Music');
-      toggleBtn.innerHTML = `
-        <span class="global-sound-icon">
-          <svg class="sound-icon-unmuted" viewBox="0 0 24 24" fill="currentColor">
-            <path d="M3 9v6h4l5 5V4L7 9H3zm13.5 3c0-1.77-1.02-3.29-2.5-4.03v8.05c1.48-.73 2.5-2.25 2.5-4.02zM14 3.23v2.06c2.89.86 5 3.54 5 6.71s-2.11 5.85-5 6.71v2.06c4.01-.91 7-4.49 7-8.77s-2.99-7.86-7-8.77z"/>
-          </svg>
-          <svg class="sound-icon-muted" viewBox="0 0 24 24" fill="currentColor">
-            <path d="M16.5 12c0-1.77-1.02-3.29-2.5-4.03v2.21l2.45 2.45c.03-.2.05-.41.05-.63zm2.5 0c0 .94-.2 1.82-.54 2.64l1.51 1.51C20.63 14.91 21 13.5 21 12c0-4.28-2.99-7.86-7-8.77v2.06c2.89.86 5 3.54 5 6.71zM4.27 3L3 4.27 7.73 9H3v6h4l5 5v-6.73l4.25 4.25c-.67.52-1.42.93-2.25 1.18v2.06c1.38-.31 2.63-.95 3.69-1.81L19.73 21 21 19.73l-9-9L4.27 3zM12 4L9.91 6.09 12 8.18V4z"/>
-          </svg>
-        </span>
-        <span class="sound-wave-bars">
-          <span class="bar bar-1"></span>
-          <span class="bar bar-2"></span>
-          <span class="bar bar-3"></span>
-        </span>
-        <span class="sound-text-label">Music</span>
-      `;
-      navBtnGroup.insertBefore(toggleBtn, navBtnGroup.firstChild);
-    }
-
-    ensureMobileSoundPill();
-  }
-
-  // Ensure floating sound pill on mobile subpages
-  function ensureMobileSoundPill() {
-    let mobilePill = document.getElementById('mobile-sound-pill');
-    if (!mobilePill) {
-      mobilePill = document.createElement('button');
-      mobilePill.id = 'mobile-sound-pill';
-      mobilePill.className = 'mobile-sound-pill is-unmuted';
-      mobilePill.type = 'button';
-      mobilePill.setAttribute('aria-label', 'Toggle Background Music');
-      mobilePill.setAttribute('title', 'Background Music');
-      mobilePill.innerHTML = `
-        <span class="global-sound-icon">
-          <svg class="sound-icon-unmuted" viewBox="0 0 24 24" fill="currentColor">
-            <path d="M3 9v6h4l5 5V4L7 9H3zm13.5 3c0-1.77-1.02-3.29-2.5-4.03v8.05c1.48-.73 2.5-2.25 2.5-4.02zM14 3.23v2.06c2.89.86 5 3.54 5 6.71s-2.11 5.85-5 6.71v2.06c4.01-.91 7-4.49 7-8.77s-2.99-7.86-7-8.77z"/>
-          </svg>
-          <svg class="sound-icon-muted" viewBox="0 0 24 24" fill="currentColor">
-            <path d="M16.5 12c0-1.77-1.02-3.29-2.5-4.03v2.21l2.45 2.45c.03-.2.05-.41.05-.63zm2.5 0c0 .94-.2 1.82-.54 2.64l1.51 1.51C20.63 14.91 21 13.5 21 12c0-4.28-2.99-7.86-7-8.77v2.06c2.89.86 5 3.54 5 6.71zM4.27 3L3 4.27 7.73 9H3v6h4l5 5v-6.73l4.25 4.25c-.67.52-1.42.93-2.25 1.18v2.06c1.38-.31 2.63-.95 3.69-1.81L19.73 21 21 19.73l-9-9L4.27 3zM12 4L9.91 6.09 12 8.18V4z"/>
-          </svg>
-        </span>
-        <span class="sound-wave-bars">
-          <span class="bar bar-1"></span>
-          <span class="bar bar-2"></span>
-          <span class="bar bar-3"></span>
-        </span>
-        <span class="sound-toggle-text">Music</span>
-      `;
-      document.body.appendChild(mobilePill);
-    }
-
-    const isHomePage = document.body.classList.contains('is-home') ||
-                       window.location.pathname === '/' ||
-                       window.location.pathname === '/en/' ||
-                       window.location.pathname === '/index.html' ||
-                       !!document.querySelector('.drone-video-hero');
-    mobilePill.style.display = isHomePage ? 'none' : '';
-  }
-
-  // Synchronize UI across all sound buttons on the page (hero button + navbar button + mobile pill)
-  function updateAllSoundUI(isUnmuted) {
+  function updateHeroSoundUI(isUnmuted) {
     const heroBtn = document.getElementById('hero-sound-toggle');
-    const navBtn = document.getElementById('global-sound-toggle');
-    const mobilePill = document.getElementById('mobile-sound-pill');
-
-    [heroBtn, navBtn, mobilePill].forEach(function (btn) {
-      if (!btn) return;
-      if (isUnmuted) {
-        btn.classList.add('is-unmuted');
-        btn.setAttribute('aria-pressed', 'true');
-        const text = btn.querySelector('.sound-toggle-text');
-        if (text) text.textContent = btn.id === 'hero-sound-toggle' ? 'Sound On' : 'Music';
-      } else {
-        btn.classList.remove('is-unmuted');
-        btn.setAttribute('aria-pressed', 'false');
-        const text = btn.querySelector('.sound-toggle-text');
-        if (text) text.textContent = btn.id === 'hero-sound-toggle' ? 'Sound Off' : 'Muted';
-      }
-    });
-  }
-
-  // Toggle Background Audio
-  function toggleGlobalAudio() {
-    const audio = getOrCreateGlobalAudio();
-    const isCurrentlyPlaying = !audio.paused && !audio.muted;
-
-    if (isCurrentlyPlaying) {
-      // User requested MUTE
-      audio.muted = true;
-      audio.pause();
-      setDesiredAudioState('off');
-      updateAllSoundUI(false);
+    if (!heroBtn) return;
+    if (isUnmuted) {
+      heroBtn.classList.add('is-unmuted');
+      heroBtn.setAttribute('aria-pressed', 'true');
+      const text = heroBtn.querySelector('.sound-toggle-text');
+      if (text) text.textContent = 'Sound On';
     } else {
-      // User requested UNMUTE
-      audio.muted = false;
-      audio.volume = 1.0;
-      setDesiredAudioState('on');
-      audio.play().then(function () {
-        updateAllSoundUI(true);
-      }).catch(function () {});
-      updateAllSoundUI(true);
+      heroBtn.classList.remove('is-unmuted');
+      heroBtn.setAttribute('aria-pressed', 'false');
+      const text = heroBtn.querySelector('.sound-toggle-text');
+      if (text) text.textContent = 'Sound Off';
     }
   }
 
-  // Delegated click handler on document — catches clicks on ANY sound button anywhere on any page!
+  function toggleHeroAudio() {
+    const heroVideo = document.getElementById('hero-drone-video') || document.querySelector('video.drone-video-player');
+    if (!heroVideo) return;
+
+    if (heroVideo.muted || heroVideo.paused) {
+      heroVideo.muted = false;
+      heroVideo.volume = 1.0;
+      setDesiredAudioState('on');
+      heroVideo.play().then(function () {
+        updateHeroSoundUI(true);
+      }).catch(function () {});
+      updateHeroSoundUI(true);
+    } else {
+      heroVideo.muted = true;
+      setDesiredAudioState('off');
+      updateHeroSoundUI(false);
+    }
+  }
+
+  // Delegated click handler on document strictly for hero sound button
   document.addEventListener('click', function (e) {
-    const toggleBtn = e.target.closest('#hero-sound-toggle, #global-sound-toggle, .global-sound-toggle');
+    const toggleBtn = e.target.closest('#hero-sound-toggle');
     if (toggleBtn) {
       e.preventDefault();
       e.stopPropagation();
-      toggleGlobalAudio();
+      toggleHeroAudio();
     }
   });
 
-  // Unlock sound on first user gesture anywhere on page if cold-load autoplay policy deferred audio
+  // Unlock sound on first user gesture anywhere on hero if cold-load autoplay policy deferred audio
   let gestureUnlockAttached = false;
-  function setupGestureUnlock() {
+  function setupGestureUnlock(heroVideo) {
     if (gestureUnlockAttached) return;
     gestureUnlockAttached = true;
 
     const unlockOnGesture = function () {
-      if (getDesiredAudioState() === 'on') {
-        const audio = getOrCreateGlobalAudio();
-        if (audio && (audio.paused || audio.muted)) {
-          audio.muted = false;
-          audio.volume = 1.0;
-          audio.play().then(function () {
-            updateAllSoundUI(true);
+      if (getDesiredAudioState() === 'on' && heroVideo) {
+        if (heroVideo.muted) {
+          heroVideo.muted = false;
+          heroVideo.volume = 1.0;
+          heroVideo.play().then(function () {
+            updateHeroSoundUI(true);
           }).catch(function () {});
         }
       }
@@ -354,47 +272,69 @@
     window.addEventListener('scroll', unlockOnGesture, { once: true, passive: true });
   }
 
-  // Main Audio Controller & Hero Video Manager
-  function initGlobalAudioSystem() {
-    ensureNavbarSoundToggle();
-    const audio = getOrCreateGlobalAudio();
+  let heroObserver = null;
+
+  function initHeroSectionAudio() {
+    removeExtraneousSoundToggles();
+
+    const heroSection = document.getElementById('drone-hero') || document.querySelector('.drone-video-hero');
+    const heroVideo = document.getElementById('hero-drone-video') || document.querySelector('video.drone-video-player');
+
+    // If NOT in hero section or on another page:
+    if (!heroSection || !heroVideo) {
+      if (heroObserver) {
+        heroObserver.disconnect();
+        heroObserver = null;
+      }
+      return;
+    }
+
     const desiredState = getDesiredAudioState();
 
-    // Ensure hero drone video visual (if present on homepage) plays muted so it never echoes audio
-    const heroVideo = document.getElementById('hero-drone-video') || document.querySelector('video.drone-video-player');
-    if (heroVideo) {
+    if (desiredState === 'off') {
       heroVideo.muted = true;
       if (heroVideo.paused) {
         heroVideo.play().catch(function () {});
       }
+      updateHeroSoundUI(false);
+    } else {
+      heroVideo.muted = false;
+      heroVideo.volume = 1.0;
+      updateHeroSoundUI(true);
+
+      const playPromise = heroVideo.play();
+      if (playPromise !== undefined) {
+        playPromise.then(function () {
+          updateHeroSoundUI(true);
+        }).catch(function () {
+          // Cold load browser autoplay policy required initial gesture:
+          heroVideo.muted = true;
+          heroVideo.play().catch(function () {});
+          updateHeroSoundUI(false);
+          setupGestureUnlock(heroVideo);
+        });
+      }
     }
 
-    if (desiredState === 'off') {
-      audio.muted = true;
-      audio.pause();
-      updateAllSoundUI(false);
-      return;
-    }
-
-    // Default: Audio ON
-    audio.muted = false;
-    audio.volume = 1.0;
-
-    if (!audio.paused) {
-      // Audio is already playing seamlessly from previous page!
-      updateAllSoundUI(true);
-      return;
-    }
-
-    const playPromise = audio.play();
-    if (playPromise !== undefined) {
-      playPromise.then(function () {
-        updateAllSoundUI(true);
-      }).catch(function () {
-        // Cold load browser autoplay policy blocked immediate sound without gesture:
-        updateAllSoundUI(false);
-        setupGestureUnlock();
-      });
+    // IntersectionObserver: Only play audio while viewing the hero section!
+    if ('IntersectionObserver' in window) {
+      if (heroObserver) heroObserver.disconnect();
+      heroObserver = new IntersectionObserver(function (entries) {
+        entries.forEach(function (entry) {
+          if (!entry.isIntersecting) {
+            // Scrolled out of the hero section -> mute hero video
+            heroVideo.muted = true;
+          } else {
+            // Scrolled back into hero section -> restore desired state
+            if (getDesiredAudioState() === 'on') {
+              heroVideo.muted = false;
+              heroVideo.volume = 1.0;
+              updateHeroSoundUI(true);
+            }
+          }
+        });
+      }, { threshold: 0.15 });
+      heroObserver.observe(heroSection);
     }
   }
 
@@ -440,7 +380,7 @@
   // 1. DOM ready & window load
   function onReady() {
     initDrawerContent();
-    initGlobalAudioSystem();
+    initHeroSectionAudio();
     initStickyScroll();
     initScrollCue();
 
@@ -457,15 +397,15 @@
   }
 
   window.addEventListener('load', function () {
-    initGlobalAudioSystem();
+    initHeroSectionAudio();
   });
 
   // 2. BFcache & history navigation (back/forward)
   window.addEventListener('pageshow', function () {
-    initGlobalAudioSystem();
+    initHeroSectionAudio();
   });
   window.addEventListener('popstate', function () {
-    setTimeout(initGlobalAudioSystem, 60);
+    setTimeout(initHeroSectionAudio, 60);
   });
 
   // 3. MutationObserver on document.body for dynamic container swaps
@@ -479,7 +419,7 @@
           if (node.id === 'hero-drone-video' || (node.querySelector && (node.querySelector('#hero-drone-video') || node.querySelector('.button-group_nav')))) {
             if (!observerThrottle) {
               observerThrottle = setTimeout(function () {
-                initGlobalAudioSystem();
+                initHeroSectionAudio();
                 initStickyScroll();
                 initScrollCue();
                 observerThrottle = null;
@@ -499,7 +439,7 @@
       window.barba.hooks.afterEnter(function () {
         closeMenu();
         initDrawerContent();
-        initGlobalAudioSystem();
+        initHeroSectionAudio();
         initStickyScroll();
         initScrollCue();
       });

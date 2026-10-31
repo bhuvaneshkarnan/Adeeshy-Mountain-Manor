@@ -2190,7 +2190,8 @@ a, p, span, h1, h2, h3, h4, h5, h6,
   left: 0 !important;
   width: 100% !important;
   height: 100% !important;
-  object-fit: contain !important;
+  object-fit: cover !important;
+  object-position: center center !important;
   display: block !important;
   border: none !important;
   outline: none !important;
@@ -2531,31 +2532,12 @@ html {
 }
 
 /* ======================================================== */
-/* PERSISTENT GLOBAL SOUND TOGGLE (NAVBAR & ALL PAGES)     */
+/* REMOVE SOUND TOGGLE FROM NAVBAR & SUBPAGES             */
+/* Audio and sound toggle strictly belong to Hero section   */
 /* ======================================================== */
-.global-sound-toggle {
-  display: inline-flex !important;
-  align-items: center !important;
-  justify-content: center !important;
-  gap: 0.45rem !important;
-  padding: 0.42rem 0.85rem !important;
-  background: rgba(4, 20, 13, 0.75) !important;
-  border: 1px solid rgba(200, 162, 122, 0.4) !important;
-  border-radius: 9999px !important;
-  color: #DFC19E !important;
-  font-family: 'Manrope', Arial, sans-serif !important;
-  font-size: 0.74rem !important;
-  font-weight: 600 !important;
-  letter-spacing: 0.05em !important;
-  text-transform: uppercase !important;
-  cursor: pointer !important;
-  backdrop-filter: blur(12px) !important;
-  -webkit-backdrop-filter: blur(12px) !important;
-  transition: all 0.3s cubic-bezier(0.25, 1, 0.5, 1) !important;
-  user-select: none !important;
-  margin-right: 0.75rem !important;
-  vertical-align: middle !important;
-  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3) !important;
+.global-sound-toggle,
+.mobile-sound-pill {
+  display: none !important;
 }
 
 .global-sound-toggle:hover {

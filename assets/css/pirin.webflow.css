@@ -3381,7 +3381,8 @@ a:not(.button):not(.nav-link):not(.desktop-nav-link):not(.w-button):hover {
   left: 0 !important;
   width: 100% !important;
   height: 100% !important;
-  object-fit: contain !important;
+  object-fit: cover !important;
+  object-position: center center !important;
   display: block !important;
   border: none !important;
   outline: none !important;
