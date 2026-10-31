@@ -989,104 +989,166 @@
       </div>
 
       <!-- ROOM 1: Shyadé Stone Cabin -->
-      <div class="rooms-hub-card">
+      <div class="rooms-hub-card" id="card-shyade-cabin">
         <div class="rooms-hub-card-thumb-wrap">
-          <img src="/assets/images/rooms/shyade-stone-cabin/photo-2.webp" alt="Shyadé Stone Cabin at Adeeshy Manor" style="width: 100%; height: 100%; object-fit: cover; display: block;">
+          <img id="main-img-shyade" src="/assets/images/rooms/shyade-stone-cabin/photo-2.webp" alt="Shyadé Stone Cabin at Adeeshy Manor" style="width: 100%; height: 100%; object-fit: cover; display: block; transition: opacity 0.3s ease;">
           <span class="room-pinnacle-badge" style="position: absolute; top: 1rem; left: 1rem; padding: 0.35rem 0.8rem; border-radius: 4px; font-size: 0.74rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase;">Misty Valley Retreat</span>
+          <span style="position: absolute; bottom: 0.85rem; right: 0.85rem; background: rgba(4, 20, 13, 0.85); border: 1px solid rgba(200, 162, 122, 0.45); color: #DFC19E; font-size: 0.72rem; font-weight: 600; padding: 0.25rem 0.65rem; border-radius: 9999px; backdrop-filter: blur(8px);">8 Photographs</span>
         </div>
         <div class="rooms-hub-card-body">
           <span style="color: #C8A27A; font-family: 'Manrope', sans-serif; font-size: 0.8rem; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase;">ROOM TYPE 01</span>
           <h3 style="font-family: 'PP Right Gothic Wide', Georgia, sans-serif; font-weight: 300; font-size: 1.85rem; color: #FFFFFF; margin: 0.4rem 0 0.8rem 0;">Shyadé Stone Cabin</h3>
-          <div style="display: flex; gap: 1rem; flex-wrap: wrap; color: #C8A27A; font-size: 0.82rem; font-weight: 600; margin-bottom: 1rem; font-family: 'Manrope', sans-serif;">
+          <div style="display: flex; gap: 1rem; flex-wrap: wrap; color: #C8A27A; font-size: 0.82rem; font-weight: 600; margin-bottom: 0.8rem; font-family: 'Manrope', sans-serif;">
             <span>&bull; Rustic Stone & Wood</span>
             <span>&bull; Plush King Bed</span>
             <span>&bull; 650 sq.ft</span>
             <span>&bull; Private Veranda</span>
             <span>&bull; Forest & Mist Views</span>
           </div>
-          <p style="font-family: 'Manrope', sans-serif; font-size: 0.95rem; color: rgba(255, 255, 255, 0.85); line-height: 1.65; margin: 0 0 1.5rem 0;">
+          <p style="font-family: 'Manrope', sans-serif; font-size: 0.95rem; color: rgba(255, 255, 255, 0.85); line-height: 1.65; margin: 0 0 1rem 0;">
             Discover the magic of mountain living in our beautifully crafted stone cabin where rustic charm embraces refined luxury.
           </p>
+
+          <!-- 8 Photos Strip -->
+          <div style="margin-bottom: 1.25rem;">
+            <div style="font-size: 0.75rem; color: #C8A27A; font-weight: 600; text-transform: uppercase; letter-spacing: 0.08em; margin-bottom: 0.45rem;">All 8 Room Photos:</div>
+            <div style="display: flex; gap: 0.5rem; overflow-x: auto; padding-bottom: 0.4rem;" class="room-thumbs-strip">
+              <img src="/assets/images/rooms/shyade-stone-cabin/photo-1.webp" alt="Photo 1" onclick="document.getElementById('main-img-shyade').src=this.src" style="width: 58px; height: 42px; object-fit: cover; border-radius: 4px; border: 1.5px solid rgba(200, 162, 122, 0.4); cursor: pointer;" title="Exterior architecture">
+              <img src="/assets/images/rooms/shyade-stone-cabin/photo-2.webp" alt="Photo 2" onclick="document.getElementById('main-img-shyade').src=this.src" style="width: 58px; height: 42px; object-fit: cover; border-radius: 4px; border: 1.5px solid rgba(200, 162, 122, 0.4); cursor: pointer;" title="Garden swing & veranda">
+              <img src="/assets/images/rooms/shyade-stone-cabin/photo-3.webp" alt="Photo 3" onclick="document.getElementById('main-img-shyade').src=this.src" style="width: 58px; height: 42px; object-fit: cover; border-radius: 4px; border: 1.5px solid rgba(200, 162, 122, 0.4); cursor: pointer;" title="Stone entry">
+              <img src="/assets/images/rooms/shyade-stone-cabin/photo-4.webp" alt="Photo 4" onclick="document.getElementById('main-img-shyade').src=this.src" style="width: 58px; height: 42px; object-fit: cover; border-radius: 4px; border: 1.5px solid rgba(200, 162, 122, 0.4); cursor: pointer;" title="Timber beam interior">
+              <img src="/assets/images/rooms/shyade-stone-cabin/photo-5.webp" alt="Photo 5" onclick="document.getElementById('main-img-shyade').src=this.src" style="width: 58px; height: 42px; object-fit: cover; border-radius: 4px; border: 1.5px solid rgba(200, 162, 122, 0.4); cursor: pointer;" title="King bed & woodwork">
+              <img src="/assets/images/rooms/shyade-stone-cabin/photo-6.webp" alt="Photo 6" onclick="document.getElementById('main-img-shyade').src=this.src" style="width: 58px; height: 42px; object-fit: cover; border-radius: 4px; border: 1.5px solid rgba(200, 162, 122, 0.4); cursor: pointer;" title="Mist window">
+              <img src="/assets/images/rooms/shyade-stone-cabin/photo-7.webp" alt="Photo 7" onclick="document.getElementById('main-img-shyade').src=this.src" style="width: 58px; height: 42px; object-fit: cover; border-radius: 4px; border: 1.5px solid rgba(200, 162, 122, 0.4); cursor: pointer;" title="Forest balcony">
+              <img src="/assets/images/rooms/shyade-stone-cabin/photo-8.webp" alt="Photo 8" onclick="document.getElementById('main-img-shyade').src=this.src" style="width: 58px; height: 42px; object-fit: cover; border-radius: 4px; border: 1.5px solid rgba(200, 162, 122, 0.4); cursor: pointer;" title="Pine forest vista">
+            </div>
+          </div>
+
           <div class="rooms-hub-card-buttons">
-            <a href="/en/accommodation/shyade-stone-cabin/" class="button w-button">View Cabin Details</a>
+            <a href="/en/accommodation/shyade-stone-cabin/" class="button w-button">View All 8 Photos &amp; Details</a>
             <a href="https://wa.me/919876543210?text=Hello%20Adeeshy%20Manor,%20I%20would%20like%20to%20enquire%20about%20the%20Shyade%20Stone%20Cabin." target="_blank" rel="noopener" class="button is-secondary w-button">Book on WhatsApp</a>
           </div>
         </div>
       </div>
 
       <!-- ROOM 2: Advé Cloud Suite -->
-      <div class="rooms-hub-card">
+      <div class="rooms-hub-card" id="card-adve-suite">
         <div class="rooms-hub-card-thumb-wrap">
-          <img src="/assets/images/rooms/adve-cloud-suite/photo-4.webp" alt="Advé Cloud Suite at Adeeshy Manor" style="width: 100%; height: 100%; object-fit: cover; display: block;">
+          <img id="main-img-adve" src="/assets/images/rooms/adve-cloud-suite/photo-4.webp" alt="Advé Cloud Suite at Adeeshy Manor" style="width: 100%; height: 100%; object-fit: cover; display: block; transition: opacity 0.3s ease;">
           <span class="room-pinnacle-badge" style="position: absolute; top: 1rem; left: 1rem; padding: 0.35rem 0.8rem; border-radius: 4px; font-size: 0.74rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase;">THE CLOUDVIEW Room</span>
+          <span style="position: absolute; bottom: 0.85rem; right: 0.85rem; background: rgba(4, 20, 13, 0.85); border: 1px solid rgba(200, 162, 122, 0.45); color: #DFC19E; font-size: 0.72rem; font-weight: 600; padding: 0.25rem 0.65rem; border-radius: 9999px; backdrop-filter: blur(8px);">6 Photographs</span>
         </div>
         <div class="rooms-hub-card-body">
           <span style="color: #C8A27A; font-family: 'Manrope', sans-serif; font-size: 0.8rem; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase;">ROOM TYPE 02</span>
           <h3 style="font-family: 'PP Right Gothic Wide', Georgia, sans-serif; font-weight: 300; font-size: 1.85rem; color: #FFFFFF; margin: 0.4rem 0 0.8rem 0;">Advé Cloud Suite</h3>
-          <div style="display: flex; gap: 1rem; flex-wrap: wrap; color: #C8A27A; font-size: 0.82rem; font-weight: 600; margin-bottom: 1rem; font-family: 'Manrope', sans-serif;">
+          <div style="display: flex; gap: 1rem; flex-wrap: wrap; color: #C8A27A; font-size: 0.82rem; font-weight: 600; margin-bottom: 0.8rem; font-family: 'Manrope', sans-serif;">
             <span>&bull; 360&deg; Panoramic Views</span>
             <span>&bull; Luxury Cloud Bed</span>
             <span>&bull; 850 sq.ft</span>
             <span>&bull; Floating Mist Deck</span>
             <span>&bull; Peak Horizon Panorama</span>
           </div>
-          <p style="font-family: 'Manrope', sans-serif; font-size: 0.95rem; color: rgba(255, 255, 255, 0.85); line-height: 1.65; margin: 0 0 1.5rem 0;">
+          <p style="font-family: 'Manrope', sans-serif; font-size: 0.95rem; color: rgba(255, 255, 255, 0.85); line-height: 1.65; margin: 0 0 1rem 0;">
             This Room Surrounded by breathtaking 360° panoramic mountain views, Discover a sanctuary where floating clouds kiss the peak! Not just a mountain view. A feeling that stays with you forever.
           </p>
+
+          <!-- 6 Photos Strip -->
+          <div style="margin-bottom: 1.25rem;">
+            <div style="font-size: 0.75rem; color: #C8A27A; font-weight: 600; text-transform: uppercase; letter-spacing: 0.08em; margin-bottom: 0.45rem;">All 6 Room Photos:</div>
+            <div style="display: flex; gap: 0.5rem; overflow-x: auto; padding-bottom: 0.4rem;" class="room-thumbs-strip">
+              <img src="/assets/images/rooms/adve-cloud-suite/photo-1.webp" alt="Photo 1" onclick="document.getElementById('main-img-adve').src=this.src" style="width: 58px; height: 42px; object-fit: cover; border-radius: 4px; border: 1.5px solid rgba(200, 162, 122, 0.4); cursor: pointer;" title="Master bedroom suite">
+              <img src="/assets/images/rooms/adve-cloud-suite/photo-2.webp" alt="Photo 2" onclick="document.getElementById('main-img-adve').src=this.src" style="width: 58px; height: 42px; object-fit: cover; border-radius: 4px; border: 1.5px solid rgba(200, 162, 122, 0.4); cursor: pointer;" title="Floating clouds & peaks">
+              <img src="/assets/images/rooms/adve-cloud-suite/photo-3.webp" alt="Photo 3" onclick="document.getElementById('main-img-adve').src=this.src" style="width: 58px; height: 42px; object-fit: cover; border-radius: 4px; border: 1.5px solid rgba(200, 162, 122, 0.4); cursor: pointer;" title="360 panoramic horizon">
+              <img src="/assets/images/rooms/adve-cloud-suite/photo-4.webp" alt="Photo 4" onclick="document.getElementById('main-img-adve').src=this.src" style="width: 58px; height: 42px; object-fit: cover; border-radius: 4px; border: 1.5px solid rgba(200, 162, 122, 0.4); cursor: pointer;" title="Cloudview balcony">
+              <img src="/assets/images/rooms/adve-cloud-suite/photo-5.webp" alt="Photo 5" onclick="document.getElementById('main-img-adve').src=this.src" style="width: 58px; height: 42px; object-fit: cover; border-radius: 4px; border: 1.5px solid rgba(200, 162, 122, 0.4); cursor: pointer;" title="In-suite lounge">
+              <img src="/assets/images/rooms/adve-cloud-suite/photo-6.webp" alt="Photo 6" onclick="document.getElementById('main-img-adve').src=this.src" style="width: 58px; height: 42px; object-fit: cover; border-radius: 4px; border: 1.5px solid rgba(200, 162, 122, 0.4); cursor: pointer;" title="Sunset cloudview veranda">
+            </div>
+          </div>
+
           <div class="rooms-hub-card-buttons">
-            <a href="/en/accommodation/adve-cloud-suite/" class="button w-button">View Suite Details</a>
+            <a href="/en/accommodation/adve-cloud-suite/" class="button w-button">View All 6 Photos &amp; Details</a>
             <a href="https://wa.me/919876543210?text=Hello%20Adeeshy%20Manor,%20I%20would%20like%20to%20enquire%20about%20the%20Adve%20Cloud%20Suite." target="_blank" rel="noopener" class="button is-secondary w-button">Book on WhatsApp</a>
           </div>
         </div>
       </div>
 
       <!-- ROOM 3: DEE’ DAWN -->
-      <div class="rooms-hub-card">
+      <div class="rooms-hub-card" id="card-dee-dawn">
         <div class="rooms-hub-card-thumb-wrap">
-          <img src="/assets/images/rooms/dee-dawn/photo-1.webp" alt="DEE’ DAWN at Adeeshy Manor" style="width: 100%; height: 100%; object-fit: cover; display: block;">
+          <img id="main-img-deedawn" src="/assets/images/rooms/dee-dawn/photo-1.webp" alt="DEE’ DAWN at Adeeshy Manor" style="width: 100%; height: 100%; object-fit: cover; display: block; transition: opacity 0.3s ease;">
           <span class="room-pinnacle-badge" style="position: absolute; top: 1rem; left: 1rem; padding: 0.35rem 0.8rem; border-radius: 4px; font-size: 0.74rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase;">The Sunrise Room</span>
+          <span style="position: absolute; bottom: 0.85rem; right: 0.85rem; background: rgba(4, 20, 13, 0.85); border: 1px solid rgba(200, 162, 122, 0.45); color: #DFC19E; font-size: 0.72rem; font-weight: 600; padding: 0.25rem 0.65rem; border-radius: 9999px; backdrop-filter: blur(8px);">6 Photographs</span>
         </div>
         <div class="rooms-hub-card-body">
           <span style="color: #C8A27A; font-family: 'Manrope', sans-serif; font-size: 0.8rem; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase;">ROOM TYPE 03</span>
           <h3 style="font-family: 'PP Right Gothic Wide', Georgia, sans-serif; font-weight: 300; font-size: 1.85rem; color: #FFFFFF; margin: 0.4rem 0 0.8rem 0;">DEE’ DAWN</h3>
-          <div style="display: flex; gap: 1rem; flex-wrap: wrap; color: #C8A27A; font-size: 0.82rem; font-weight: 600; margin-bottom: 1rem; font-family: 'Manrope', sans-serif;">
+          <div style="display: flex; gap: 1rem; flex-wrap: wrap; color: #C8A27A; font-size: 0.82rem; font-weight: 600; margin-bottom: 0.8rem; font-family: 'Manrope', sans-serif;">
             <span>&bull; Golden Sunrise Vista</span>
             <span>&bull; Handcrafted Bed</span>
             <span>&bull; 520 sq.ft</span>
             <span>&bull; Private Balcony</span>
             <span>&bull; Nature Awakening</span>
           </div>
-          <p style="font-family: 'Manrope', sans-serif; font-size: 0.95rem; color: rgba(255, 255, 255, 0.85); line-height: 1.65; margin: 0 0 1.5rem 0;">
+          <p style="font-family: 'Manrope', sans-serif; font-size: 0.95rem; color: rgba(255, 255, 255, 0.85); line-height: 1.65; margin: 0 0 1rem 0;">
             Here, Every sunrise feels like a blessing, Every sunset becomes a treasured memory, and Every moment brings you closer to nature.
           </p>
+
+          <!-- 6 Photos Strip -->
+          <div style="margin-bottom: 1.25rem;">
+            <div style="font-size: 0.75rem; color: #C8A27A; font-weight: 600; text-transform: uppercase; letter-spacing: 0.08em; margin-bottom: 0.45rem;">All 6 Room Photos:</div>
+            <div style="display: flex; gap: 0.5rem; overflow-x: auto; padding-bottom: 0.4rem;" class="room-thumbs-strip">
+              <img src="/assets/images/rooms/dee-dawn/photo-1.webp" alt="Photo 1" onclick="document.getElementById('main-img-deedawn').src=this.src" style="width: 58px; height: 42px; object-fit: cover; border-radius: 4px; border: 1.5px solid rgba(200, 162, 122, 0.4); cursor: pointer;" title="Sunrise horizon">
+              <img src="/assets/images/rooms/dee-dawn/photo-2.webp" alt="Photo 2" onclick="document.getElementById('main-img-deedawn').src=this.src" style="width: 58px; height: 42px; object-fit: cover; border-radius: 4px; border: 1.5px solid rgba(200, 162, 122, 0.4); cursor: pointer;" title="Morning sun rays on bed">
+              <img src="/assets/images/rooms/dee-dawn/photo-3.webp" alt="Photo 3" onclick="document.getElementById('main-img-deedawn').src=this.src" style="width: 58px; height: 42px; object-fit: cover; border-radius: 4px; border: 1.5px solid rgba(200, 162, 122, 0.4); cursor: pointer;" title="Timber woodwork interior">
+              <img src="/assets/images/rooms/dee-dawn/photo-4.webp" alt="Photo 4" onclick="document.getElementById('main-img-deedawn').src=this.src" style="width: 58px; height: 42px; object-fit: cover; border-radius: 4px; border: 1.5px solid rgba(200, 162, 122, 0.4); cursor: pointer;" title="Nature awakening vista">
+              <img src="/assets/images/rooms/dee-dawn/photo-5.webp" alt="Photo 5" onclick="document.getElementById('main-img-deedawn').src=this.src" style="width: 58px; height: 42px; object-fit: cover; border-radius: 4px; border: 1.5px solid rgba(200, 162, 122, 0.4); cursor: pointer;" title="Sunrise balcony">
+              <img src="/assets/images/rooms/dee-dawn/photo-6.webp" alt="Photo 6" onclick="document.getElementById('main-img-deedawn').src=this.src" style="width: 58px; height: 42px; object-fit: cover; border-radius: 4px; border: 1.5px solid rgba(200, 162, 122, 0.4); cursor: pointer;" title="Sunset evening serenity">
+            </div>
+          </div>
+
           <div class="rooms-hub-card-buttons">
-            <a href="/en/accommodation/dee-dawn/" class="button w-button">View Room Details</a>
+            <a href="/en/accommodation/dee-dawn/" class="button w-button">View All 6 Photos &amp; Details</a>
             <a href="https://wa.me/919876543210?text=Hello%20Adeeshy%20Manor,%20I%20would%20like%20to%20enquire%20about%20DEE%20DAWN." target="_blank" rel="noopener" class="button is-secondary w-button">Book on WhatsApp</a>
           </div>
         </div>
       </div>
 
       <!-- ROOM 4: The Royal’e Suite -->
-      <div class="rooms-hub-card">
+      <div class="rooms-hub-card" id="card-royale-suite">
         <div class="rooms-hub-card-thumb-wrap">
-          <img src="/assets/images/rooms/the-royale-suite/photo-2.webp" alt="The Royal’e Suite at Adeeshy Manor" style="width: 100%; height: 100%; object-fit: cover; display: block;">
+          <img id="main-img-royale" src="/assets/images/rooms/the-royale-suite/photo-2.webp" alt="The Royal’e Suite at Adeeshy Manor" style="width: 100%; height: 100%; object-fit: cover; display: block; transition: opacity 0.3s ease;">
           <span class="room-pinnacle-badge" style="position: absolute; top: 1rem; left: 1rem; padding: 0.35rem 0.8rem; border-radius: 4px; font-size: 0.74rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase;">Mountain Sanctuary</span>
+          <span style="position: absolute; bottom: 0.85rem; right: 0.85rem; background: rgba(4, 20, 13, 0.85); border: 1px solid rgba(200, 162, 122, 0.45); color: #DFC19E; font-size: 0.72rem; font-weight: 600; padding: 0.25rem 0.65rem; border-radius: 9999px; backdrop-filter: blur(8px);">6 Photographs</span>
         </div>
         <div class="rooms-hub-card-body">
           <span style="color: #C8A27A; font-family: 'Manrope', sans-serif; font-size: 0.8rem; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase;">ROOM TYPE 04</span>
           <h3 style="font-family: 'PP Right Gothic Wide', Georgia, sans-serif; font-weight: 300; font-size: 1.85rem; color: #FFFFFF; margin: 0.4rem 0 0.8rem 0;">The Royal’e Suite</h3>
-          <div style="display: flex; gap: 1rem; flex-wrap: wrap; color: #C8A27A; font-size: 0.82rem; font-weight: 600; margin-bottom: 1rem; font-family: 'Manrope', sans-serif;">
+          <div style="display: flex; gap: 1rem; flex-wrap: wrap; color: #C8A27A; font-size: 0.82rem; font-weight: 600; margin-bottom: 0.8rem; font-family: 'Manrope', sans-serif;">
             <span>&bull; Master King Suite</span>
             <span>&bull; Up to 4 Guests</span>
             <span>&bull; 1,200 sq.ft</span>
             <span>&bull; Spacious Living Hall</span>
             <span>&bull; Kitchen Facilities</span>
           </div>
-          <p style="font-family: 'Manrope', sans-serif; font-size: 0.95rem; color: rgba(255, 255, 255, 0.85); line-height: 1.65; margin: 0 0 1.5rem 0;">
+          <p style="font-family: 'Manrope', sans-serif; font-size: 0.95rem; color: rgba(255, 255, 255, 0.85); line-height: 1.65; margin: 0 0 1rem 0;">
             Relax in a beautifully appointed mountain retreat with access to a spacious living hall, elegant dining area, and convenient kitchen facilities.
           </p>
+
+          <!-- 6 Photos Strip -->
+          <div style="margin-bottom: 1.25rem;">
+            <div style="font-size: 0.75rem; color: #C8A27A; font-weight: 600; text-transform: uppercase; letter-spacing: 0.08em; margin-bottom: 0.45rem;">All 6 Room Photos:</div>
+            <div style="display: flex; gap: 0.5rem; overflow-x: auto; padding-bottom: 0.4rem;" class="room-thumbs-strip">
+              <img src="/assets/images/rooms/the-royale-suite/photo-1.webp" alt="Photo 1" onclick="document.getElementById('main-img-royale').src=this.src" style="width: 58px; height: 42px; object-fit: cover; border-radius: 4px; border: 1.5px solid rgba(200, 162, 122, 0.4); cursor: pointer;" title="Grand living hall">
+              <img src="/assets/images/rooms/the-royale-suite/photo-2.webp" alt="Photo 2" onclick="document.getElementById('main-img-royale').src=this.src" style="width: 58px; height: 42px; object-fit: cover; border-radius: 4px; border: 1.5px solid rgba(200, 162, 122, 0.4); cursor: pointer;" title="Master regal king bed">
+              <img src="/assets/images/rooms/the-royale-suite/photo-3.webp" alt="Photo 3" onclick="document.getElementById('main-img-royale').src=this.src" style="width: 58px; height: 42px; object-fit: cover; border-radius: 4px; border: 1.5px solid rgba(200, 162, 122, 0.4); cursor: pointer;" title="In-suite dining room">
+              <img src="/assets/images/rooms/the-royale-suite/photo-4.webp" alt="Photo 4" onclick="document.getElementById('main-img-royale').src=this.src" style="width: 58px; height: 42px; object-fit: cover; border-radius: 4px; border: 1.5px solid rgba(200, 162, 122, 0.4); cursor: pointer;" title="Spacious living hall">
+              <img src="/assets/images/rooms/the-royale-suite/photo-5.webp" alt="Photo 5" onclick="document.getElementById('main-img-royale').src=this.src" style="width: 58px; height: 42px; object-fit: cover; border-radius: 4px; border: 1.5px solid rgba(200, 162, 122, 0.4); cursor: pointer;" title="Kitchenette facilities">
+              <img src="/assets/images/rooms/the-royale-suite/photo-6.webp" alt="Photo 6" onclick="document.getElementById('main-img-royale').src=this.src" style="width: 58px; height: 42px; object-fit: cover; border-radius: 4px; border: 1.5px solid rgba(200, 162, 122, 0.4); cursor: pointer;" title="Veranda & pine canopy">
+            </div>
+          </div>
+
           <div class="rooms-hub-card-buttons">
-            <a href="/en/accommodation/the-royale-suite/" class="button w-button">View Suite Details</a>
+            <a href="/en/accommodation/the-royale-suite/" class="button w-button">View All 6 Photos &amp; Details</a>
             <a href="https://wa.me/919876543210?text=Hello%20Adeeshy%20Manor,%20I%20would%20like%20to%20enquire%20about%20The%20Royale%20Suite." target="_blank" rel="noopener" class="button is-secondary w-button">Book on WhatsApp</a>
           </div>
         </div>
