@@ -1,0 +1,25 @@
+# Robots.txt for Adeeshy Mountain Manor
+User-agent: *
+Allow: /
+
+# AI Crawlers & Answer Engines (GEO & AEO optimization)
+User-agent: GPTBot
+Allow: /
+
+User-agent: ChatGPT-User
+Allow: /
+
+User-agent: PerplexityBot
+Allow: /
+
+User-agent: Claude-Web
+Allow: /
+
+User-agent: Google-Extended
+Allow: /
+
+User-agent: Applebot
+Allow: /
+
+# Sitemap Index
+Sitemap: https://adeeshymanor.com/sitemap.xml
