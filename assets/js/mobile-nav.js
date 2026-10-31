@@ -328,26 +328,13 @@
       }
     }
 
-    // IntersectionObserver: Only play audio while viewing the hero section!
-    if ('IntersectionObserver' in window) {
-      if (heroObserver) heroObserver.disconnect();
-      heroObserver = new IntersectionObserver(function (entries) {
-        entries.forEach(function (entry) {
-          if (!entry.isIntersecting) {
-            // Scrolled out of the hero section -> mute hero video
-            heroVideo.muted = true;
-          } else {
-            // Scrolled back into hero section -> restore desired state
-            if (getDesiredAudioState() === 'on') {
-              heroVideo.muted = false;
-              heroVideo.volume = 1.0;
-              updateHeroSoundUI(true);
-            }
-          }
-        });
-      }, { threshold: 0.15 });
-      heroObserver.observe(heroSection);
-    }
+    // 3. Keep audio playing smoothly across homepage sections on mobile & desktop
+    heroVideo.addEventListener('pause', function () {
+      const onHomepage = !!(document.getElementById('drone-hero') || document.querySelector('.drone-video-hero'));
+      if (onHomepage && getDesiredAudioState() === 'on' && !document.hidden) {
+        heroVideo.play().catch(function () {});
+      }
+    });
   }
 
   // Universal Sticky Header Scroll Controller
@@ -448,6 +435,14 @@
   // 4. Barba.js transition hooks (with retry timer in case Barba is deferred)
   function attachBarbaHooks() {
     if (window.barba && window.barba.hooks) {
+      window.barba.hooks.beforeLeave(function () {
+        // Stop hero audio immediately when transitioning to another page
+        const heroVideo = document.getElementById('hero-drone-video') || document.querySelector('video.drone-video-player');
+        if (heroVideo) {
+          heroVideo.pause();
+          heroVideo.muted = true;
+        }
+      });
       window.barba.hooks.afterEnter(function () {
         closeMenu();
         initDrawerContent();
