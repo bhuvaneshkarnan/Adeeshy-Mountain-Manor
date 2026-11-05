@@ -2717,3 +2717,197 @@ html {
     display: none !important;
   }
 }
+
+/* ======================================================== */
+/* ADEESHY LUXURY IN-PAGE IMAGE LIGHTBOX POPUP              */
+/* ======================================================== */
+.adeeshy-lightbox-overlay {
+  position: fixed !important;
+  top: 0 !important;
+  left: 0 !important;
+  width: 100vw !important;
+  height: 100vh !important;
+  background: rgba(3, 14, 9, 0.95) !important;
+  backdrop-filter: blur(14px) !important;
+  -webkit-backdrop-filter: blur(14px) !important;
+  z-index: 9999999 !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  opacity: 0 !important;
+  visibility: hidden !important;
+  transition: opacity 0.28s cubic-bezier(0.16, 1, 0.3, 1), visibility 0.28s ease !important;
+  user-select: none !important;
+  -webkit-user-select: none !important;
+  touch-action: pan-y !important;
+}
+
+.adeeshy-lightbox-overlay.is-open {
+  opacity: 1 !important;
+  visibility: visible !important;
+}
+
+.adeeshy-lightbox-container {
+  position: relative !important;
+  max-width: 92vw !important;
+  max-height: 90vh !important;
+  display: flex !important;
+  flex-direction: column !important;
+  align-items: center !important;
+  justify-content: center !important;
+  transform: scale(0.96) !important;
+  transition: transform 0.28s cubic-bezier(0.16, 1, 0.3, 1) !important;
+}
+
+.adeeshy-lightbox-overlay.is-open .adeeshy-lightbox-container {
+  transform: scale(1) !important;
+}
+
+.adeeshy-lightbox-img-wrap {
+  position: relative !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  max-width: 90vw !important;
+  max-height: 80vh !important;
+}
+
+.adeeshy-lightbox-img {
+  max-width: 90vw !important;
+  max-height: 80vh !important;
+  width: auto !important;
+  height: auto !important;
+  object-fit: contain !important;
+  border-radius: 8px !important;
+  border: 1.5px solid rgba(200, 162, 122, 0.45) !important;
+  box-shadow: 0 24px 60px rgba(0, 0, 0, 0.85) !important;
+  display: block !important;
+  background: #04140D !important;
+  transition: opacity 0.2s ease, transform 0.2s ease !important;
+}
+
+.adeeshy-lightbox-caption {
+  margin-top: 0.85rem !important;
+  font-family: 'Manrope', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif !important;
+  color: #F0DEC9 !important;
+  font-size: 0.94rem !important;
+  letter-spacing: 0.03em !important;
+  text-align: center !important;
+  max-width: 82vw !important;
+  line-height: 1.45 !important;
+  text-shadow: 0 2px 8px rgba(0,0,0,0.85) !important;
+}
+
+.adeeshy-lightbox-counter {
+  font-family: 'Manrope', -apple-system, sans-serif !important;
+  color: #C8A27A !important;
+  font-size: 0.82rem !important;
+  letter-spacing: 0.14em !important;
+  text-transform: uppercase !important;
+  margin-top: 0.3rem !important;
+  font-weight: 700 !important;
+}
+
+/* Close button */
+.adeeshy-lightbox-close {
+  position: fixed !important;
+  top: 1.5rem !important;
+  right: 1.5rem !important;
+  width: 48px !important;
+  height: 48px !important;
+  border-radius: 50% !important;
+  background: rgba(8, 42, 26, 0.9) !important;
+  border: 1.5px solid rgba(200, 162, 122, 0.6) !important;
+  color: #FFFFFF !important;
+  font-size: 1.8rem !important;
+  line-height: 1 !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  cursor: pointer !important;
+  z-index: 10000005 !important;
+  transition: transform 0.2s ease, background 0.2s ease, border-color 0.2s ease !important;
+  box-shadow: 0 8px 24px rgba(0,0,0,0.5) !important;
+  padding: 0 !important;
+}
+
+.adeeshy-lightbox-close:hover {
+  background: #C8A27A !important;
+  color: #04140D !important;
+  border-color: #FFFFFF !important;
+  transform: scale(1.08) !important;
+}
+
+/* Prev / Next buttons */
+.adeeshy-lightbox-nav {
+  position: fixed !important;
+  top: 50% !important;
+  transform: translateY(-50%) !important;
+  width: 52px !important;
+  height: 52px !important;
+  border-radius: 50% !important;
+  background: rgba(8, 42, 26, 0.88) !important;
+  border: 1.5px solid rgba(200, 162, 122, 0.5) !important;
+  color: #F0DEC9 !important;
+  font-size: 2rem !important;
+  line-height: 1 !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  cursor: pointer !important;
+  z-index: 10000005 !important;
+  transition: transform 0.2s ease, background 0.2s ease, border-color 0.2s ease, color 0.2s ease !important;
+  box-shadow: 0 8px 24px rgba(0,0,0,0.5) !important;
+  padding: 0 !important;
+}
+
+.adeeshy-lightbox-nav:hover {
+  background: #C8A27A !important;
+  color: #04140D !important;
+  border-color: #FFFFFF !important;
+  transform: translateY(-50%) scale(1.1) !important;
+}
+
+.adeeshy-lightbox-prev {
+  left: 1.5rem !important;
+}
+
+.adeeshy-lightbox-next {
+  right: 1.5rem !important;
+}
+
+@media screen and (max-width: 767px) {
+  .adeeshy-lightbox-close {
+    top: 1rem !important;
+    right: 1rem !important;
+    width: 42px !important;
+    height: 42px !important;
+    font-size: 1.5rem !important;
+  }
+  .adeeshy-lightbox-nav {
+    width: 44px !important;
+    height: 44px !important;
+    font-size: 1.6rem !important;
+  }
+  .adeeshy-lightbox-prev {
+    left: 0.6rem !important;
+  }
+  .adeeshy-lightbox-next {
+    right: 0.6rem !important;
+  }
+  .adeeshy-lightbox-img {
+    max-width: 95vw !important;
+    max-height: 72vh !important;
+  }
+}
+
+/* Visual cue for clickable images */
+.room-gallery-tile,
+.gallery10_item,
+.facility-card,
+a[data-lightbox],
+.room-gallery-tile img,
+.gallery10_image,
+a.gallery-strip-card img {
+  cursor: zoom-in !important;
+}
