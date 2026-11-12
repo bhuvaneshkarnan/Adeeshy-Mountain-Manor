@@ -31,3 +31,7 @@ yarn-error.log*
 /herovideo.MP4
 /herovideo.mp4
 
+# Scratch scripts
+scratch/
+
+
