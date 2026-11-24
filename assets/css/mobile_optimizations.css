@@ -2907,3 +2907,12 @@ a[data-lightbox],
 a.gallery-strip-card img {
   cursor: zoom-in !important;
 }
+
+
+/* Explicit Card Padding for Layout Panels */
+.layout3_component,
+.layout481_component,
+.layout442_component {
+  padding: clamp(1.75rem, 4vw, 3rem) !important;
+  box-sizing: border-box !important;
+}
