@@ -187,10 +187,19 @@
 
 /* Header has NO background by default (transparent over hero) */
 .navbar {
+  width: 100% !important;
+  max-width: 100vw !important;
+  box-sizing: border-box !important;
   background: transparent !important;
   background-color: transparent !important;
   box-shadow: none !important;
   transition: all 0.35s ease !important;
+}
+
+.nav-container {
+  width: 100% !important;
+  max-width: 100% !important;
+  box-sizing: border-box !important;
 }
 
 /* Scrolled header gets sleek glass blur */
@@ -211,7 +220,10 @@
     flex-direction: row !important;
     align-items: center !important;
     justify-content: space-between !important;
-    padding: 0.65rem 2.5rem !important; /* COMPACT & CLEAN */
+    padding: 0.65rem clamp(0.75rem, 1.8vw, 2rem) !important;
+    box-sizing: border-box !important;
+    width: 100% !important;
+    max-width: 100% !important;
     height: auto !important;
     min-height: 56px !important;
   }
@@ -229,38 +241,39 @@
     padding: 0 !important;
     margin: 0 !important;
     width: auto !important;
-    max-width: 175px !important;
+    max-width: 140px !important;
   }
   
   .logo-nav {
-    max-width: 165px !important;
-    max-height: 46px !important;
+    max-width: 135px !important;
+    max-height: 40px !important;
     width: auto !important;
     height: auto !important;
     object-fit: contain !important;
-    filter: none !important; /* Never invert! */
+    filter: none !important;
   }
   
-  /* Desktop Navigation in Center - RESTORED TO USER-REQUESTED MANROPE FONT */
+  /* Desktop Navigation in Center */
   .desktop-nav-menu {
     order: 2 !important;
     display: flex !important;
     align-items: center !important;
     justify-content: center !important;
-    gap: 1.85rem !important;
-    flex: 1 1 auto !important;
-    margin: 0 2rem !important;
+    gap: clamp(0.45rem, 1.1vw, 1.35rem) !important;
+    flex: 0 1 auto !important;
+    margin: 0 clamp(0.4rem, 1vw, 1.25rem) !important;
+    min-width: 0 !important;
   }
   
   .desktop-nav-link {
     color: #FFFFFF !important;
     font-family: 'Manrope', Arial, sans-serif !important;
-    font-size: 0.88rem !important;
+    font-size: clamp(0.72rem, 0.78vw, 0.84rem) !important;
     font-weight: 600 !important;
     text-decoration: none !important;
     text-transform: uppercase !important;
-    letter-spacing: 0.08em !important;
-    padding: 0.35rem 0.15rem !important;
+    letter-spacing: 0.03em !important;
+    padding: 0.3rem 0.05rem !important;
     position: relative !important;
     transition: color 0.25s ease, opacity 0.25s ease !important;
     white-space: nowrap !important;
@@ -288,14 +301,15 @@
     width: 100% !important;
   }
   
-  /* Right Side: CTA Button (NO BG LANGUAGE SWITCHER) */
+  /* Right Side: CTA Button */
   .button-group_nav {
     order: 3 !important;
     flex: 0 0 auto !important;
     display: flex !important;
     align-items: center !important;
-    gap: 1.25rem !important;
-    margin-top: 0 !important;
+    gap: 0.65rem !important;
+    margin: 0 0 0 auto !important;
+    white-space: nowrap !important;
   }
   
   .button-group_nav .button, .button-group_nav .button.w-button {
@@ -303,19 +317,44 @@
     border: 1px solid #C8A27A !important;
     color: #082A1A !important;
     font-family: 'Manrope', Arial, sans-serif !important;
-    font-size: 0.82rem !important;
+    font-size: 0.76rem !important;
     font-weight: 700 !important;
-    letter-spacing: 0.08em !important;
-    padding: 0.55rem 1.35rem !important;
+    letter-spacing: 0.06em !important;
+    padding: 0.45rem 1rem !important;
     border-radius: 6px !important;
     text-transform: uppercase !important;
     box-shadow: 0 3px 10px rgba(0,0,0,0.2) !important;
     transition: all 0.25s ease !important;
+    white-space: nowrap !important;
+    flex-shrink: 0 !important;
   }
   
   .button-group_nav .button:hover, .button-group_nav .button.w-button:hover {
     background-color: #0F5132 !important;
     border-color: #C8A27A !important;
+    color: #FFFFFF !important;
+  }
+}
+
+@media screen and (min-width: 992px) and (max-width: 1359px) {
+  .button-group_nav .text-size-regular {
+    display: none !important;
+  }
+  .button-group_nav .button_icon {
+    display: inline-flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    width: 34px !important;
+    height: 34px !important;
+    border-radius: 50% !important;
+    background: rgba(200, 162, 122, 0.15) !important;
+    border: 1px solid rgba(200, 162, 122, 0.35) !important;
+    color: #C8A27A !important;
+    padding: 0 !important;
+    transition: all 0.25s ease !important;
+  }
+  .button-group_nav .button_icon:hover {
+    background: rgba(200, 162, 122, 0.3) !important;
     color: #FFFFFF !important;
   }
 }
