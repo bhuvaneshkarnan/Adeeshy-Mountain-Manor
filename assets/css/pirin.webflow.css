@@ -2940,10 +2940,6 @@ main > section:nth-of-type(even):not(.hero-description-section),
 
   color: #FFFFFF !important;
 
-  padding: clamp(1.75rem, 4vw, 3rem) !important;
-
-  box-sizing: border-box !important;
-
   transition: all 0.3s cubic-bezier(0.25, 1, 0.5, 1) !important;
 
 }
@@ -3584,4 +3580,9 @@ a:not(.button):not(.nav-link):not(.desktop-nav-link):not(.w-button):hover {
     font-size: 0.74rem !important;
     gap: 0.45rem !important;
   }
+}
+
+
+.product11_item {
+  padding: 0 !important;
 }

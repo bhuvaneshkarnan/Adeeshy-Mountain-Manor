@@ -2909,10 +2909,23 @@ a.gallery-strip-card img {
 }
 
 
-/* Explicit Card Padding for Layout Panels */
+
+
+
+/* Modest Card Padding for Story & Vision and Wellness Boxes */
 .layout3_component,
-.layout481_component,
-.layout442_component {
-  padding: clamp(1.75rem, 4vw, 3rem) !important;
+.layout481_component {
+  padding: 1.5rem !important;
   box-sizing: border-box !important;
+}
+
+@media screen and (max-width: 767px) {
+  .layout3_component,
+  .layout481_component {
+    padding: 1.15rem !important;
+  }
+}
+
+.product11_item {
+  padding: 0 !important;
 }
