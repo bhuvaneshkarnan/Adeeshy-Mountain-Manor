@@ -1,7 +1,7 @@
 {
   "name": "adeesy-mountain-manor-clone",
   "version": "1.0.0",
-  "description": "Full high-fidelity clone of Park Hotel Pirin luxury resort website",
+  "description": "Official website for Adeeshy Mountain Manor luxury resort",
   "main": "index.html",
   "scripts": {
     "start": "npx serve -s . -l 3000",
