@@ -549,7 +549,7 @@ a.button.is-link:hover div {
     position: static !important;
     left: auto !important;
     transform: none !important;
-    max-width: 140px !important;
+    max-width: 195px !important;
   }
   .logo-nav {
     max-width: 130px !important;
@@ -950,7 +950,7 @@ a.button,
     display: flex !important;
     align-items: center !important;
     justify-content: center !important;
-    max-width: 135px !important;
+    max-width: 190px !important;
     height: 38px !important;
     z-index: 1005 !important;
   }
@@ -1900,7 +1900,7 @@ html, body {
   width: 100% !important;
 }
 
-/* 4-Column Quick Action Grid on Mobile (No 3+1 wrapping!) */
+/* 5-Column Quick Action Grid on Mobile */
 @media screen and (max-width: 767px) {
   .drone-overlay-gradient {
     height: 150px !important;
@@ -1909,7 +1909,7 @@ html, body {
   }
   .quick-action-group {
     display: grid !important;
-    grid-template-columns: repeat(4, 1fr) !important;
+    grid-template-columns: repeat(5, 1fr) !important;
     gap: 0.4rem !important;
     justify-items: center !important;
     align-items: start !important;
