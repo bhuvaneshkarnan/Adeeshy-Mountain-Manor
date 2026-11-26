@@ -2312,10 +2312,6 @@ a, p, span, h1, h2, h3, h4, h5, h6,
     ) !important;
   }
 
-  .drone-scroll-indicator {
-    display: none !important;
-  }
-
   .hero-sound-toggle {
     bottom: 0.65rem !important;
     right: 0.75rem !important;
@@ -2328,17 +2324,17 @@ a, p, span, h1, h2, h3, h4, h5, h6,
   }
 }
 
-/* Luxury Full-Screen Hero Scroll Cue */
+/* Luxury Full-Screen Hero Scroll Cue (Desktop) */
 .drone-scroll-indicator {
   position: absolute !important;
-  bottom: 2.5rem !important;
+  bottom: 1.35rem !important;
   left: 50% !important;
   transform: translateX(-50%) !important;
   z-index: 5 !important;
   display: flex !important;
   flex-direction: column !important;
   align-items: center !important;
-  gap: 0.35rem !important;
+  gap: 0.25rem !important;
   text-decoration: none !important;
   color: #DFC19E !important;
   opacity: 0.85 !important;
@@ -2374,7 +2370,35 @@ a, p, span, h1, h2, h3, h4, h5, h6,
     transform: translateY(0);
   }
   50% {
-    transform: translateY(6px);
+    transform: translateY(4px);
+  }
+}
+
+/* Mobile Scroll Cue: brought right down to the bottom edge so it never hides the video */
+@media screen and (max-width: 767px) {
+  .drone-scroll-indicator {
+    display: flex !important;
+    bottom: 4px !important;
+    gap: 0.1rem !important;
+  }
+
+  .drone-scroll-text {
+    font-size: 0.54rem !important;
+    letter-spacing: 0.16em !important;
+    text-shadow: 0 1px 3px rgba(0, 0, 0, 0.9) !important;
+  }
+
+  .drone-scroll-arrow svg {
+    width: 11px !important;
+    height: 11px !important;
+  }
+
+  .hero-sound-toggle {
+    bottom: 5px !important;
+    right: 0.6rem !important;
+    padding: 0.28rem 0.65rem !important;
+    font-size: 0.68rem !important;
+    gap: 0.3rem !important;
   }
 }
 
@@ -2519,11 +2543,11 @@ html {
 
 @media screen and (max-width: 767px) {
   .hero-sound-toggle {
-    bottom: 1.5rem !important;
-    right: 1rem !important;
-    padding: 0.45rem 0.9rem !important;
-    font-size: 0.74rem !important;
-    gap: 0.45rem !important;
+    bottom: 0.65rem !important;
+    right: 0.75rem !important;
+    padding: 0.35rem 0.75rem !important;
+    font-size: 0.72rem !important;
+    gap: 0.35rem !important;
   }
 }
 
